@@ -16,7 +16,7 @@
   --lighterblue:#6392e9;
   --purp:#5941a9;
   --neonpurp:#7d67fc;
-  
+
 
 
 }
@@ -37,7 +37,19 @@
   --color-lighterblue:var(--lighterblue);
   --color-purp:var(--purp);
   --color-neonpurp:var(--neonpurp);
-
+  --font-mono-code: "Consolas", "Monaco", "Andale Mono", "Ubuntu Mono", "monospace";
+  --font-mono-normal:"ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace";
+  
+  /*for embla carousel */
+  --my-flex:0 0 100%;
+  --my-margin:calc((2.6rem - 1.4rem) / 2 * -1);
+  --slide-height: 19rem;
+  --slide-spacing: 1rem;
+  --slide-size: 70%;
+  --my-transform: translate3d(0,0,0);
+  --flex-slidesize: 0 0 var(--slide-size);
+  --padding-slidesize: var(--slide-spacing);
+  --my-ml:calc(var(--slide-spacing) * -1);
 
 }
 
