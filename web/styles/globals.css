@@ -77,7 +77,8 @@
   --color-neonpurp:var(--neonpurp);
   --font-mono-code: "Consolas", "Monaco", "Andale Mono", "Ubuntu Mono", "monospace";
   --font-mono-normal:"ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace";
-
+  --shadow:var(--shadow);
+  
   /*for embla carousel */
   --my-flex:0 0 100%;
   --my-margin:calc((2.6rem - 1.4rem) / 2 * -1);
