@@ -39,7 +39,7 @@ export default function Home() {
         </section>
         <section className="px-6 pb-16">
         <h2 className="font-extrabold mb-5 text-2xl text-midblue font-serif">Projects</h2>
-<section className="py-2  justify-normal items-stretch min-h-max flex flex-row flex-wrap gap-y-5 gap-x-4 max-sm:flex-col max-sm:gap-y-4 ">
+<section className="py-2 justify-normal items-stretch min-h-max flex flex-row flex-wrap gap-y-5 gap-x-4 max-sm:flex-col max-sm:gap-y-4 ">
   {projectcards}
 </section>
         </section>
