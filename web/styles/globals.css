@@ -5,7 +5,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --base: #f1f1f1;
+  --base1: #f1f1f1;
   --puce:#b48291;
   --newpurp:#816e94;
   --viridian:#4c8577;
@@ -26,7 +26,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --color-base:var(--base);
+  --color-base1:var(--base1);
   --color-puce:var(--puce);
   --color-newpurp:var(--newpurp);
   --color-viridian:var(--viridian);
