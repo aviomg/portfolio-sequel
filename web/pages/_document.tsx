@@ -12,7 +12,7 @@ export default function Document() {
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css"
         />
-      <body className="subpixel-antialiased !bg-base !text-puce !font-serif !flex !flex-col !min-h-screen">
+      <body className="subpixel-antialiased !bg-base1 !text-puce !font-serif !flex !flex-col !min-h-screen">
       <Script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" strategy="afterInteractive" />
         {/* PrismJS Language (e.g. Python) */}
         <Script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js" strategy="afterInteractive" />

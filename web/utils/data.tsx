@@ -42,6 +42,15 @@ export const projects = [
     {name:"COMP 435: Computer Security Concepts", description:"Key Topics: The CIA triad; Cryptography; Software, Network, and OS security", notesnames:null,noteslinks:null},
     {name:"COMP 311: Computer Organization",description:"Key Topics: Assembly Programming, Microprocessor and CPU Design, Combinational and Sequential Logic",notesnames:["notes"],noteslinks:["/test"]},
   ]
+
+
+  export const orderedPoems = [
+    'twenty-two-i-ams.md',
+    'excercise.md',
+    'thursday-evening.md',
+    'widen-your-eyes.md',
+    'routine.md'
+  ]
   
   /*  <div class="widget">
     <h1 class="widget-title"></h1>
