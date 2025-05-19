@@ -3,6 +3,14 @@ import Image from 'next/image'
 import { Geist, Geist_Mono } from "next/font/google";
 import EmblaCarousel from '@/components/carousel/EmblaCarousel'
 import { EmblaOptionsType } from 'embla-carousel'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,7 +42,7 @@ export default function CrochetPage(){
     <h2 className="pt-4 px-10 text-center text-lg text-gray-700 !font-mono-normal container mx-auto max-w-6xl">the following is an (unfinished) chronological documentation of my experiences/accomplishments/creations in crochet, 
   somewhat organized into chapters and by personal milestones. thank you for viewing and i hope you enjoy!
         </h2>
-    <div className="max-w-6xl mx-auto pb-10 py-4 px-6">
+    <div className="max-w-4xl mx-auto pb-10 py-4 px-6 flex flex-col gap-7 ">
     <PostWidget title="birthday gift for my roommate" 
             subtitle="lots of fun, enjoyed the challenge of having to emulate the very specific shape of a cat. could not add facial features because i knew that i would butcher it"
             captions={[]}
@@ -58,29 +66,25 @@ type postwidgetprops = {title:string,iscarousel:boolean,captions: string[],srcs:
 function PostWidget({title, iscarousel, captions, srcs, subtitle}:postwidgetprops){
 
   if (!iscarousel){
-
-return(
-  <div className="bg-puce/40 rounded">
-  
-        <div className="text-gray-700 container block text-left mx-auto space-y-1 mb-2 px-10 py-4">
-            <div>
-                <h2 className="py-3 text-left text-lg font-bold text-gray-700">
-                    {title}
-                </h2>
-                <p className="text-left text-gray-700">{subtitle}</p>
-                <div className="text-gray-700">
-                  <article>
-                  <div className="flex flex-col justify-center items-center">
-                  <div className=" flex-row flex max-h-[400px] gap-4 max-w-fit overflow-hidden ">
-                  <img  className=" border-[2px] max-h-[400px]  max-w-[400px] min-h-[400px]  border-viridian shadow-lg shadow-black object-contain rounded-md" src={srcs[0]} alt="Gallery Image" />
-                  </div>
-                  </div>
-                  </article>
-                </div>
+    return(
+      <div>
+        <Card className="bg-puce/40 gap-4 shadow-(--shadow) border-viridian">
+        <div className="text-gray-700 container block text-left mx-auto space-y-1  px-10 ">
+          <CardTitle className="text-lg font-bold text-gray-700 py-3">{title}</CardTitle>
+          <CardDescription className="text-base text-gray-700">{subtitle} </CardDescription>
+        </div>
+        <CardContent className="text-gray-700">
+          <article>
+          <div className="flex flex-col justify-center items-center">
+                      <div className=" flex-row flex max-h-[400px] gap-4 max-w-fit overflow-hidden ">
+                      <img  className=" border-[2px] max-h-[400px]  max-w-[400px] min-h-[400px]  border-viridian shadow-lg shadow-black object-contain rounded-md" src={srcs[0]} alt="Gallery Image" />
+                      </div>
+                      </div>
+          </article>
+        </CardContent>
+        </Card>
             </div>
-        </div>
-        </div>
-)
+    )
 
 }
 else{//logic for carousels here:
@@ -89,23 +93,19 @@ const SLIDE_COUNT = 5
 const SLIDES = Array.from(Array(SLIDE_COUNT).keys())
 
 
-  return (  <div className="bg-puce/40 rounded ">
-            <div className="text-gray-700 container block text-left mx-auto space-y-1 mb-2 px-10 py-4">
-            <div>
-                <h2 className="py-3 text-left text-lg font-bold text-gray-700">
-                    {title}
-                </h2>
-                <p className="text-left text-gray-700">{subtitle}</p>
-                <div className="text-gray-700">
+  return (  
+  <div>
+  <Card className="bg-puce/40 gap-4 shadow-(--shadow) border-viridian">
+  <div className="text-gray-700 container block text-left mx-auto space-y-1  px-10 ">
+          <CardTitle className="text-lg font-bold text-gray-700 py-3">{title}</CardTitle>
+          <CardDescription className="text-base text-gray-700">{subtitle} </CardDescription>
+        </div>
+        <CardContent className="text-gray-700">
                   <article  className="mt-4">
                   <EmblaCarousel slides={srcs} options={OPTIONS} captions={captions} />
-
                   </article>
-                </div>
-            </div>
-
-
-</div>
+                  </CardContent>
+</Card>
     </div>
 )
 }
