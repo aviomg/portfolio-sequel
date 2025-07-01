@@ -4,12 +4,15 @@ import { JSX, useEffect, useState } from "react";
 import matter from 'gray-matter'
 import { orderedPoems } from '../utils/data';
 import ReactMarkdown from 'react-markdown'
+import { Button } from "@/components/ui/button";
+import { useRouter } from "next/router";
 
-type Poem = {
+export type Poem = {
    title: string,
    subtitle:string,
    date: string,
-   content: string
+   content: string,
+   archive:string
  }
 
 export default function Blog(){
@@ -17,20 +20,35 @@ export default function Blog(){
    const [poems,setPoems] = useState<Poem[]>([]);
    const numPoems=5;
    const charlimit=60;
+   const [listend, setlistend] = useState<boolean>(false);
+   const [btn, setbtn] = useState<string>("");
+   const router = useRouter();
    
-   
+   useEffect(()=>{
+      console.log(btn);
+      const el  = document.getElementById(btn);
+      el?.scrollIntoView();
+
+   },[btn]);
 
    const createMini = (poem:Poem, index:number): JSX.Element=>{
-      console.log(poem);
+    //  console.log(poem);
       const charlimit=60;
       const words = poem.content.substring(0,60) + "...";
       const href= `/entries#poem${index}`
+      const id = `poem${index}`;
       return(
          <article  className="border-b border-[#E5E7EB] pt-4 pb-4 text-gray-700 container block text-left mx-auto space-y-0">
             <h1 className="font-bold text-left">
              <Link href={href} className="text-black  hover:underline transition-all duration-100 mt-3">
-            
-             <p><span>{index}.</span>{poem.title}</p>
+             {poem.date!="undefined"? 
+             <>
+             <p><span className="mr-1">{index}.</span>{poem.date}</p>
+             <p>{poem.title}</p>
+             </>:
+             <p><span className="mr-1">{index}.</span>{poem.title}</p>
+             }
+             
              </Link>
             </h1>
             <div>
@@ -38,14 +56,12 @@ export default function Blog(){
             </div>
          </article>
       )
-    
-
    }
 
    useEffect(()=>{
       Promise.all(
          orderedPoems.map(async (file) =>{
-            const res = await fetch(`/poems/${file}`);
+            const res = await fetch(`/poem-files/${file}`);
             const text = await res.text();
             const {data, content} = matter(text);
 
@@ -53,6 +69,7 @@ export default function Blog(){
                title:data.title || "undefined",
                subtitle: data.subtitle || "undefined",
                date: data.date || "undefined",
+               archive: data.archive || "false",
                content
             }
          })
@@ -71,10 +88,6 @@ export default function Blog(){
       })
    },[])
 
-
-
-
- 
    /*useEffect(() => {
       fetch('/assets/nyc.txt')
         .then((res) => res.text())
@@ -104,14 +117,59 @@ export default function Blog(){
 //and we will insert the variables into the tsx at the end!
       
 
+   const loadMore = ():void=>{
+      const last_rendered = entries.length;
+     // console.log(last_rendered);
+      
+      Promise.all(
+         orderedPoems.map(async (file) =>{
+            const res = await fetch(`/poem-files/${file}`);
+            const text = await res.text();
+            const {data, content} = matter(text);
 
+            return{
+               title:data.title || "undefined",
+               subtitle: data.subtitle || "undefined",
+               date: data.date || "undefined",
+               archive:data.archive || "false",
+               content
+            }
+         })
+      ).then((results)=>{
+         setPoems(results);
+       //  console.log(results)
+         let temp:JSX.Element[] = []; //what we will set entries to
 
+         if ((last_rendered + 5)>=poems.length){
+            //aka we r almost at the end
+         //   console.log("blah")
+            setlistend(true);
+         }
+         let counter=0;
+         let ind = last_rendered;
+         for(let i=last_rendered;i<poems.length;i++){
+            if(counter<5){
+               const item = createMini(poems[i], ind+1);
+               temp.push(item)
+               ind++;
+               counter++;
+
+            }
+         }
+         setEntries(entries =>{
+            return  [...entries,...temp];
+         });
+        
+       
+      })
+
+   }
    return (
    <div className="flex-grow">
    <Navbar currentpage="Blog"/>
    <section className="pb-6">
      <div className="container mx-auto text-center">
-     <h2 className="text-4xl font-serif font-bold mb-4">avi kumar</h2>
+     <h2 className="text-4xl font-serif font-bold mb-4 text-viridian">avi kumar's blog</h2>
      <p className="text-lg text-gray-700">a place to host, categorize, and document some of the things I do 
     and think and make. a scrapbook of my life (an interface for my brain?).</p>
      </div>
@@ -138,7 +196,9 @@ export default function Blog(){
       {entries}
       </div>
       <a id="loadmore">
-      <button className="text-black mt-4 px-4 text-lg font-bold text-left shadow-md bg-lighterblue hover:bg-[#4780ea] transition all duration-75 rounded-md max-w-fit">more</button>
+       
+      <button className="text-black mt-4 px-4 text-lg font-bold text-left shadow-md bg-lighterblue hover:bg-[#4780ea] transition all duration-75 rounded-md max-w-fit"
+            onClick={listend? ()=>{router.push("/entries")}:loadMore}>{listend? "see all" : "more"}</button>
       </a>
       </div>
    </div>
