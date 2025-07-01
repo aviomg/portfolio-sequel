@@ -1,5 +1,6 @@
 ---
-title: calendar      
+title: calendar 
+archive: true    
 ---
 I come home from the grocery store and the evening’s grim mouth is 
 gagged with anxiety, leaving the air quiet: sunday. 

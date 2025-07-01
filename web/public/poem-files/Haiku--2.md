@@ -1,5 +1,6 @@
 ---
 title: Haiku #3
+archive: true    
 ---
 an inherently
 negative word, change. if it
