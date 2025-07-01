@@ -11,6 +11,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
+import { crochetposts } from "@/utils/data";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,7 +23,12 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+
 export default function CrochetPage(){
+
+  const listitems = crochetposts.map(post=>{
+    return <PostWidget title={post.title} subtitle={post.subtitle} captions={post.captions} srcs={post.srcs} iscarousel={post.iscarousel} subcaps={post.subcaps} />
+  })
 
     return <div className="flex-grow">
           <Navbar currentpage="Crochet"/>
@@ -43,15 +49,15 @@ export default function CrochetPage(){
   somewhat organized into chapters and by personal milestones. thank you for viewing and i hope you enjoy!
         </h2>
     <div className="max-w-4xl mx-auto pb-10 py-4 px-6 flex flex-col gap-7 ">
-    <PostWidget title="birthday gift for my roommate" 
+     {/* <PostWidget title="birthday gift for my roommate" 
             subtitle="lots of fun, enjoyed the challenge of having to emulate the very specific shape of a cat. could not add facial features because i knew that i would butcher it"
             captions={[]}
             iscarousel={false}
             srcs={["/crochet/cat.jpeg"]} /> 
-    <PostWidget title="my most recent tapestry: moonlight (working title)" iscarousel={false} subtitle="finished on february 4, 2025." captions={[]} srcs={["/crochet/moonlight.jpeg"]} />
-    <PostWidget title="ch 1: beginner (June-August 2023)" subtitle=" finding my footing and soaking my socks, a whole lot of granny squares, and more." iscarousel={true} captions={["some random squares","some random squares", "first time trying my hand at tapestry crochet","a hat for my naani, modeled on my sister and I.","a hat for my naani, modeled on my sister and I."]} srcs={["/crochet/3a.webp","/crochet/3b.webp","crochet/1a.webp","/crochet/2a.webp","/crochet/2b.webp","/crochet/4a.webp","/crochet/4b.webp","/crochet/5a.webp","/crochet/6a.webp","/crochet/6b.webp","/crochet/7a.webp","/crochet/7b.webp","/crochet/7c.webp","/crochet/8b.webp","/crochet/8c.webp"]} />
+   <PostWidget title="my most recent tapestry: moonlight (working title)" iscarousel={false} subtitle="finished on february 4, 2025." captions={[]} srcs={["/crochet/moonlight.jpeg"]} />
+    <PostWidget title="ch 1: beginner (June-August 2023)" subtitle=" finding my footing and soaking my socks, a whole lot of granny squares, and more." iscarousel={true} captions={["some random squares","some random squares", "first time trying my hand at tapestry crochet","a hat for my naani, modeled on my sister and I.","a hat for my naani, modeled on my sister and I."]} srcs={["/crochet/3a.webp","/crochet/3b.webp","crochet/1a.webp","/crochet/2a.webp","/crochet/2b.webp","/crochet/4a.webp","/crochet/4b.webp","/crochet/5a.webp","/crochet/6a.webp","/crochet/6b.webp","/crochet/7a.webp","/crochet/7b.webp","/crochet/7c.webp","/crochet/8b.webp","/crochet/8c.webp"]} /> */}
+    {listitems}
     </div>
-  
 
 
     </div>
@@ -62,8 +68,8 @@ export default function CrochetPage(){
             <Image src="/crochet/face.webp" alt="Image 2" className="max-h-[230px] object-cover border-viridian border-2 rounded-sm"/>
  */
 
-type postwidgetprops = {title:string,iscarousel:boolean,captions: string[],srcs:string[], subtitle:string}
-function PostWidget({title, iscarousel, captions, srcs, subtitle}:postwidgetprops){
+type postwidgetprops = {title:string,iscarousel:boolean,captions: string[],srcs:string[], subtitle:string, subcaps:string[]}
+function PostWidget({title, iscarousel, captions, srcs, subtitle, subcaps}:postwidgetprops){
 
   if (!iscarousel){
     return(
@@ -102,7 +108,7 @@ const SLIDES = Array.from(Array(SLIDE_COUNT).keys())
         </div>
         <CardContent className="text-gray-700">
                   <article  className="mt-4">
-                  <EmblaCarousel slides={srcs} options={OPTIONS} captions={captions} />
+                  <EmblaCarousel slides={srcs} options={OPTIONS} captions={captions} subcaps={subcaps} />
                   </article>
                   </CardContent>
 </Card>

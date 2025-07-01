@@ -55,6 +55,7 @@
   --shadow-lg: 3px 3px 0px 0px hsl(165.26 27.27% 40.98% / 1.00), 3px 4px 6px -1px hsl(165.26 27.27% 40.98% / 1.00);
   --shadow-xl: 3px 3px 0px 0px hsl(165.26 27.27% 40.98% / 1.00), 3px 8px 10px -1px hsl(165.26 27.27% 40.98% / 1.00);
   --shadow-2xl: 3px 3px 0px 0px hsl(165.26 27.27% 40.98% / 2.50);
+  --shadow-pink: 3px 3px 0px 0px hsl(326.09 88.46% 89.80% / 0.50);
 
 
 }
@@ -64,6 +65,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-base1:var(--base1);
   --color-base1:var(--base1);
   --color-puce:var(--puce);
   --color-newpurp:var(--newpurp);
@@ -78,6 +80,7 @@
   --font-mono-code: "Consolas", "Monaco", "Andale Mono", "Ubuntu Mono", "monospace";
   --font-mono-normal:"ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace";
   --shadow:var(--shadow);
+  --shadow-xs:var(--shadow-pink);
   
   /*for embla carousel */
   --my-flex:0 0 100%;
@@ -201,3 +204,7 @@ body {
   }
 
 }
+html {
+  scroll-behavior: smooth;
+ }
+ 

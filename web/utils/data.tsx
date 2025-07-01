@@ -42,6 +42,10 @@ export const projects = [
     {name:"COMP 435: Computer Security Concepts", description:"Key Topics: The CIA triad; Cryptography; Software, Network, and OS security", notesnames:null,noteslinks:null},
     {name:"COMP 311: Computer Organization",description:"Key Topics: Assembly Programming, Microprocessor and CPU Design, Combinational and Sequential Logic",notesnames:["notes"],noteslinks:["/test"]},
   ]
+
+
+  export const orderedPoems = 
+  ['jersey-summer.md','twenty-two--I-am-s.md', 'exercise.md', 'thursday-evening-stream-of-consciousness.md', 'widen-your-eyes.md', 'routine.md', 'I-m-starting-to-forget-can.md', 'untitled.md', '---feet-from-my-tower.md', 'for-guilty-pleasures.md', 'water-fountain.md', 'calendar.md', 'canvas.md', 'Hands-of-the-clock.md', 'and-i-feel-like-childhood.md', 'sitting-on-craige-deck-talking.md', 'Haiku--0.md', 'Haiku--1.md', 'Haiku--2.md', 'maybe-i-don-t-mind-the.md', 'nyc.md', 'ENGL----Poetry-Workshop-Prompt.md', 'writer-s-block--April----.md']
   
   /*  <div class="widget">
     <h1 class="widget-title"></h1>
@@ -92,3 +96,69 @@ export const projects = [
     <p class="widget-content">Key Topics: Combinatorics; Sets, tuples, etc.; Logic and Proof Techniques</p>
   </div>
 */
+
+  //title, subtitle, iscarousel, captions (empty list if not carousel), srcs,
+  /*          {src:"../assets/crochet/4a.webp",caption:"a headband I made for my bhabi (brother's wife)",subcap:"it ended up being way too small (lol) but my neice got some use out of it."},
+  {src:"../assets/crochet/4b.webp",caption:"a headband I made for my bhabi (brother's wife)",subcap:"it ended up being way too small (lol) but my neice got some use out of it."},
+  {src:"../assets/crochet/5a.webp",caption:"my first hat! for my then-8-month niece"},
+  {src:"../assets/crochet/6a.webp",caption:"a lavender"},
+  {src:"../assets/crochet/6b.webp",caption:"a lavender"},
+  {src:"../assets/crochet/7a.webp",caption:"fingerless gloves for my cousin"},
+  {src:"../assets/crochet/7b.webp",caption:"fingerless gloves for my cousin"},
+  {src:"../assets/crochet/7c.webp",caption:"fingerless gloves for my cousin"},
+  {src:"../assets/crochet/8b.webp",caption:"hat pour moi"},
+  {src:"../assets/crochet/8c.webp",caption:"hat pour moi"},
+*/
+
+/* <PostWidget title="birthday gift for my roommate" 
+            subtitle="lots of fun, enjoyed the challenge of having to emulate the very specific shape of a cat. could not add facial features because i knew that i would butcher it"
+            captions={[]}
+            iscarousel={false}
+            srcs={["/crochet/cat.jpeg"]} /> */
+
+export const crochetposts = [
+  {title:"birthday gift for my roommate",
+    subtitle:"lots of fun, enjoyed the challenge of having to emulate the very specific shape of a cat. could not add facial features because i knew that i would butcher it",
+    iscarousel:false,
+    captions:[],
+    srcs:["/crochet/cat.jpeg"],
+    subcaps:[]
+  },
+  {
+    title:"my most recent tapestry: moonlight (working title)",
+    subtitle:"finished on february 4, 2025.",
+    iscarousel:false,
+    captions:[],
+    subcaps:[],
+    srcs:["/crochet/moonlight.jpeg"]
+  },
+  {
+    title:"ch 1: beginner (June-August 2023)",
+    subtitle:"finding my footing, staining my socks, a whole lot of granny squares and more.",
+    iscarousel:true,
+    captions:[ "some random squares",
+                "some random squares",
+                "first time trying my hand at tapestry crochet",
+                "a hat for my naani, modeled on my sister and I.",
+                "a hat for my naani, modeled on my sister and I.",
+                "a headband I made for my bhabi (brother's wife)",
+],
+  subcaps:["","","","","","it ended up being way too small (lol) but my neice got some use out of it."],
+    srcs:["/crochet/3a.webp",
+          "/crochet/3b.webp",
+          "crochet/1a.webp",
+          "/crochet/2a.webp",
+          "/crochet/2b.webp",
+          "/crochet/4a.webp",
+          "/crochet/4b.webp",
+          "/crochet/5a.webp",
+          "/crochet/6a.webp",
+          "/crochet/6b.webp",
+          "/crochet/7a.webp",
+          "/crochet/7b.webp",
+          "/crochet/7c.webp",
+          "/crochet/8b.webp",
+          "/crochet/8c.webp"
+]},
+
+]

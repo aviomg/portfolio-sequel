@@ -15,7 +15,8 @@ import { Dot } from 'lucide-react'
 type PropType = {
   slides: string[],
   captions:string[],
-  options?: EmblaOptionsType
+  options?: EmblaOptionsType,
+  subcaps:string[]
 }
 
 const EmblaCarousel: React.FC<PropType> = (props) => {
@@ -32,6 +33,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
     onNextButtonClick
   } = usePrevNextButtons(emblaApi)
   const currentCaption = props.captions[selectedIndex] || ''
+  const currentsubcaption = props.subcaps[selectedIndex] != ""? props.subcaps[selectedIndex]: ''
 
   return (
     <div className="embla">
@@ -50,7 +52,8 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
       </div>
 
       <div className="mt-5 mb-1 p-2 border border-viridian rounded-md">
-        {currentCaption}
+        <p className='mb-2 text-lg'>{currentCaption}</p>
+        <p className='text-md italic'>{currentsubcaption}</p>
       </div>
       <div className="embla__controls">
         <div className="embla__buttons">
