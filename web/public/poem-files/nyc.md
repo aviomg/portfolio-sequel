@@ -1,5 +1,6 @@
 ---
 title: nyc
+archive: true    
 ---
 there are no hippies in new york city
 no dirt white knits over hemp starred skirts

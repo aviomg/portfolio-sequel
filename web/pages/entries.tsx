@@ -126,6 +126,10 @@ export default function Entries(){
            })
            setArchEntries(temparch);
            setCurrEntries(tempcurr);
+           console.log(archientries);
+           console.log("done");
+           console.log(currentries);
+
            setToc(temptoc);
         })
      },[])

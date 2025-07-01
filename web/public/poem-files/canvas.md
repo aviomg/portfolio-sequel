@@ -1,5 +1,6 @@
 ---
 title: canvas
+archive: true    
 ---
 A peculiar type of walking. no blinking, no breaking, no breathing, no bliss; anti-stroll
 
