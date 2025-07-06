@@ -3,6 +3,8 @@ import Image from 'next/image'
 import { Geist, Geist_Mono } from "next/font/google";
 import EmblaCarousel from '@/components/carousel/EmblaCarousel'
 import { EmblaOptionsType } from 'embla-carousel'
+import {  getCrochetPosts, getPostImages } from '@/lib/notion';
+
 import {
   Card,
   CardContent,
@@ -11,7 +13,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { crochetposts } from "@/utils/data";
+import { GetStaticProps } from "next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,12 +25,31 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+type PostWithImages = {
+  title: string;
+  subtitle: string;
+  type: boolean;
+  captions: string[];
+  srcs: string[];
+  subcaps: string[];
+};
 
-export default function CrochetPage(){
+type Props = {
+  posts: PostWithImages[];
+};
 
-  const listitems = crochetposts.map(post=>{
+
+export default function CrochetPage({posts}:Props){
+
+
+  /*const listitems = crochetposts.map(post=>{
     return <PostWidget title={post.title} subtitle={post.subtitle} captions={post.captions} srcs={post.srcs} iscarousel={post.iscarousel} subcaps={post.subcaps} />
-  })
+  })*/
+    const listitems = posts.map(post=>{
+      return <PostWidget title={post.title} subtitle={post.subtitle} captions={post.captions} srcs={post.srcs} iscarousel={post.type} subcaps={post.subcaps} />
+    })
+
+
 
     return <div className="flex-grow">
           <Navbar currentpage="Crochet"/>
@@ -123,3 +144,32 @@ const SLIDES = Array.from(Array(SLIDE_COUNT).keys())
             iscarousel={false}
             srcs={["/crochet/cat.jpeg"]} /> */
 
+            export const getStaticProps: GetStaticProps = async()=>{
+              const posts = await getCrochetPosts();
+              console.log("Posts from Notion:", posts);
+          
+              const postsWithImages = await Promise.all(
+                posts.map(async (post) => {
+                  const images = await getPostImages(post.id);
+                  console.log(`Images for ${post.title}:`, images);
+          
+                  return {
+                    title: post.title,
+                    subtitle: post.subtitle,
+                    type: post.type === "carousel",
+                    captions: images.map((img) => img.caption),
+                    srcs: images.map((img) => img.src),
+                    subcaps: images.map((img) => img.subcaption),
+                  };
+                })
+              );
+          
+              return {
+                props: {
+                  posts: postsWithImages,
+                },
+                revalidate: 60,
+              };
+            
+          }
+          
