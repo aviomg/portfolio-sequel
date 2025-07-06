@@ -165,13 +165,13 @@ export default function Blog(){
 
    }
    return (
-   <div className="flex-grow">
+   <div className="flex-grow mb-10">
    <Navbar currentpage="Blog"/>
    <section className="pb-6">
      <div className="container mx-auto text-center">
-     <h2 className="text-4xl font-serif font-bold mb-4 text-viridian">avi kumar's blog</h2>
-     <p className="text-lg text-gray-700">a place to host, categorize, and document some of the things I do 
-    and think and make. a scrapbook of my life (an interface for my brain?).</p>
+     <h2 className="text-4xl font-serif font-bold mb-4 text-puce">my blog</h2>
+     <p className="text-lg text-gray-700">a space to record, categorize, and document some of the things I do 
+    and think and make! a scrapbook of my life (an interface for my brain?).</p>
      </div>
    </section>
 

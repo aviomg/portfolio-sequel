@@ -5,13 +5,23 @@ import ProjectCard from "@/components/project-card";
 import { courses, projects } from "@/utils/data";
 import CourseCard from "@/components/course-card";
 import Navbar from "@/components/nav-bar";
+import { GetStaticProps } from 'next';
+import { getCourses, Course } from '../lib/notion';
 
- 
+type Props = {
+    courses: Course[];
+};
+
+ //pass the course card props thing into home
+ //inside the export default function, crease the const coursecards using the props thing
+ //done!
 
   const projectcards = projects.map(project => <ProjectCard name={project.name} description={project.description} link={project.link} tech={project.tech} />)
-  const coursecards = courses.map(course => <CourseCard course={course.name} description={course.description} notesnames={course.notesnames} noteslinks={course.noteslinks}/>)
-export default function Home() {
- 
+  const coursecards1 = courses.map(course => <CourseCard course={course.name} description={course.description} notesnames={course.notesnames} noteslinks={course.noteslinks}/>)
+  
+export default function Home({courses}:Props) {
+
+  const coursecards = courses.map((course)=> (<CourseCard course={course.title} description={course.description} notesnames={course.notesnames} noteslinks={course.noteslinks}/>))
   return (
     <div >
     {/*title page*/}
@@ -56,4 +66,15 @@ export default function Home() {
 
     </div>
   );
+}
+
+export const getStaticProps: GetStaticProps = async()=>{
+  const courses = await getCourses();
+
+  return{
+      props:{
+          courses,
+      },
+      revalidate:60,
+  };
 }

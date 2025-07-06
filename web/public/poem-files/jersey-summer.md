@@ -1,5 +1,5 @@
 ---
-title: jersey summer
+title: the heights
 date: 6.07.2025
 ---
 think of jersey summer think of flying god incarnate as a kite, free 
