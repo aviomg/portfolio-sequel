@@ -57,6 +57,11 @@
   --shadow-2xl: 3px 3px 0px 0px hsl(165.26 27.27% 40.98% / 2.50);
   --shadow-pink: 3px 3px 0px 0px hsl(326.09 88.46% 89.80% / 0.50);
 
+  --about-text: #344966;
+  --about-primary:#816e94;
+  --antiquewhite:#FAEBD7;
+  --about-secondary:#74226c;
+
 
 }
 
@@ -81,6 +86,10 @@
   --font-mono-normal:"ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace";
   --shadow:var(--shadow);
   --shadow-xs:var(--shadow-pink);
+  --color-about-text: var(--about-text);
+  --color-about-primary: var(--about-primary);
+  --color-antiquewhite:var(--antiquewhite);
+  --color-about-secondary:var(--about-secondary);
   
   /*for embla carousel */
   --my-flex:0 0 100%;
