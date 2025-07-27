@@ -65,7 +65,7 @@ export async function getCourses(){
         title:page.properties.Title.title[0]?.plain_text||'',
         description: page.properties.description.rich_text[0]?.plain_text || '',
         notesnames: page.properties.notesnames.multi_select.map((tag:any)=>tag.name),
-        noteslinks: page.properties.notesnames.multi_select.map((tag:any)=>tag.name)
+        noteslinks: page.properties.noteslinks.multi_select.map((tag:any)=>tag.name)
     }))
 }
 
