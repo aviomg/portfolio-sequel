@@ -1,9 +1,17 @@
 import Link from "next/link";
-import { JSX } from "react";
+import { JSX, useEffect } from "react";
+import Prism from 'prismjs';
+import 'prismjs/components/prism-python';
+import 'prismjs/themes/prism.css';
+
 
 type coursecardprops = {course:string, description:string, notesnames:string[]|null, noteslinks:string[]|null}
 
 export default function CourseCard({course, description, notesnames, noteslinks}:coursecardprops){
+  useEffect(() => {
+    Prism.highlightAll();
+  }, []);
+
     const arroflinks:JSX.Element[] = []
     noteslinks?.forEach((link, index)=>{
         const element = <Link className="text-viridian font-bold text-sm hover:text-[#6bc9b2] transition-all duration-75 max-w-min border-viridian" href={link}>
