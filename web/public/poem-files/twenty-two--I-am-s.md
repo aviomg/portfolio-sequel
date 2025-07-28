@@ -1,7 +1,7 @@
 ---
 title: twenty-two "I am"s
 date: 1.24.2025
-subtitle: my friend Daphne asked me to write down 20 “I am”s for her sociology class assignment on categorizing identities. The list ended at #22, but I wanted to post it without any edits. Thank you daphne!
+subtitle: my friend Daphne asked me to write down 20 “I am”s for her sociology class assignment on categorizing identities. The list ended at \#22, but I wanted to post it without any edits. Thank you daphne!
 ---
 1. I am a creative person
 2. I am intelligent

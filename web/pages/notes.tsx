@@ -3,6 +3,7 @@ import CourseCard from "@/components/course-card";
 import { GetStaticProps } from 'next';
 import { getCourses, Course } from '../lib/notion';
 import Link from "next/link";
+import { CornerDownRight } from "lucide-react";
 
 
 
@@ -27,11 +28,17 @@ export default function NotesPage({courses}:Props){
           >{course.title}</h2>
         
         </Link>
+        {course.title.includes("550")? 
+        <div className="flex flex-row gap-x-1 mt-2 ml-10 items-center">
+            <CornerDownRight className="text-gray-700" size={20}/>
+            <Link href="/code/comp550" className=" text-gray-700 hover:underline hover:text-midblue transition-all duration-75 cursor-pointer">algorithm implementation code</Link>
+        </div>:null
+        }
       </li>)
     }
     )
 
-    return (<div className="flex-grow">
+    return (<div className="flex-grow min-h-[95vh]">
         <Navbar currentpage="Notes"/>
         <section className="pb-6">
         <div className="container mx-auto text-center">

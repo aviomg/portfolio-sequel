@@ -17,6 +17,7 @@
   --lighterblue:#6392e9;
   --purp:#5941a9;
   --neonpurp:#7d67fc;
+  --eggplant:#493843;
   --radius: 0.625rem;
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
@@ -61,6 +62,7 @@
   --about-primary:#816e94;
   --antiquewhite:#FAEBD7;
   --about-secondary:#74226c;
+  
 
 
 }
@@ -76,6 +78,7 @@
   --color-newpurp:var(--newpurp);
   --color-viridian:var(--viridian);
   --color-hgreen:var(--hgreen);
+  --color-eggplant:var(--eggplant);
   --color-russianviolet:var(--russianviolet);
   --color-yinminblue:var(--yinminblue);
   --color-midblue:var(--midblue);
@@ -84,6 +87,8 @@
   --color-neonpurp:var(--neonpurp);
   --font-mono-code: "Consolas", "Monaco", "Andale Mono", "Ubuntu Mono", "monospace";
   --font-mono-normal:"ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace";
+  --font-mono-text:"Courier New","monospace";
+  --font-mono-about: Consolas, Monaco, "Lucida Console", "Liberation Mono";
   --shadow:var(--shadow);
   --shadow-xs:var(--shadow-pink);
   --color-about-text: var(--about-text);
@@ -198,6 +203,10 @@ body {
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
 
+}
+
+@utility custom-text-shadow{
+  text-shadow: 0 1px #fff;
 }
 
 /*---break--- */
