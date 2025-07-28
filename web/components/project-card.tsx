@@ -19,7 +19,7 @@ export default function ProjectCard({name, description, link, tech}:projectcardp
         <Link href={link} target="_blank" className="group   flex flex-col w-[32%] px-4 pt-4 pb-0 text-wrap border-viridian border max-sm:!w-full hover:border-red-300">
             <span className="mb-2 text-xl font-semibold text-viridian group-hover:text-red-300">{name}</span>
             <span className="text-viridian group-hover:text-red-300 break-words">{description}</span>
-            <div className="flex flex-row my-4 gap-x-4">
+            <div className="flex flex-row my-4 gap-x-4 flex-wrap gap-y-2">
             {techwidgets}
             </div>
         </Link>

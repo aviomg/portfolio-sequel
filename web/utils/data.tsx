@@ -1,4 +1,9 @@
 export const projects = [
+  {name:"SwipeShare",
+    description:"a community-driven platform where college students can request or donate unused meal swipes for campus dining halls.",
+    link:"https://github.com/comp426-25s/final-project-team-20",
+    tech:["Nextjs","React","Supabase","Realtime","TSX","Shadcn","Figma"]
+  },
     {name:"Studio Keys",
         description: " A Python-based tool designed to enable the easy retrieval and recovery of UI/UX designs created with the (now) defunct Invision prototyping tool.",
         link:"https://studio-keys.onrender.com",
@@ -13,7 +18,7 @@ export const projects = [
   {name:"Pokédex",
     description:"      a Pokédex app to display information about Pokemon, moves, and items. Built using Next.js and the Pokemon API, deployed live to the internet via Vercel. ",
           link:"https://a05-pokedex-avikumar.vercel.app/",
-          tech:["Next.js","React Query","Tailwind","Vercel"]
+          tech:["Nextjs","React Query","Tailwind","Vercel"]
       },
       {name:"Wordle",
         description:"A recreation of wordle using React.js. Exercise to become familiar with the framework.",
