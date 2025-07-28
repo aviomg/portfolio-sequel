@@ -24,24 +24,29 @@ export default function AboutPage(){
     )
 
     return(
-        <div className="flex-grow min-h-[calc(100svh)] bg-[#acd7bb]  flex flex-col text-center gap-x-5 text-about-text">
+        <div className="flex-grow min-h-[calc(100vh)] bg-[#acd7bb]  flex flex-col text-center gap-x-5 text-about-text pb-10">
             <Navbar currentpage="About" />
             <div className="mx-15 mb-9 items-center">
                 <h2 className="text-4xl font-bold  mb-4 ml-auto text-about-primary">about me</h2>
                 <div className="flex flex-row">
-                    <div className="px-10 leading-[28px] text-[1.125rem] text-center">
+                    <div className="pl-10 pr-10 leading-[28px] text-[1.125rem] text-center">
                         <span className="font-mono-about text-about-text text-[16px] ">
                         Hi! My name is Avi. I'm a third-year CS and French double major at UNC-Chapel Hill. My favorite things to do are to learn and to create. If you asked anyone
-                    who knew me to describe me in one word, they'd probably say "curious". Outside of computer science and computer engineering, my top academic interests are in linguistics and environmentalism. I am fluent in Hindi and French, and a learning beginner in Spanish. In my free time, I enjoy
+                    who knew me to describe me in one word, they'd 
+                        </span>
+                        <div className="mx-4 text-center">
+                        <span className="font-mono-about text-about-text text-[16px]"> probably say "curious". Outside of computer science and computer engineering, my top academic interests are in linguistics and environmentalism. I am fluent in Hindi and French, and a learning beginner in Spanish. In my free time, I enjoy
                         </span>
                         <span className="font-mono-about text-[16px] text-about-primary underline">
                             <Link href="/entries"> writing</Link>
                         </span>
-                        <span className="font-mono-about text-[16px] text-about-text">, </span>
+                        <span className="font-mono-about text-[16px] text-about-text"> , </span>
                         <span className="font-mono-about text-[16px] text-about-primary underline">
                             <Link href="/crochet">crocheting</Link>
                         </span>
                         <span className="font-mono-about text-[16px] text-about-text"> (or another creative outlet--like this website), thrift shopping, spending time with friends, and thinking about the things I'm learning. Thanks for visiting!</span>
+
+                        </div>
                     </div>
                     <img src="/me.jpeg" className="max-w-[22%] border-about-secondary border-[3px] object-cover" />
                 </div>
