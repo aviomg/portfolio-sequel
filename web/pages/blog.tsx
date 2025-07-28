@@ -6,6 +6,9 @@ import { orderedPoems } from '../utils/data';
 import ReactMarkdown from 'react-markdown'
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/router";
+import fs from 'fs';
+import path from 'path';
+
 
 export type Poem = {
    title: string,
@@ -15,10 +18,39 @@ export type Poem = {
    archive:string
  }
 
-export default function Blog(){
-   const [entries, setEntries] = useState<JSX.Element[]>([]);
-   const [poems,setPoems] = useState<Poem[]>([]);
+ const createMini = (poem:Poem, index:number): JSX.Element=>{
+   //  console.log(poem);
+     const charlimit=69;
+     const words = poem.content.substring(0,charlimit) + "...";
+     const href= `/entries#poem${index}`
+     const id = `poem${index}`;
+     return(
+        <article  className="border-b border-[#E5E7EB] pt-4 pb-4 text-gray-700 container block text-left mx-auto space-y-0">
+           <h1 className="font-bold text-left">
+            <Link href={href} className="text-black  hover:underline transition-all duration-100 mt-3">
+            {poem.date!="undefined"? 
+            <>
+            <p><span className="mr-1">{index}.</span>{poem.date}</p>
+            <p>{poem.title}</p>
+            </>:
+            <p><span className="mr-1">{index}.</span>{poem.title}</p>
+            }
+            
+            </Link>
+           </h1>
+           <div>
+             <p className="whitespace-pre-line">{words}</p> 
+           </div>
+        </article>
+     )
+  }
+
+
+export default function Blog({ poems }: { poems: Poem[] }){
    const numPoems=5;
+   const [poems1,setPoems1] = useState<Poem[]>(poems);
+   const ent = poems1.slice(0,numPoems).map((poem,index)=>createMini(poem,index+1))
+   const [entries, setEntries] = useState<JSX.Element[]>(ent);
    const charlimit=60;
    const [listend, setlistend] = useState<boolean>(false);
    const [btn, setbtn] = useState<string>("");
@@ -31,34 +63,8 @@ export default function Blog(){
 
    },[btn]);
 
-   const createMini = (poem:Poem, index:number): JSX.Element=>{
-    //  console.log(poem);
-      const charlimit=60;
-      const words = poem.content.substring(0,60) + "...";
-      const href= `/entries#poem${index}`
-      const id = `poem${index}`;
-      return(
-         <article  className="border-b border-[#E5E7EB] pt-4 pb-4 text-gray-700 container block text-left mx-auto space-y-0">
-            <h1 className="font-bold text-left">
-             <Link href={href} className="text-black  hover:underline transition-all duration-100 mt-3">
-             {poem.date!="undefined"? 
-             <>
-             <p><span className="mr-1">{index}.</span>{poem.date}</p>
-             <p>{poem.title}</p>
-             </>:
-             <p><span className="mr-1">{index}.</span>{poem.title}</p>
-             }
-             
-             </Link>
-            </h1>
-            <div>
-              <p className="whitespace-pre-line">{words}</p> 
-            </div>
-         </article>
-      )
-   }
 
-   useEffect(()=>{
+  /* useEffect(()=>{
       Promise.all(
          orderedPoems.map(async (file) =>{
             const res = await fetch(`/poem-files/${file}`);
@@ -74,7 +80,7 @@ export default function Blog(){
             }
          })
       ).then((results)=>{
-         setPoems(results);
+         setPoems1(results);
          let temp:JSX.Element[] = []; //what we will set entries to
          results.forEach((poem, index)=>{
             if(index < numPoems){
@@ -86,35 +92,7 @@ export default function Blog(){
          })
          setEntries(temp);
       })
-   },[])
-
-   /*useEffect(() => {
-      fetch('/assets/nyc.txt')
-        .then((res) => res.text())
-        .then((text) => {
-          const rawPoems = text.split('\n\n\n').map((poem)=>poem.trim());
-
-          let counter = 0;
-          const temp:JSX.Element[] = [];
-          rawPoems.forEach((poem,index=2)=>{
-           if(counter < numPoems){
-              const articleid = index+1
-              const item = createMini(poem,articleid, 60,5);
-              temp.push(item)
-           }
-           counter++;
-          })
-          setEntries(temp);
-        })
-        .catch(() => console.log('error'))
-    }, [])*/
-
- 
-  
-   //a function to identify the 5 most recent entries in nyx.txt
-//a function to convert the contents of a given entry into the tailwind stlyed element
-//a function to add the styling for rest of stuff
-//and we will insert the variables into the tsx at the end!
+   },[])*/
       
 
    const loadMore = ():void=>{
@@ -136,20 +114,20 @@ export default function Blog(){
             }
          })
       ).then((results)=>{
-         setPoems(results);
+         setPoems1(results);
        //  console.log(results)
          let temp:JSX.Element[] = []; //what we will set entries to
 
-         if ((last_rendered + 5)>=poems.length){
+         if ((last_rendered + 5)>=poems1.length){
             //aka we r almost at the end
          //   console.log("blah")
             setlistend(true);
          }
          let counter=0;
          let ind = last_rendered;
-         for(let i=last_rendered;i<poems.length;i++){
+         for(let i=last_rendered;i<poems1.length;i++){
             if(counter<5){
-               const item = createMini(poems[i], ind+1);
+               const item = createMini(poems1[i], ind+1);
                temp.push(item)
                ind++;
                counter++;
@@ -207,4 +185,28 @@ export default function Blog(){
 </div>)
 }
 
+
+export async function getStaticProps() {
+   const poemsDir = path.join(process.cwd(), 'public/poem-files');
+   const poems = orderedPoems.map((filename) => {
+     const filePath = path.join(poemsDir, filename);
+     const fileContents = fs.readFileSync(filePath, 'utf8');
+     const { data, content } = matter(fileContents);
+ 
+     return {
+       title: data.title || "undefined",
+       subtitle: data.subtitle || "undefined",
+       date: data.date || "undefined",
+       archive: data.archive || "false",
+       content,
+     };
+   });
+ 
+   return {
+     props: {
+       poems,
+     },
+   };
+ }
+ 
 
