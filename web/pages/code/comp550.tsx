@@ -16,6 +16,7 @@ import fs from 'fs';
 import path from 'path';
 import { ChevronDown } from "lucide-react";
 import { ChevronRight } from "lucide-react";
+import Head from "next/head";
 
 
 export default function CodePage({ fileContents }: { fileContents: Record<string, string> }) {
@@ -39,6 +40,31 @@ export default function CodePage({ fileContents }: { fileContents: Record<string
     }, [activeTab]);
 
     return (
+        <>
+        <Head>
+        <title>Avi Kumar | Code </title>
+        <meta name="description" content="python implementations of classic and modern algorithms from CS theory" />
+        <meta name="keywords" content="code, python, algorithms, computer science theory"/>
+        <meta name="robots" content="index, follow" />
+        <meta name="googlebot" content="index, follow" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charSet="utf-8" />
+  
+          {/* Open Graph */}
+          <meta property="og:site_name" content="Avi Kumar" />
+          <meta property="og:locale" content="en_US" />
+          <meta property="og:title" content="Avi Kumar | Code" />
+          <meta property="og:description" content="Python implementations of classic and modern algorithms from CS theory" />
+          <meta property="og:type" content="website" />
+          <meta property="og:url" content="https://jahnavikumar.org" />
+          <meta property="og:image" content="https://jahnavikumar.org/public/og-image.png" />
+          <meta property="og:image:alt" content="Avi Kumar | Software Engineer" />
+          <meta property="og:image:width" content="1200" />
+          <meta property="og:image:height" content="630" />
+  
+  
+      </Head>
+  
         <div className="flex-grow line-numbers match-braces">
             <Navbar currentpage="Notes" />
             <div className="container mx-auto text-center">
@@ -87,6 +113,7 @@ export default function CodePage({ fileContents }: { fileContents: Record<string
                 </div>
             </div>
         </div>
+        </>
     )
 }
 

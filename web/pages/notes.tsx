@@ -4,6 +4,7 @@ import { GetStaticProps } from 'next';
 import { getCourses, Course } from '../lib/notion';
 import Link from "next/link";
 import { CornerDownRight } from "lucide-react";
+import Head from "next/head";
 
 
 
@@ -38,7 +39,34 @@ export default function NotesPage({courses}:Props){
     }
     )
 
-    return (<div className="flex-grow min-h-[95vh]">
+    return (
+        <>
+        <Head>
+  <title>Avi Kumar | Notes</title>
+<meta name="description" content="archive: all course notes. cornell notes are superior and yes, i would die on that hill (though i'm not sure if that's saying a lot)"/>
+<meta name="keywords" content="algorithms and analysis, digital logic, swe, software engineering, developer, software developer, computer science, comp sci, unc, unc chapel hill, portfolio, engineer, webdev, web dev"/>
+<meta name="robots" content="index, follow" />
+<meta name="googlebot" content="index, follow" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charSet="utf-8" />
+
+  {/* Open Graph */}
+  <meta property="og:site_name" content="Avi Kumar" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:title" content="Avi Kumar | Notes" />
+  <meta property="og:description" content="archive: all course notes. cornell notes are superior and yes, i would die on that hill (though i'm not sure if that's saying a lot)
+
+" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://jahnavikumar.org" />
+  <meta property="og:image" content="https://jahnavikumar.org/public/og-image.png" />
+  <meta property="og:image:alt" content="Avi Kumar | Software Engineer" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  </Head>
+
+    <div className="flex-grow min-h-[95vh]">
         <Navbar currentpage="Notes"/>
         <section className="pb-6">
         <div className="container mx-auto text-center">
@@ -53,7 +81,9 @@ export default function NotesPage({courses}:Props){
                 </ul>
 
             </div>
-    </div>)
+    </div>
+    </>
+    )
 }
 
 export const getStaticProps: GetStaticProps = async()=>{

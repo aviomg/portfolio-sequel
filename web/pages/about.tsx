@@ -1,5 +1,6 @@
 import Navbar from "@/components/nav-bar";
 import { time } from "console";
+import Head from "next/head";
 import Link from "next/link";
 
 
@@ -24,6 +25,43 @@ export default function AboutPage(){
     )
 
     return(
+        <>
+        <Head>
+        <title>Avi Kumar | About</title>
+      <meta name="description" content="Hi! My name is Avi. I'm a third-year CS and French double major at UNC-Chapel Hill.
+                                         My favorite things to do are to learn and to create. If you asked anyone who knew me 
+                                         to describe me in one word, they'd probably say curious. Outside of computer science and 
+                                         computer engineering, my top academic interests are in linguistics and environmentalism. I 
+                                         am fluent in Hindi and French, and a learning beginner in Spanish. In my free time, I enjoy 
+                                         writing , crocheting (or another creative outlet--like this website), thrift shopping, spending
+                                         time with friends, and thinking about the things I'm learning. Read about my experience and skillsets below. Thanks for visiting!"/>
+      <meta name="keywords" content="swe, software engineering, resume, developer, software developer, computer science, comp sci, unc, unc chapel hill, portfolio, engineer, webdev, web dev"/>
+      <meta name="robots" content="index, follow" />
+      <meta name="googlebot" content="index, follow" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta charSet="utf-8" />
+
+        {/* Open Graph */}
+        <meta property="og:site_name" content="Avi Kumar" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:title" content="" />
+        <meta property="og:description" content="Hi! My name is Avi. I'm a third-year CS and French double major at UNC-Chapel Hill.
+                                         My favorite things to do are to learn and to create. If you asked anyone who knew me 
+                                         to describe me in one word, they'd probably say curious. Outside of computer science and 
+                                         computer engineering, my top academic interests are in linguistics and environmentalism. I 
+                                         am fluent in Hindi and French, and a learning beginner in Spanish. In my free time, I enjoy 
+                                         writing , crocheting (or another creative outlet--like this website), thrift shopping, spending
+                                         time with friends, and thinking about the things I'm learning. Read about my experience and skillsets below. Thanks for visiting!"/>
+
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://jahnavikumar.org" />
+        <meta property="og:image" content="https://jahnavikumar.org/public/og-image.png" />
+        <meta property="og:image:alt" content="Avi Kumar | About Me" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+
+        </Head>
+
         <div className="flex-grow min-h-[calc(100vh)] bg-[#acd7bb]  flex flex-col text-center gap-x-5 text-about-text pb-10">
             <Navbar currentpage="About" />
             <div className="mx-15 mb-9 items-center">
@@ -82,6 +120,7 @@ export default function AboutPage(){
 
                 </section> 
         </div>
+        </>
     )
 }
 
