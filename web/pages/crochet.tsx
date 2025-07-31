@@ -45,8 +45,8 @@ export default function CrochetPage({posts}:Props){
   /*const listitems = crochetposts.map(post=>{
     return <PostWidget title={post.title} subtitle={post.subtitle} captions={post.captions} srcs={post.srcs} iscarousel={post.iscarousel} subcaps={post.subcaps} />
   })*/
-    const listitems = posts.map(post=>{
-      return <PostWidget title={post.title} subtitle={post.subtitle} captions={post.captions} srcs={post.srcs} iscarousel={post.type} subcaps={post.subcaps} />
+    const listitems = posts.map((post,index)=>{
+      return <PostWidget key={index} title={post.title} subtitle={post.subtitle} captions={post.captions} srcs={post.srcs} iscarousel={post.type} subcaps={post.subcaps} />
     })
 
 
@@ -146,12 +146,12 @@ const SLIDES = Array.from(Array(SLIDE_COUNT).keys())
 
             export const getStaticProps: GetStaticProps = async()=>{
               const posts = await getCrochetPosts();
-              console.log("Posts from Notion:", posts);
+            //  console.log("Posts from Notion:", posts);
           
               const postsWithImages = await Promise.all(
                 posts.map(async (post) => {
                   const images = await getPostImages(post.id);
-                  console.log(`Images for ${post.title}:`, images);
+            //      console.log(`Images for ${post.title}:`, images);
           
                   return {
                     title: post.title,
