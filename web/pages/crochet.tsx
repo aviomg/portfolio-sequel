@@ -5,6 +5,7 @@ import EmblaCarousel from '@/components/carousel/EmblaCarousel'
 import { EmblaOptionsType } from 'embla-carousel'
 import {  getCrochetPosts, getPostImages } from '@/lib/notion';
 
+
 import {
   Card,
   CardContent,
@@ -60,11 +61,36 @@ export default function CrochetPage({posts}:Props){
             </div>
           </section>
           <div className="flex justify-center items-center gap-4 mb-8">
-          <img src="/crochet/IMG_9727.webp" alt="Image 1" className="w-1/6 shadow-lg rounded-sm border-2 border-viridian"/>
-  
-  <img src="/crochet/legwarmers.webp" alt="Image 3" className="max-h-[200px] object-contain rounded-sm border-viridian border-2"/>
-  <img src="/crochet/IMG_1412.webp" alt="Image 2" className="w-1/6 rounded-sm shadow-md border-2 border-viridian"/>
-  <img src="/crochet/face.webp" alt="Image 2" className="max-h-[230px] object-cover border-viridian border-2 rounded-sm"/>
+            <div className="relative w-1/6 shadow-lg border-2 border-viridian min-h-[334px]">
+            <Image 
+            src="/crochet/IMG_9727.webp"
+            alt="crochet tapestry image"
+            fill
+            className="object-contain"
+            sizes="(max-width:768px) 100vw, 200px"
+            />
+            </div>
+            <div className="max-h-[200px] min-w-[151px] min-h-[200px] relative border-viridian border-2">
+          <Image 
+          src="/crochet/legwarmers.webp" 
+          alt="Image 3" 
+          fill
+          className="object-contain"/>  
+          </div>
+          <div className="w-1/6 shadow-md border-2 border-viridian relative min-h-[334px]">
+        <Image 
+        src="/crochet/IMG_1412.webp" 
+        alt="Image 2" 
+        fill
+        className="object-cover"/>
+        </div>
+        <div className="relative max-h-[230px] border-2 border-viridian min-w-[173px] min-h-[230px]">
+        <Image 
+        src="/crochet/face.webp" 
+        alt="Image 2" 
+        fill
+        className=" object-cover  "/>
+        </div>
 </div>
     <h2 className="pt-4 px-10 text-center text-lg text-gray-700 !font-mono-normal container mx-auto max-w-6xl">the following is an (unfinished) chronological documentation of my experiences/accomplishments/creations in crochet, 
   somewhat organized into chapters and by personal milestones. thank you for viewing and i hope you enjoy!
@@ -104,7 +130,13 @@ function PostWidget({title, iscarousel, captions, srcs, subtitle, subcaps}:postw
           <article>
           <div className="flex flex-col justify-center items-center">
                       <div className=" flex-row flex max-h-[400px] gap-4 max-w-fit overflow-hidden ">
-                      <img  className=" border-[2px] max-h-[400px]  max-w-[400px] min-h-[400px]  border-viridian shadow-lg shadow-black object-contain rounded-md" src={srcs[0]} alt="Gallery Image" />
+                        <div className="relative border-2 max-h-[400px] max-w-[400px] min-h-[400px] min-w-[301px] border-viridian shadow-lg shadow-black rounded-md">
+                          <Image
+                          alt="crochet post image"
+                          fill
+                          className="object-contain"
+                          src={srcs[0]} />
+                        </div>
                       </div>
                       </div>
           </article>
