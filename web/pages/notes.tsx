@@ -43,6 +43,8 @@ export default function NotesPage({courses}:Props){
         <>
         <Head>
   <title>Avi Kumar | Notes</title>
+  <link rel="canonical" href="https://jahnavikumar.org/notes" />
+
 <meta name="description" content="archive: all course notes. cornell notes are superior and yes, i would die on that hill (though i'm not sure if that's saying a lot)"/>
 <meta name="keywords" content="algorithms and analysis, digital logic, swe, software engineering, developer, software developer, computer science, comp sci, unc, unc chapel hill, portfolio, engineer, webdev, web dev"/>
 <meta name="robots" content="index, follow" />
@@ -59,7 +61,7 @@ export default function NotesPage({courses}:Props){
 " />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://jahnavikumar.org" />
-  <meta property="og:image" content="https://jahnavikumar.org/public/og-image.png" />
+  <meta property="og:image" content="https://jahnavikumar.org/og-image.png" />
   <meta property="og:image:alt" content="Avi Kumar | Software Engineer" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />

@@ -147,6 +147,8 @@ export default function Blog({ poems }: { poems: Poem[] }){
       <>
               <Head>
         <title>Avi Kumar | Blog</title>
+        <link rel="canonical" href="https://jahnavikumar.org/blog" />
+
       <meta name="description" content="a space to record, categorize, and document some of the things I do and think and make! a scrapbook of my life (an interface for my brain?). 
                                        you can find my poems and other tidbits below."/>
       <meta name="keywords" content="blog, poetry, poet, poems, prose, writing, journal, diary, creative, art, swe, software engineering, developer, software developer, computer science, comp sci, unc, unc chapel hill, portfolio, engineer, webdev, web dev"/>
@@ -163,7 +165,7 @@ export default function Blog({ poems }: { poems: Poem[] }){
                                        you can find my poems and other tidbits below." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://jahnavikumar.org" />
-        <meta property="og:image" content="https://jahnavikumar.org/public/og-image.png" />
+        <meta property="og:image" content="https://jahnavikumar.org/og-image.png" />
         <meta property="og:image:alt" content="Avi Kumar | Software Engineer" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />

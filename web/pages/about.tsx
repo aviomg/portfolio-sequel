@@ -1,5 +1,4 @@
 import Navbar from "@/components/nav-bar";
-import { time } from "console";
 import Head from "next/head";
 import Link from "next/link";
 
@@ -28,6 +27,7 @@ export default function AboutPage(){
         <>
         <Head>
         <title>Avi Kumar | About</title>
+        <link rel="canonical" href="https://jahnavikumar.org/about" />
       <meta name="description" content="Hi! My name is Avi. I'm a third-year CS and French double major at UNC-Chapel Hill.
                                          My favorite things to do are to learn and to create. If you asked anyone who knew me 
                                          to describe me in one word, they'd probably say curious. Outside of computer science and 
@@ -44,7 +44,7 @@ export default function AboutPage(){
         {/* Open Graph */}
         <meta property="og:site_name" content="Avi Kumar" />
         <meta property="og:locale" content="en_US" />
-        <meta property="og:title" content="" />
+        <meta property="og:title" content="Avi Kumar | About" />
         <meta property="og:description" content="Hi! My name is Avi. I'm a third-year CS and French double major at UNC-Chapel Hill.
                                          My favorite things to do are to learn and to create. If you asked anyone who knew me 
                                          to describe me in one word, they'd probably say curious. Outside of computer science and 
@@ -55,7 +55,7 @@ export default function AboutPage(){
 
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://jahnavikumar.org" />
-        <meta property="og:image" content="https://jahnavikumar.org/public/og-image.png" />
+        <meta property="og:image" content="https://jahnavikumar.org/og-image.png" />
         <meta property="og:image:alt" content="Avi Kumar | About Me" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
@@ -65,7 +65,7 @@ export default function AboutPage(){
         <div className="flex-grow min-h-[calc(100vh)] bg-[#acd7bb]  flex flex-col text-center gap-x-5 text-about-text pb-10">
             <Navbar currentpage="About" />
             <div className="mx-15 mb-9 items-center">
-                <h2 className="text-4xl font-bold  mb-4 ml-auto text-about-primary">about me</h2>
+                <h1 className="text-4xl font-bold  mb-4 ml-auto text-about-primary">about me</h1>
                 <div className="flex flex-row">
                     <div className="pl-10 pr-10 leading-[28px] text-[1.125rem] text-center">
                         <span className="font-mono-about text-about-text text-[16px] ">
@@ -86,7 +86,7 @@ export default function AboutPage(){
 
                         </div>
                     </div>
-                    <img src="/me.jpeg" className="max-w-[22%] border-about-secondary border-[3px] object-cover" />
+                    <img src="/me.jpeg" className="max-w-[22%] border-about-secondary border-[3px] object-cover" alt="ID: A headshot of Avi Kumar. Description: A woman with pink hair and sunglasses, wearing a black button down and smiling at the camera." />
                 </div>
             </div>
             <section className="text-left bg-antiquewhite px-5 mx-5 mb-4 border-2 border-[#204d4a]">

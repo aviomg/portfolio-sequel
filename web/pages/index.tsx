@@ -25,6 +25,8 @@ export default function Home({courses}:Props) {
     <>
     <Head>
       <title>Avi Kumar | Home</title>
+      <link rel="canonical" href="https://jahnavikumar.org" />
+
       <meta name="description" content="A personal website showcasing my experience and projects, and documenting my journey as a developer/engineer, computer science student, and human being." />
       <meta name="keywords" content="swe, software engineering, developer, software developer, computer science, comp sci, unc, unc chapel hill, portfolio, engineer, webdev, web dev"/>
       <meta name="robots" content="index, follow" />
@@ -39,7 +41,7 @@ export default function Home({courses}:Props) {
         <meta property="og:description" content="A personal website showcasing my experience and projects, and documenting my journey as a developer/engineer, computer science student, and human being." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://jahnavikumar.org" />
-        <meta property="og:image" content="https://jahnavikumar.org/public/og-image.png" />
+        <meta property="og:image" content="https://jahnavikumar.org/og-image.png" />
         <meta property="og:image:alt" content="Avi Kumar | Software Engineer" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />

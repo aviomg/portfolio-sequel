@@ -75,6 +75,7 @@ export default function Entries({ poems }: { poems: Poem[] }) {
     <>
     <Head>
 <title>Avi Kumar | Poetry</title>
+<link rel="canonical" href="https://jahnavikumar.org/entries" />
 <meta name="description" content="writing and ranting and rhyming etc. This is my poetry portfolio, I hope you enjoy! view the table of contents to navigate to a poem."/>
 <meta name="keywords" content="poetry, poem, poet, prose, writing, creative, blog, journal, diary, poems, swe, software engineering, developer, software developer, computer science, comp sci, unc, unc chapel hill, portfolio, engineer, webdev, web dev"/>
 <meta name="robots" content="index, follow" />
@@ -89,7 +90,7 @@ export default function Entries({ poems }: { poems: Poem[] }) {
 <meta property="og:description" content="writing and ranting and rhyming etc. This is my poetry portfolio, I hope you enjoy! view the table of contents to navigate to a poem."/>
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://jahnavikumar.org" />
-<meta property="og:image" content="https://jahnavikumar.org/public/og-image.png" />
+<meta property="og:image" content="https://jahnavikumar.org/og-image.png" />
 <meta property="og:image:alt" content="Avi Kumar | Software Engineer" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />

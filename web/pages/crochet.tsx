@@ -56,6 +56,8 @@ export default function CrochetPage({posts}:Props){
       <>
       <Head>
 <title>Avi Kumar | Crochet</title>
+<link rel="canonical" href="https://jahnavikumar.org/crochet" />
+
 <meta name="description" content="the following is an (unfinished) chronological documentation of my experiences/accomplishments/creations in crochet, somewhat organized into chapters and by personal milestones. thank you for viewing and i hope you enjoy!"/>
 <meta name="keywords" content="crochet, art, blog, freeform crochet, crochet diary, freeform, tapestry, creative, swe, software engineering, developer, software developer, computer science, comp sci, unc, unc chapel hill, portfolio, engineer, webdev, web dev"/>
 <meta name="robots" content="index, follow" />
@@ -70,7 +72,7 @@ export default function CrochetPage({posts}:Props){
 <meta property="og:description" content="the following is an (unfinished) chronological documentation of my experiences/accomplishments/creations in crochet, somewhat organized into chapters and by personal milestones. thank you for viewing and i hope you enjoy!" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://jahnavikumar.org" />
-<meta property="og:image" content="https://jahnavikumar.org/public/og-image.png" />
+<meta property="og:image" content="https://jahnavikumar.org/og-image.png" />
 <meta property="og:image:alt" content="Avi Kumar | Software Engineer" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />

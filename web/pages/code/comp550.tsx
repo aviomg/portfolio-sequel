@@ -43,6 +43,7 @@ export default function CodePage({ fileContents }: { fileContents: Record<string
         <>
         <Head>
         <title>Avi Kumar | Code </title>
+        <link rel="canonical" href="https://jahnavikumar.org/code/comp550" />
         <meta name="description" content="python implementations of classic and modern algorithms from CS theory" />
         <meta name="keywords" content="code, python, algorithms, computer science theory"/>
         <meta name="robots" content="index, follow" />
@@ -57,7 +58,7 @@ export default function CodePage({ fileContents }: { fileContents: Record<string
           <meta property="og:description" content="Python implementations of classic and modern algorithms from CS theory" />
           <meta property="og:type" content="website" />
           <meta property="og:url" content="https://jahnavikumar.org" />
-          <meta property="og:image" content="https://jahnavikumar.org/public/og-image.png" />
+          <meta property="og:image" content="https://jahnavikumar.org/og-image.png" />
           <meta property="og:image:alt" content="Avi Kumar | Software Engineer" />
           <meta property="og:image:width" content="1200" />
           <meta property="og:image:height" content="630" />

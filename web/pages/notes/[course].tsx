@@ -14,11 +14,14 @@ export default function CourseNotesPage({course}:props){
     const part1 = ctitle.split(" ")[0];
     const part2 = ctitle.split(" ")[1];
     const srcname = "/assets/" + part1 + "-" + part2 + ".pdf";
+    const slugforcanonurl = (part1+part2).toLowerCase();
+    const canonicalurl = `https://jahnavikumar.org/notes/${slugforcanonurl}`
     
     return(
         <>
         <Head>
         <title>Avi Kumar | Notes: {ctitle}</title>
+    <link rel="canonical" href={canonicalurl} />
       <meta name="description" content={course.title}/>
       <meta name="keywords" content="swe, software engineering, developer, software developer, computer science, comp sci, unc, unc chapel hill, portfolio, engineer, webdev, web dev"/>
       <meta name="robots" content="index, follow" />
@@ -33,7 +36,7 @@ export default function CourseNotesPage({course}:props){
         <meta property="og:description" content={course.title} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://jahnavikumar.org" />
-        <meta property="og:image" content="https://jahnavikumar.org/public/og-image.png" />
+        <meta property="og:image" content="https://jahnavikumar.org/og-image.png" />
         <meta property="og:image:alt" content="Avi Kumar | Software Engineer" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
