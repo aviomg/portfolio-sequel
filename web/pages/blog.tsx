@@ -26,7 +26,7 @@ export type Poem = {
      const href= `/entries#poem${index}`
      const id = `poem${index}`;
      return(
-        <article  className="border-b border-[#E5E7EB] pt-4 pb-4 text-gray-700 container block text-left mx-auto space-y-0">
+        <article key={index} className="border-b border-[#E5E7EB] pt-4 pb-4 text-gray-700 container block text-left mx-auto space-y-0">
            <h1 className="font-bold text-left">
             <Link href={href} className="text-black  hover:underline transition-all duration-100 mt-3">
             {poem.date!="undefined"? 

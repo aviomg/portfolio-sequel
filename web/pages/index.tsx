@@ -15,12 +15,12 @@ type Props = {
  //inside the export default function, crease the const coursecards using the props thing
  //done!
 
-  const projectcards = projects.map(project => <ProjectCard name={project.name} description={project.description} link={project.link} tech={project.tech} />)
-  const coursecards1 = courses.map(course => <CourseCard course={course.name} description={course.description} notesnames={course.notesnames} noteslinks={course.noteslinks}/>)
+  //const coursecards1 = courses.map(course => <CourseCard course={course.name} description={course.description} notesnames={course.notesnames} noteslinks={course.noteslinks}/>)
   
 export default function Home({courses}:Props) {
+  const projectcards = projects.map(project => <ProjectCard name={project.name} description={project.description} link={project.link} tech={project.tech} key={project.id} />)
 
-  const coursecards = courses.map((course)=> (<CourseCard course={course.title} description={course.description} notesnames={course.notesnames} noteslinks={course.noteslinks}/>))
+  const coursecards = courses.map((course)=> (<CourseCard title={course.title} description={course.description} notesnames={course.notesnames} noteslinks={course.noteslinks} key={course.id} id={course.id}/>))
   return (
     <>
     <Head>

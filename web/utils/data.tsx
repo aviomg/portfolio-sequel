@@ -1,34 +1,46 @@
 export const projects = [
+  {name:"SwipeShare",
+    description:"a community-driven platform where college students can request or donate unused meal swipes for campus dining halls.",
+    link:"https://github.com/comp426-25s/final-project-team-20",
+    tech:["Nextjs","React","Supabase","Realtime","TSX","Shadcn","Figma"],
+    id:7
+  },
     {name:"Studio Keys",
         description: " A Python-based tool designed to enable the easy retrieval and recovery of UI/UX designs created with the (now) defunct Invision prototyping tool.",
         link:"https://studio-keys.onrender.com",
-        tech:["Python","Flask","GCS","Render","Tailwind"]
+        tech:["Python","Flask","GCS","Render","Tailwind"],
+        id:6
     },
    
     {name:"CSXL Student Showcase Board",
       description:"My team's final project for COMP 590 involved designing and implementing a feature for the UNC CSXL website that allows students to showcase their projects and explore others' work in a centralized, interactive feed. Click to watch our demo video!",
       link:"https://youtu.be/5HTkijZrJAc?si=a7blwTyL7nJWt4zG",
-      tech:["Angular","FastAPI","SQLAlchemy","Kubernetes"]
+      tech:["Angular","FastAPI","SQLAlchemy","Kubernetes"],
+      id:5
   },
   {name:"Pokédex",
     description:"      a Pokédex app to display information about Pokemon, moves, and items. Built using Next.js and the Pokemon API, deployed live to the internet via Vercel. ",
           link:"https://a05-pokedex-avikumar.vercel.app/",
-          tech:["Next.js","React Query","Tailwind","Vercel"]
+          tech:["Nextjs","React Query","Tailwind","Vercel"],
+          id:4
       },
       {name:"Wordle",
         description:"A recreation of wordle using React.js. Exercise to become familiar with the framework.",
             link:"https://a04-wordle-avikumar.vercel.app/",
-              tech:["React"]
+              tech:["React"],
+              id:3
           },
           {name:"Pixel Art Maker",
             description:"Create pixel art on a canvas that persists on page reload, with functionality to download paintings as pngs. exercise to practice using event listeners.",
                 link:"https://a03-pixel-art-maker-nathanflinchum.vercel.app/",
-                  tech:["TypeScript"]
+                  tech:["TypeScript"],
+                  id:2
               },
         {name:"Fairly Odd Calculator",
           description:"A little exercise to practice using typescript, arrow and higher order functions, and my favorite colors.",
           link:"https://a02-calculator-avikumar.vercel.app/",
-          tech:["TypeScript"]
+          tech:["TypeScript"],
+          id:1
         }
      
   

@@ -30,7 +30,7 @@ export default function Entries({ poems }: { poems: Poem[] }) {
 
   poems.forEach((poem, index) => {
     const currhref = `entries#poem${index + 1}`;
-    const currtoc = <li>
+    const currtoc = <li key={index}>
       <a href={currhref} className="text-hgreen hover:text-red-400 hover:underline ease-in-out  cursor-pointer" id="poem1-toc">
         <span className="font-bold">{index + 1}. </span>
         {poem.date != "undefined" ? <span>{poem.date}// {poem.title}</span> : <span>{poem.title}</span>}
@@ -38,19 +38,19 @@ export default function Entries({ poems }: { poems: Poem[] }) {
     </li>
     toc.push(currtoc);
     const poemparas = poem.content.split("\n\n")
-    const poemcont = poemparas.map(poem => {
+    const poemcont = poemparas.map((poem,ind1) => {
       const paralines = poem.split("\n")
-      const listitems = paralines.map(line => <p>{line}</p>)
+      const listitems = paralines.map((line,ind2) => <p key={ind2}>{line}</p>)
       return (
         //need a div class=poem-para for each
-        <div className="mb-4 mt-0">
+        <div key={ind1} className="mb-4 mt-0">
           {listitems}
         </div>)
     })
     const itemid = `poem${index + 1}`;
     const classtitle = index % 2 == 0 ? "bg-puce/50 rounded mb-10 border-puce border" : "bg-pink-200/30 rounded mb-10 border border-pink-200"
     const item =
-      <div className={classtitle}>
+      <div key={index} className={classtitle}>
         <article id={itemid} className="text-gray-700 container block text-left mx-auto space-y-1 mb-2 px-40 py-4 max-sm:px-8">
           <h1 className="font-bold text-left" id="heading" >
             {poem.date != "undefined" ? <p>{poem.date}</p> : null}

@@ -3,18 +3,19 @@ import { JSX, useEffect } from "react";
 import Prism from 'prismjs';
 import 'prismjs/components/prism-python';
 import 'prismjs/themes/prism.css';
+import { Course } from "@/lib/notion";
+
+//id, title, description, notesnames, noteslinks
 
 
-type coursecardprops = {course:string, description:string, notesnames:string[]|null, noteslinks:string[]|null}
-
-export default function CourseCard({course, description, notesnames, noteslinks}:coursecardprops){
+export default function CourseCard({id, title, description, notesnames, noteslinks}:Course){
   useEffect(() => {
     Prism.highlightAll();
   }, []);
 
     const arroflinks:JSX.Element[] = []
     noteslinks?.forEach((link, index)=>{
-        const element = <Link className="text-viridian font-bold text-sm hover:text-[#6bc9b2] transition-all duration-75 max-w-min border-viridian" href={link}>
+        const element = <Link key={index} className="text-viridian font-bold text-sm hover:text-[#6bc9b2] transition-all duration-75 max-w-min border-viridian" href={link}>
                         <pre className="code-block language-python max-w-fit !border-transparent !bg-transparent !px-0 !mr-1 !py-0"><code className="!border-green-400 !border !font-normal !px-1 !text-viridian hover:!bg-green-300 hover:!bg-300/100 !bg-green-300/40 transition-all duration-100
                         ">{notesnames? notesnames[index]: "notes"}</code></pre></Link>
         arroflinks.push(element);
@@ -23,7 +24,7 @@ export default function CourseCard({course, description, notesnames, noteslinks}
     
     return(
     <div className="lg:max-xl:w-[30%] px-5 py-2 rounded-lg  w-full md:w-[48%] lg:w-[24%] shadow-md bg-purple-300/30  shadow-neonpurp hover:shadow-[#725295] hover:bg-purple-300/40 transition-all duration-150  flex flex-col">
-    <h1 className="text-lg min-h-14 font-bold text-[#5941a9]">{course}</h1>
+    <h1 className="text-lg min-h-14 font-bold text-[#5941a9]">{title}</h1>
     <p className={description.includes("Coming Soon")? "text-xs text-gray-700 min-h-fit lg:min-h-12 italic": "text-xs text-gray-700 min-h-fit lg:min-h-12"}>{description}</p>
     {noteslinks? <div className="flex gap-1">
            {arroflinks}

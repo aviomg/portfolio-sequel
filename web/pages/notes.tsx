@@ -23,7 +23,7 @@ export default function NotesPage({courses}:Props){
         const part2 = normalized.slice(-3);
         const denormalized = part1 + " " + part2
         return(
-        <li>
+        <li key={index}>
         <Link href={href} className="block p-2 bg-white shadow-md rounded-lg hover:bg-puce/30  transition-all duration-75">
           <h2 className={index%2==0? "text-xl text-viridian":"text-xl text-hgreen"}
           >{course.title}</h2>
