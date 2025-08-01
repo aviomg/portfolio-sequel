@@ -83,7 +83,7 @@ export async function getCrochetPosts() {
     }));
   }
 
-  export async function getPoems(){
+  /*export async function getPoems(){
   
     const response = await notion.databases.query({
         database_id:process.env.NOTION_POEM_DB_ID!,
@@ -147,14 +147,7 @@ export async function getCrochetPosts() {
 
        else{content.push(block.type + " and ind is " + ind.toString())}
        
-       /* else if(block.type === "paragraph"){
-            const paragraph = block.paragraph.rich_text[0]?.plain_text || '';
-            content.push(paragraph);
-        }
-        else{
-            const type  = block.type;
-            content.push(type + " and index is " + ind.toString());
-        }*/
+      
         ind+=1;
     }
     if(title && date && content.length){
@@ -165,7 +158,7 @@ export async function getCrochetPosts() {
  
 
 
-  }
+  }*/
   
 
 
@@ -195,7 +188,7 @@ export async function getPostImages(postId:string){
 
 //we have a specific page in mind, which we know by the page ids listed in database
 
-export async function getPagesContent(pageId:string){
+/*export async function getPagesContent(pageId:string){
     const blocks = [];
     const response = await notion.blocks.children.list({
           block_id: pageId,
@@ -219,7 +212,7 @@ export async function getPagesContent(pageId:string){
     //return blocks[0].type;
 
 }
-
+*/
 
   
   
