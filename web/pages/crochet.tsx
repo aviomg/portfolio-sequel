@@ -1,6 +1,5 @@
 import Navbar from "@/components/nav-bar";
 import Image from 'next/image'
-import { Geist, Geist_Mono } from "next/font/google";
 import EmblaCarousel from '@/components/carousel/EmblaCarousel'
 import { EmblaOptionsType } from 'embla-carousel'
 import {  getCrochetPosts, getPostImages } from '@/lib/notion';
@@ -10,22 +9,13 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
-  CardHeader,
   CardTitle,
 } from "@/components/ui/card"
 import { GetStaticProps } from "next";
 import Head from "next/head";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+
 
 type PostWithImages = {
   title: string;
@@ -177,8 +167,6 @@ function PostWidget({title, iscarousel, captions, srcs, subtitle, subcaps}:postw
 }
 else{//logic for carousels here:
   const OPTIONS: EmblaOptionsType = { loop: true }
-const SLIDE_COUNT = 5
-const SLIDES = Array.from(Array(SLIDE_COUNT).keys())
 
 
   return (  

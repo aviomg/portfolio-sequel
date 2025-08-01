@@ -6,7 +6,7 @@ import React, {
 } from 'react'
 import { EmblaCarouselType } from 'embla-carousel'
 import './carousels2.css'
-import { ArrowBigLeft, ChevronLeft, ChevronRight } from 'lucide-react'
+import {  ChevronLeft, ChevronRight } from 'lucide-react'
 
 type UsePrevNextButtonsType = {
   prevBtnDisabled: boolean

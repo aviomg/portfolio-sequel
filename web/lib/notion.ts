@@ -1,5 +1,4 @@
 import {Client} from '@notionhq/client'
-import { Poem } from "../pages/blog";
 
 const notion = new Client({auth:process.env.NOTION_TOKEN});
 
@@ -60,11 +59,14 @@ export async function getCourses(){
         ]
      });
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return response.results.map((page:any):Course=>({
         id:page.id,
         title:page.properties.Title.title[0]?.plain_text||'',
         description: page.properties.description.rich_text[0]?.plain_text || '',
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         notesnames: page.properties.notesnames.multi_select.map((tag:any)=>tag.name),
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         noteslinks: page.properties.noteslinks.multi_select.map((tag:any)=>tag.name)
     }))
 }
@@ -75,6 +77,7 @@ export async function getCrochetPosts() {
       sorts: [{ property: "order", direction: "ascending" }]
     });
   
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return response.results.map((page: any): CrochetPost => ({
       id: page.id,
       title: page.properties.Title.title[0]?.plain_text || "",
@@ -177,6 +180,7 @@ export async function getPostImages(postId:string){
 
     });
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return response.results.map((item:any):CrochetImage => ({
         src: item.properties.src.title[0]?.plain_text || "",
         caption: item.properties.caption.rich_text[0]?.plain_text||"",
