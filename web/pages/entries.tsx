@@ -106,7 +106,7 @@ export default function Entries({ poems }: { poems: Poem[] }) {
 </Head>
 
     <div className="flex-grow" id="top">
-      <Navbar currentpage="Blog" />
+      <Navbar currentpage="Poetry" />
       <div className="pb-10 pt-3">
         <div className="container mx-auto text-center">
           <h2 id="current" className="text-4xl font-serif font-bold mb-4 text-puce">blog posts</h2>

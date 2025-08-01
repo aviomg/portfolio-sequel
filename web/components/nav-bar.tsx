@@ -3,10 +3,11 @@ import Link from "next/link";
 type props={currentpage:string}
 
 export default function Navbar({currentpage}:props){
-    const pages = [{title:"Home",link:"/#cont",id:1},{title: "About",link:"/about",id:2},{title:"Blog",link:"/blog",id:3},{title:"Notes",link:"/notes",id:4},{title:"Crochet",link:"/crochet",id:5}]
+    const pages = [{title:"Home",link:"/#cont",id:1},{title: "About",link:"/about",id:2},{title:"Blog",link:"/blog",id:3},{title:"Notes",link:"/notes",id:4},
+        {title:"Crochet",link:"/crochet",id:5},{title:"Poetry",link:"/entries",id:6}]
     let listitems = pages.map(page => 
-        page.title==currentpage?   <li key={page.id}><Link  href={page.link} className="text-puce underline">{page.title}</Link></li>:
-        <li key={page.id}><Link  href={page.link} className="underline hover:text-puce duration-150 "> {page.title}</Link></li>
+        page.title==currentpage?   <li key={page.id}><Link  href={page.link} className="text-puce ">{page.title}</Link></li>:
+        <li key={page.id}><Link  href={page.link} className="hover:underline hover:text-puce duration-150 "> {page.title}</Link></li>
     )
   
     return(
