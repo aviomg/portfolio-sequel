@@ -7,6 +7,7 @@ import { Card } from "@/components/ui/card";
 import fs from 'fs';
 import path from 'path';
 import Head from "next/head";
+import { ArrowUpToLine, CornerLeftUp } from "lucide-react";
 
 export default function Entries({ poems }: { poems: Poem[] }) {
 
@@ -48,19 +49,26 @@ export default function Entries({ poems }: { poems: Poem[] }) {
         </div>)
     })
     const itemid = `poem${index + 1}`;
-    const classtitle = index % 2 == 0 ? "bg-puce/50 rounded mb-10 border-puce border" : "bg-pink-200/30 rounded mb-10 border border-pink-200"
+    const classtitle = index % 2 == 0 ? "bg-puce/50 rounded mb-10 border-puce border flex flex-row justify-between" : "bg-pink-200/30 rounded mb-10 border border-pink-200 flex flex-row justify-between"
     const item =
       <div key={index} className={classtitle}>
         <article id={itemid} className="text-gray-700 container block text-left mx-auto space-y-1 mb-2 px-40 py-4 max-sm:px-8">
+          <div className="flex flex-row justify-between">
           <h1 className="font-bold text-left" id="heading" >
             {poem.date != "undefined" ? <p>{poem.date}</p> : null}
             {poem.title != "undefined" ? <p>{poem.title}</p> : null}
           </h1>
+          </div>
+         
           <div id="body1">
             {poem.subtitle!="undefined"? <div className="mb-4 mt-0"><p>{poem.subtitle}</p></div>:null }
             {poem.content!="undefined"? <div className="mb-4 mt-0">{poemcont} </div>:null }
           </div>
         </article>
+        <a href="./entries#top">
+        <ArrowUpToLine size={20} className="text-gray-450 mt-4 mr-3 hover:text-gray-400" />
+        </a>
+
       </div>
     if(poem.archive==="true"){
       archientries.push(item)
@@ -97,7 +105,7 @@ export default function Entries({ poems }: { poems: Poem[] }) {
 
 </Head>
 
-    <div className="flex-grow">
+    <div className="flex-grow" id="top">
       <Navbar currentpage="Blog" />
       <div className="pb-10 pt-3">
         <div className="container mx-auto text-center">

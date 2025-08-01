@@ -26,13 +26,19 @@ export default function CodePage({ fileContents }: { fileContents: Record<string
     const fileNames = Object.keys(fileContents);
     const [activeTab, setActiveTab] = useState<string>(fileNames[0]);
     const [activecode, setActiveCode] = useState<string>(fileContents[fileNames[0]]);
+    const [activesidebar,setActiveSidebar] = useState<string>(fileContents[fileNames[0]]);
+    const [filebtnactive, setfilebtnactive] = useState<boolean>(false);
     const [dropdownopen, setDropdownopen] = useState<boolean>(true);
-    const normalclasses = "bg-neutral-300 text-sm border-r border-neutral-200 text-gray-500 py-2 px-[14px] cursor-pointer hover:bg-neutral-400 transition-all duration-150"
-    const activeclasses = "text-sm border-r border-neutral-200 py-2 px-[14px] cursor-pointer hover:bg-neutral-400 transition-all duration-150 bg-neutral-200 text-green-400 border-t-green-400 border-t "
+    const normalclasses = "!font-sans-old bg-neutral-300 text-sm border-r border-neutral-200 text-gray-500 py-2 px-[14px] cursor-pointer hover:bg-neutral-400 transition-all duration-150"
+    const activeclasses = "!font-sans-old text-sm border-r border-neutral-200 py-2 px-[14px] cursor-pointer   bg-neutral-200 text-green-400 border-t-green-400 border-t "
     const normalclasses_sidebar = "py-2 px-[10px] text-sm cursor-pointer  hover:bg-[#dcdbdb] transition-all duration-150"
     const activeclasses_sidebar = "py-2 px-[10px] text-sm cursor-pointer  bg-[#b4c9e3] transition-all duration-150"
+    const normalclasses_filebtn="py-2 pr-[10px] pl-[6px] cursor-pointer flex flex-row gap-x-1 text-sm  hover:bg-[#dcdbdb]"
+    const activeclasses_filebtn="py-2 pr-[10px] pl-[6px] cursor-pointer flex flex-row gap-x-1 text-sm  bg-[#b4c9e3]"
+
     const switchTab = (file: string): void => {
         setActiveTab(file);
+        setActiveSidebar(file);
     }
 
     useEffect(() => {
@@ -83,13 +89,21 @@ export default function CodePage({ fileContents }: { fileContents: Record<string
                 <div className="ide-container flex w-[85%] h-full border border-[#444] rounded-lg overflow-hidden bg-[#252526] shadow-md">
                     <div className="sidebar w-[20%] bg-neutral-300 text-gray-500 py-[10px] rounded-sm border-r border-r-gray-500">
                         <ul className="list-none p-0 m-0">
-                            <li id="explorer" className="py-2 pr-[10px] pl-[6px] cursor-pointer flex flex-row gap-x-1 text-sm  hover:bg-[#dcdbdb]" onClick={() => setDropdownopen(!dropdownopen)}>
+                            <li id="explorer" className={filebtnactive?activeclasses_filebtn:normalclasses_filebtn} onClick={() => {
+                                setDropdownopen(!dropdownopen);
+                                setfilebtnactive(true);
+                                setActiveSidebar("");
+
+                            }
+                                }>
                                 <span>{dropdownopen ? <ChevronDown size={20} /> : <ChevronRight size={20} />}</span>
-                                <span>files</span>
+                                <span >files</span>
                             </li>
                             {dropdownopen ?
                                 Object.keys(fileContents).map((file) => (
-                                    <li key={file} className={activeTab == file ? activeclasses_sidebar : normalclasses_sidebar} onClick={() => switchTab(file)}>
+                                    <li key={file} className={activesidebar == file ? activeclasses_sidebar : normalclasses_sidebar} onClick={() => {
+                                        setfilebtnactive(false);
+                                        switchTab(file)}}>
                                         {file}
                                     </li>
                                 )) : null

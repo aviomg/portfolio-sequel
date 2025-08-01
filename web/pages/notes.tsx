@@ -77,7 +77,7 @@ export default function NotesPage({courses}:Props){
             </div>
             </section>
 
-            <div className="flex-grow max-w-4xl w-full mx-auto py-3">
+            <div className="flex-grow max-w-4xl w-full mx-auto pb-3 pt-1">
                 <ul className="space-y-4">
                     {courseitems}
                 </ul>

@@ -9,7 +9,7 @@ import { useRouter } from "next/router";
 import fs from 'fs';
 import path from 'path';
 import Head from "next/head";
-
+import Image from "next/image";
 
 export type Poem = {
    title: string,
@@ -184,7 +184,13 @@ export default function Blog({ poems }: { poems: Poem[] }){
 
    <div className="flex justify-center items-center gap-4 mb-8 text-center">
       <Link href="/crochet" className="inline-block sm:w-1/5 md:max-lg:w-[50%] lg:max-xl:w-[40%] w-4/5 mx-auto">
-         <img src="/crochet/IMG_9727.webp" alt="image 2" className="w-full h-[300px] object-cover overflow-clip rounded-sm shadow-puce hover:shadow-pink-600 shadow-md border-2 border-puce"/>
+      <div className="relative w-full h-[300px] overflow-clip  shadow-puce hover:shadow-pink-600 shadow-md border-2 border-puce">
+         <Image
+         src="/crochet/IMG_9727.webp"
+         alt="crochet image"
+         fill
+         className="object-cover"/>
+      </div>
          <h1 className="mt-2 text-center text-pink-400">(click for more crochet)</h1>
       </Link>
    </div>

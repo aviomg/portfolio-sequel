@@ -7,6 +7,20 @@ import Navbar from "@/components/nav-bar";
 import { GetStaticProps } from 'next';
 import { getCourses, Course } from '../lib/notion';
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Avi Kumar",
+  url: "https://jahnavikumar.org",
+  sameAs: [
+    "https://www.linkedin.com/in/jahnavikumar/",
+    "https://github.com/aviomg"
+  ],
+  jobTitle: "Software Engineer, Web Analyst, Computer Science Student, & Developer",
+  description: "Personal portfolio and projects website.",
+  image: "https://jahnavikumar.org/og-image.png"
+};
+
 type Props = {
     courses: Course[];
 };
@@ -24,6 +38,10 @@ export default function Home({courses}:Props) {
   return (
     <>
     <Head>
+    <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
       <title>Avi Kumar | Home</title>
       <link rel="canonical" href="https://jahnavikumar.org" />
 
