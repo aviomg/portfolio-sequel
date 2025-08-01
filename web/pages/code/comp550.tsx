@@ -43,6 +43,7 @@ export default function CodePage({ fileContents }: { fileContents: Record<string
 
     useEffect(() => {
         setActiveCode(fileContents[activeTab]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [activeTab]);
 
     return (

@@ -12,7 +12,6 @@ import {
 } from './EmblaCarouselArrowButtons'
 import { DotButton, useDotButton } from './EmblaCarouselDotButton'
 import ClassNames from 'embla-carousel-class-names'
-import { Dot } from 'lucide-react'
 
 type PropType = {
   slides: string[],

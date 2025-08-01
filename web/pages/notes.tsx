@@ -1,5 +1,4 @@
 import Navbar from "@/components/nav-bar";
-import CourseCard from "@/components/course-card";
 import { GetStaticProps } from 'next';
 import { getCourses, Course } from '../lib/notion';
 import Link from "next/link";
@@ -19,9 +18,6 @@ export default function NotesPage({courses}:Props){
         let normalized = course.title.split(":")[0];//course.title.replace(/\s+/g, "");
         normalized = normalized.replace(/\s+/g,"").toLowerCase();
         const href = `/notes/${normalized}`
-        const part1 = normalized.slice(0,-3).toUpperCase();
-        const part2 = normalized.slice(-3);
-        const denormalized = part1 + " " + part2
         return(
         <li key={index}>
         <Link href={href} className="block p-2 bg-white shadow-md rounded-lg hover:bg-puce/30  transition-all duration-75">
@@ -73,7 +69,7 @@ export default function NotesPage({courses}:Props){
         <section className="pb-6">
         <div className="container mx-auto text-center">
             <h2 className="text-4xl text-puce font-serif font-bold mb-4">archive: all course notes</h2>
-            <p className="text-lg text-gray-700">cornell notes are superior and yes, i would die on that hill (though i'm not sure if that's saying a lot)</p>
+            <p className="text-lg text-gray-700">cornell notes are superior and yes, i would die on that hill (though i&apos;m not sure if that&apos;s saying a lot)</p>
             </div>
             </section>
 

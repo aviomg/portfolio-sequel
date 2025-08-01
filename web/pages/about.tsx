@@ -10,17 +10,17 @@ export default function AboutPage(){
     const technologies_other=["Piwik/Matomo","GA4","Tableau","Power BI","Dynatrace"]
     const skills=["Web Analytics","Scrum & APM Frameworks","Full-stack dev","Software dev","Web API dev","Information Design","B2B eCommerce","Product Information Management","SAP Commerce Cloud"]
     
-    const langitems = languages.map(lang =>
-        <span className="bg-[#9bf3f066] border-[#09a6a1] border border-solid px-1 text-[17px] font-bold font-mono-code">{lang}</span>
+    const langitems = languages.map((lang,index) =>
+        <span key={index} className="bg-[#9bf3f066] border-[#09a6a1] border border-solid px-1 text-[17px] font-bold font-mono-code">{lang}</span>
     )
-    const sweitems = technologies_swe.map(tech =>
-        <span className="bg-[#6cab4133] border-[#556f44] border border-solid px-1 text-[17px] font-bold font-mono-code text-[#556f44]">{tech}</span>
+    const sweitems = technologies_swe.map((tech,index) =>
+        <span key={index} className="bg-[#6cab4133] border-[#556f44] border border-solid px-1 text-[17px] font-bold font-mono-code text-[#556f44]">{tech}</span>
     )
-    const otheritems = technologies_other.map(other =>
-        <span className="bg-[#37d4c933] border-[#037971] border border-solid px-1 text-[17px] font-bold font-mono-code text-[#037971]">{other}</span>
+    const otheritems = technologies_other.map((other,index) =>
+        <span key={index} className="bg-[#37d4c933] border-[#037971] border border-solid px-1 text-[17px] font-bold font-mono-code text-[#037971]">{other}</span>
     )
-    const skillitems = skills.map(other =>
-        <span className="bg-[#ae4ca533] border-[#74226c] border border-solid px-1 text-[17px] font-bold font-mono-code text-[#74226c]">{other}</span>
+    const skillitems = skills.map((other,index) =>
+        <span key={index} className="bg-[#ae4ca533] border-[#74226c] border border-solid px-1 text-[17px] font-bold font-mono-code text-[#74226c]">{other}</span>
     )
 
     return(
@@ -69,11 +69,11 @@ export default function AboutPage(){
                 <div className="flex flex-row">{/* top-section*/}
                     <div className="pl-10 pr-10 leading-[28px] text-[1.125rem] text-center">{/* para*/}
                         <span className="font-mono-about text-about-text text-[16px] ">
-                        Hi! My name is Avi. I'm a third-year CS and French double major at UNC-Chapel Hill. My favorite things to do are to learn and to create. If you asked anyone
-                    who knew me to describe me in one word, they'd 
+                        Hi! My name is Avi. I&apos;m a third-year CS and French double major at UNC-Chapel Hill. My favorite things to do are to learn and to create. If you asked anyone
+                    who knew me to describe me in one word, they&apos;d 
                         </span>
                         <div className="mx-4 text-center">
-                        <span className="font-mono-about text-about-text text-[16px]"> probably say "curious". Outside of computer science and computer engineering, my top academic interests are in linguistics and environmentalism. I am fluent in Hindi and French, and a learning beginner in Spanish. In my free time, I enjoy
+                        <span className="font-mono-about text-about-text text-[16px]"> probably say &quot;curious&quot;. Outside of computer science and computer engineering, my top academic interests are in linguistics and environmentalism. I am fluent in Hindi and French, and a learning beginner in Spanish. In my free time, I enjoy
                         </span>
                         <span className="font-mono-about text-[16px] text-about-primary underline">
                             <Link href="/entries"> writing</Link>
@@ -82,10 +82,11 @@ export default function AboutPage(){
                         <span className="font-mono-about text-[16px] text-about-primary underline">
                             <Link href="/crochet">crocheting</Link>
                         </span>
-                        <span className="font-mono-about text-[16px] text-about-text"> (or another creative outlet--like this website), thrift shopping, spending time with friends, and thinking about the things I'm learning. Thanks for visiting!</span>
+                        <span className="font-mono-about text-[16px] text-about-text"> (or another creative outlet--like this website), thrift shopping, spending time with friends, and thinking about the things I&apos;m learning. Thanks for visiting!</span>
 
                         </div>
                     </div>
+                    {/* eslint-disable-next-line @next/next/no-img-element*/}
                     <img src="/me.jpeg" className="max-w-[22%] border-about-secondary border-[3px] object-cover" alt="ID: A headshot of Avi Kumar. Description: A woman with pink hair and sunglasses, wearing a black button down and smiling at the camera." />
                 </div>
             </div>

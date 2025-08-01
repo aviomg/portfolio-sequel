@@ -1,7 +1,7 @@
 import Navbar from "@/components/nav-bar";
 import { Course, getCourses } from "@/lib/notion";
-import { GetServerSidePropsContext, GetStaticPaths, GetStaticProps } from "next";
-import { useRouter } from "next/router";
+import {  GetStaticPaths, GetStaticProps } from "next";
+
 import Head from "next/head";
 
 
@@ -10,7 +10,7 @@ type props={course:Course}
 
 export default function CourseNotesPage({course}:props){
 
-    let ctitle = course.title.split(":")[0];
+    const ctitle = course.title.split(":")[0];
     const part1 = ctitle.split(" ")[0];
     const part2 = ctitle.split(" ")[1];
     const srcname = "/assets/" + part1 + "-" + part2 + ".pdf";

@@ -1,7 +1,7 @@
 import Head from "next/head";
 import NavLink from "@/components/nav-link";
 import ProjectCard from "@/components/project-card";
-import { courses, projects } from "@/utils/data";
+import {  projects } from "@/utils/data";
 import CourseCard from "@/components/course-card";
 import Navbar from "@/components/nav-bar";
 import { GetStaticProps } from 'next';
@@ -78,7 +78,7 @@ export default function Home({courses}:Props) {
 
             <h2  className="text-4xl  font-serif font-extrabold mb-4">avi kumar</h2>
             <p className="text-lg text-gray-700 px-10">third-year student at UNC Chapel Hill studying computer science and french. This site is a collection of my projects, notes, thoughts,
-         professional information, and more. It's a space to document my journey as a computer science student, future developer/engineer, and human being. thanks for visiting!
+         professional information, and more. It&apos;s a space to document my journey as a computer science student, future developer/engineer, and human being. thanks for visiting!
                 </p>
           </div>
           <div className="text-center container mx-auto mt-6 text-sm text-viridian">

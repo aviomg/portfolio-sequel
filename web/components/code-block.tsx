@@ -13,7 +13,7 @@ import 'prismjs/plugins/file-highlight/prism-file-highlight';
 import { useHasMounted } from '@/lib/useHasMounted'; // or wherever you put it
 
 
-export default function CodeBlock({code,language='python'}:{code:string,language?:string}){
+export default function CodeBlock({code}:{code:string,language?:string}){
     const hasMounted = useHasMounted();
 
     useEffect(() => {
@@ -23,7 +23,6 @@ export default function CodeBlock({code,language='python'}:{code:string,language
     
     if (!hasMounted) return null;
     
-    const preclassname=`language-${language}` + " code-block !bg-neutral-200";
     return(
         <pre className="code-block language-python !bg-neutral-200">
             <code className="language-python">

@@ -3,8 +3,6 @@ import Link from "next/link";
 import { JSX, useEffect, useState } from "react";
 import matter from 'gray-matter'
 import { orderedPoems } from '../utils/data';
-import ReactMarkdown from 'react-markdown'
-import { Button } from "@/components/ui/button";
 import { useRouter } from "next/router";
 import fs from 'fs';
 import path from 'path';
@@ -24,7 +22,6 @@ export type Poem = {
      const charlimit=69;
      const words = poem.content.substring(0,charlimit) + "...";
      const href= `/entries#poem${index}`
-     const id = `poem${index}`;
      return(
         <article key={index} className="border-b border-[#E5E7EB] pt-4 pb-4 text-gray-700 container block text-left mx-auto space-y-0">
            <h1 className="font-bold text-left">
@@ -52,8 +49,8 @@ export default function Blog({ poems }: { poems: Poem[] }){
    const [poems1,setPoems1] = useState<Poem[]>(poems);
    const ent = poems1.slice(0,numPoems).map((poem,index)=>createMini(poem,index+1))
    const [entries, setEntries] = useState<JSX.Element[]>(ent);
-   const charlimit=60;
    const [listend, setlistend] = useState<boolean>(false);
+   // eslint-disable-next-line @typescript-eslint/no-unused-vars
    const [btn, setbtn] = useState<string>("");
    const router = useRouter();
    
@@ -117,7 +114,7 @@ export default function Blog({ poems }: { poems: Poem[] }){
       ).then((results)=>{
          setPoems1(results);
        //  console.log(results)
-         let temp:JSX.Element[] = []; //what we will set entries to
+         const temp:JSX.Element[] = []; //what we will set entries to
 
          if ((last_rendered + 5)>=poems1.length){
             //aka we r almost at the end

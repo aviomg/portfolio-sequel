@@ -1,13 +1,12 @@
 import Navbar from "@/components/nav-bar";
 import { orderedPoems } from "@/utils/data";
 import matter from "gray-matter";
-import { JSX, useEffect, useState } from "react";
+import { JSX, useEffect } from "react";
 import { Poem } from "./blog";
-import { Card } from "@/components/ui/card";
 import fs from 'fs';
 import path from 'path';
 import Head from "next/head";
-import { ArrowUpToLine, CornerLeftUp } from "lucide-react";
+import { ArrowUpToLine } from "lucide-react";
 
 export default function Entries({ poems }: { poems: Poem[] }) {
 
@@ -27,13 +26,13 @@ export default function Entries({ poems }: { poems: Poem[] }) {
   const toc: JSX.Element[] = []
   const archientries: JSX.Element[] = []
   const currententries: JSX.Element[] = []
-  const temptoc: JSX.Element[] = [];
 
   poems.forEach((poem, index) => {
     const currhref = `entries#poem${index + 1}`;
     const currtoc = <li key={index}>
       <a href={currhref} className="text-hgreen hover:text-red-400 hover:underline ease-in-out  cursor-pointer" id="poem1-toc">
         <span className="font-bold">{index + 1}. </span>
+        {/* eslint-disable-next-line react/jsx-no-comment-textnodes*/}
         {poem.date != "undefined" ? <span>{poem.date}// {poem.title}</span> : <span>{poem.title}</span>}
       </a>
     </li>

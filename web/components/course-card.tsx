@@ -8,7 +8,7 @@ import { Course } from "@/lib/notion";
 //id, title, description, notesnames, noteslinks
 
 
-export default function CourseCard({id, title, description, notesnames, noteslinks}:Course){
+export default function CourseCard({ title, description, notesnames, noteslinks}:Course){
   const [hasMounted, setHasMounted] = useState(false);
 
   useEffect(() => {
