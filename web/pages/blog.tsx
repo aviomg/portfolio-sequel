@@ -8,7 +8,8 @@ import { Button } from "@/components/ui/button";
 import { useRouter } from "next/router";
 import fs from 'fs';
 import path from 'path';
-
+import Head from "next/head";
+import Image from "next/image";
 
 export type Poem = {
    title: string,
@@ -143,6 +144,34 @@ export default function Blog({ poems }: { poems: Poem[] }){
 
    }
    return (
+      <>
+              <Head>
+        <title>Avi Kumar | Blog</title>
+        <link rel="canonical" href="https://jahnavikumar.org/blog" />
+
+      <meta name="description" content="a space to record, categorize, and document some of the things I do and think and make! a scrapbook of my life (an interface for my brain?). 
+                                       you can find my poems and other tidbits below."/>
+      <meta name="keywords" content="blog, poetry, poet, poems, prose, writing, journal, diary, creative, art, swe, software engineering, developer, software developer, computer science, comp sci, unc, unc chapel hill, portfolio, engineer, webdev, web dev"/>
+      <meta name="robots" content="index, follow" />
+      <meta name="googlebot" content="index, follow" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta charSet="utf-8" />
+
+        {/* Open Graph */}
+        <meta property="og:site_name" content="Avi Kumar" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:title" content="Avi Kumar | Blog" />
+        <meta property="og:description" content="a space to record, categorize, and document some of the things I do and think and make! a scrapbook of my life (an interface for my brain?). 
+                                       you can find my poems and other tidbits below." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://jahnavikumar.org" />
+        <meta property="og:image" content="https://jahnavikumar.org/og-image.png" />
+        <meta property="og:image:alt" content="Avi Kumar | Software Engineer" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+
+        </Head>
+
    <div className="flex-grow mb-10">
    <Navbar currentpage="Blog"/>
    <section className="pb-6">
@@ -155,7 +184,13 @@ export default function Blog({ poems }: { poems: Poem[] }){
 
    <div className="flex justify-center items-center gap-4 mb-8 text-center">
       <Link href="/crochet" className="inline-block sm:w-1/5 md:max-lg:w-[50%] lg:max-xl:w-[40%] w-4/5 mx-auto">
-         <img src="/crochet/IMG_9727.webp" alt="image 2" className="w-full h-[300px] object-cover overflow-clip rounded-sm shadow-puce hover:shadow-pink-600 shadow-md border-2 border-puce"/>
+      <div className="relative w-full h-[300px] overflow-clip  shadow-puce hover:shadow-pink-600 shadow-md border-2 border-puce">
+         <Image
+         src="/crochet/IMG_9727.webp"
+         alt="crochet image"
+         fill
+         className="object-cover"/>
+      </div>
          <h1 className="mt-2 text-center text-pink-400">(click for more crochet)</h1>
       </Link>
    </div>
@@ -182,7 +217,8 @@ export default function Blog({ poems }: { poems: Poem[] }){
    </div>
 
 
-</div>)
+</div>
+</>)
 }
 
 

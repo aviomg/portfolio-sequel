@@ -1,5 +1,4 @@
-import Image from "next/image";
-import Link from "next/link";
+import Head from "next/head";
 import NavLink from "@/components/nav-link";
 import ProjectCard from "@/components/project-card";
 import { courses, projects } from "@/utils/data";
@@ -7,6 +6,20 @@ import CourseCard from "@/components/course-card";
 import Navbar from "@/components/nav-bar";
 import { GetStaticProps } from 'next';
 import { getCourses, Course } from '../lib/notion';
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Avi Kumar",
+  url: "https://jahnavikumar.org",
+  sameAs: [
+    "https://www.linkedin.com/in/jahnavikumar/",
+    "https://github.com/aviomg"
+  ],
+  jobTitle: "Software Engineer, Web Analyst, Computer Science Student, & Developer",
+  description: "Personal portfolio and projects website.",
+  image: "https://jahnavikumar.org/og-image.png"
+};
 
 type Props = {
     courses: Course[];
@@ -23,6 +36,36 @@ export default function Home({courses}:Props) {
 
   const coursecards = courses.map((course)=> (<CourseCard title={course.title} description={course.description} notesnames={course.notesnames} noteslinks={course.noteslinks} key={course.id} id={course.id}/>))
   return (
+    <>
+    <Head>
+    <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      <title>Avi Kumar | Home</title>
+      <link rel="canonical" href="https://jahnavikumar.org" />
+
+      <meta name="description" content="A personal website showcasing my experience and projects, and documenting my journey as a developer/engineer, computer science student, and human being." />
+      <meta name="keywords" content="swe, software engineering, developer, software developer, computer science, comp sci, unc, unc chapel hill, portfolio, engineer, webdev, web dev"/>
+      <meta name="robots" content="index, follow" />
+      <meta name="googlebot" content="index, follow" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta charSet="utf-8" />
+
+        {/* Open Graph */}
+        <meta property="og:site_name" content="Avi Kumar" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:title" content="Avi Kumar | Portfolio & Projects" />
+        <meta property="og:description" content="A personal website showcasing my experience and projects, and documenting my journey as a developer/engineer, computer science student, and human being." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://jahnavikumar.org" />
+        <meta property="og:image" content="https://jahnavikumar.org/og-image.png" />
+        <meta property="og:image:alt" content="Avi Kumar | Software Engineer" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+
+
+    </Head>
     <div >
     {/*title page*/}
     
@@ -65,6 +108,7 @@ export default function Home({courses}:Props) {
 
 
     </div>
+    </>
   );
 }
 

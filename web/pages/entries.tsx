@@ -6,6 +6,8 @@ import { Poem } from "./blog";
 import { Card } from "@/components/ui/card";
 import fs from 'fs';
 import path from 'path';
+import Head from "next/head";
+import { ArrowUpToLine, CornerLeftUp } from "lucide-react";
 
 export default function Entries({ poems }: { poems: Poem[] }) {
 
@@ -47,19 +49,26 @@ export default function Entries({ poems }: { poems: Poem[] }) {
         </div>)
     })
     const itemid = `poem${index + 1}`;
-    const classtitle = index % 2 == 0 ? "bg-puce/50 rounded mb-10 border-puce border" : "bg-pink-200/30 rounded mb-10 border border-pink-200"
+    const classtitle = index % 2 == 0 ? "bg-puce/50 rounded mb-10 border-puce border flex flex-row justify-between" : "bg-pink-200/30 rounded mb-10 border border-pink-200 flex flex-row justify-between"
     const item =
       <div key={index} className={classtitle}>
         <article id={itemid} className="text-gray-700 container block text-left mx-auto space-y-1 mb-2 px-40 py-4 max-sm:px-8">
+          <div className="flex flex-row justify-between">
           <h1 className="font-bold text-left" id="heading" >
             {poem.date != "undefined" ? <p>{poem.date}</p> : null}
             {poem.title != "undefined" ? <p>{poem.title}</p> : null}
           </h1>
+          </div>
+         
           <div id="body1">
             {poem.subtitle!="undefined"? <div className="mb-4 mt-0"><p>{poem.subtitle}</p></div>:null }
             {poem.content!="undefined"? <div className="mb-4 mt-0">{poemcont} </div>:null }
           </div>
         </article>
+        <a href="./entries#top">
+        <ArrowUpToLine size={20} className="text-gray-450 mt-4 mr-3 hover:text-gray-400" />
+        </a>
+
       </div>
     if(poem.archive==="true"){
       archientries.push(item)
@@ -71,7 +80,32 @@ export default function Entries({ poems }: { poems: Poem[] }) {
 
 
   return (
-    <div className="flex-grow">
+    <>
+    <Head>
+<title>Avi Kumar | Poetry</title>
+<link rel="canonical" href="https://jahnavikumar.org/entries" />
+<meta name="description" content="writing and ranting and rhyming etc. This is my poetry portfolio, I hope you enjoy! view the table of contents to navigate to a poem."/>
+<meta name="keywords" content="poetry, poem, poet, prose, writing, creative, blog, journal, diary, poems, swe, software engineering, developer, software developer, computer science, comp sci, unc, unc chapel hill, portfolio, engineer, webdev, web dev"/>
+<meta name="robots" content="index, follow" />
+<meta name="googlebot" content="index, follow" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charSet="utf-8" />
+
+{/* Open Graph */}
+<meta property="og:site_name" content="Avi Kumar" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:title" content="Avi Kumar | Poetry" />
+<meta property="og:description" content="writing and ranting and rhyming etc. This is my poetry portfolio, I hope you enjoy! view the table of contents to navigate to a poem."/>
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://jahnavikumar.org" />
+<meta property="og:image" content="https://jahnavikumar.org/og-image.png" />
+<meta property="og:image:alt" content="Avi Kumar | Software Engineer" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+
+</Head>
+
+    <div className="flex-grow" id="top">
       <Navbar currentpage="Blog" />
       <div className="pb-10 pt-3">
         <div className="container mx-auto text-center">
@@ -110,6 +144,7 @@ export default function Entries({ poems }: { poems: Poem[] }) {
 
       </div>
     </div>
+    </>
   )
 }
 
