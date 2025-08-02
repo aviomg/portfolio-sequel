@@ -57,7 +57,7 @@ export const projects = [
 
 
   export const orderedPoems = 
-  ['jersey-summer.md','twenty-two--I-am-s.md', 'exercise.md', 'thursday-evening-stream-of-consciousness.md', 'widen-your-eyes.md', 'routine.md', 'I-m-starting-to-forget-can.md', 'untitled.md', '---feet-from-my-tower.md', 'for-guilty-pleasures.md', 'water-fountain.md', 'calendar.md', 'canvas.md', 'Hands-of-the-clock.md', 'and-i-feel-like-childhood.md', 'sitting-on-craige-deck-talking.md', 'Haiku--0.md', 'Haiku--1.md', 'Haiku--2.md', 'maybe-i-don-t-mind-the.md', 'nyc.md', 'ENGL----Poetry-Workshop-Prompt.md', 'writer-s-block--April----.md']
+  ['heading-home.md','jersey-summer.md','twenty-two--I-am-s.md', 'exercise.md', 'thursday-evening-stream-of-consciousness.md', 'widen-your-eyes.md', 'routine.md', 'I-m-starting-to-forget-can.md', 'untitled.md', '---feet-from-my-tower.md', 'for-guilty-pleasures.md', 'water-fountain.md', 'calendar.md', 'canvas.md', 'Hands-of-the-clock.md', 'and-i-feel-like-childhood.md', 'sitting-on-craige-deck-talking.md', 'Haiku--0.md', 'Haiku--1.md', 'Haiku--2.md', 'maybe-i-don-t-mind-the.md', 'nyc.md', 'ENGL----Poetry-Workshop-Prompt.md', 'writer-s-block--April----.md']
   
   /*  <div class="widget">
     <h1 class="widget-title"></h1>
