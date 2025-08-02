@@ -21,7 +21,8 @@ export type Poem = {
    //  console.log(poem);
      const charlimit=69;
      const words = poem.content.substring(0,charlimit) + "...";
-     const href= `/entries#poem${index}`
+     const href= `/entries#poem${index}`;
+     //bg-lighterblue
      return(
         <article key={index} className="border-b border-[#E5E7EB] pt-4 pb-4 text-gray-700 container block text-left mx-auto space-y-0">
            <h1 className="font-bold text-left">
@@ -45,6 +46,7 @@ export type Poem = {
 
 
 export default function Blog({ poems }: { poems: Poem[] }){
+   const morebtnclasses="text-black mt-4 px-4 text-lg font-bold text-left shadow-md  hover:bg-[#4780ea] transition all duration-75 rounded-md max-w-fit";
    const numPoems=5;
    const [poems1,setPoems1] = useState<Poem[]>(poems);
    const ent = poems1.slice(0,numPoems).map((poem,index)=>createMini(poem,index+1))
@@ -207,7 +209,7 @@ export default function Blog({ poems }: { poems: Poem[] }){
       </div>
       <a id="loadmore">
        
-      <button className="text-black mt-4 px-4 text-lg font-bold text-left shadow-md bg-lighterblue hover:bg-[#4780ea] transition all duration-75 rounded-md max-w-fit"
+      <button className={listend? morebtnclasses + " bg-lighterblue/60":morebtnclasses+" bg-lighterblue"}
             onClick={listend? ()=>{router.push("/entries")}:loadMore}>{listend? "see all" : "more"}</button>
       </a>
       </div>

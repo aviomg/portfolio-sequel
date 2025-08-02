@@ -73,7 +73,7 @@ export default function CodePage({ fileContents }: { fileContents: Record<string
   
       </Head>
   
-        <div className="flex-grow line-numbers match-braces">
+        <div className="flex-grow line-numbers match-braces pb-10">
             <Navbar currentpage="Notes" />
             <div className="container mx-auto text-center">
                 <h2 className="text-2xl text-puce font-serif font-bold mb-4">alg implementations</h2>
