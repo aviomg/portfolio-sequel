@@ -1,7 +1,7 @@
 import React from 'react'
 import { EmblaOptionsType } from 'embla-carousel'
 import useEmblaCarousel from 'embla-carousel-react'
-import styles from './carousels2.module.css';
+//import './carousels2.css'
 import Image from 'next/image'
 
 
@@ -43,11 +43,11 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
                   border-width:2px;
                   border-color: var(--puce); */}
   return (
-    <div className={styles.embla}>
-      <div className={styles.embla__viewport} ref={emblaRef}>
-        <div className={styles.embla__container}>
+    <div className="embla">
+      <div className="embla__viewport" ref={emblaRef}>
+        <div className="embla__container">
           {slides.map((index) => (
-            <div className={styles.embla__slide} key={index}>
+            <div className="embla__slide" key={index}>
               <div className='relative h-[28rem] w-full border-2 border-puce'>
                 <Image
                 src={index}
@@ -77,20 +77,20 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
   </p>
   </div>
 </div>
-      <div className={styles.embla__controls}>
-        <div className={styles.embla__buttons}>
+      <div className="embla__controls">
+        <div className="embla__buttons">
           <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
           <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />
         </div>
 
-        <div className={styles.embla__dots}>
+        <div className="embla__dots">
           {scrollSnaps.map((_, index) => (
             
             <DotButton
               key={index}
               onClick={() => onDotButtonClick(index)}
               disabled ={index===selectedIndex}
-              className={styles.embla__dot_icon}
+              className='embla__dot-icon'
             /*  className={'embla__dot'.concat(
                 index === selectedIndex ? ' embla__dot--selected' : ''
               )}*/

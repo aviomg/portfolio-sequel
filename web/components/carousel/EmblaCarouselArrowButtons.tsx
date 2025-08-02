@@ -5,7 +5,6 @@ import React, {
   useState
 } from 'react'
 import { EmblaCarouselType } from 'embla-carousel'
-import './carousels2.module.css'
 import {  ChevronLeft, ChevronRight } from 'lucide-react'
 
 type UsePrevNextButtonsType = {
