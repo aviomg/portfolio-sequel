@@ -1,14 +1,31 @@
 import Link from "next/link"
+import Image from "next/image"
+import { Mail } from "lucide-react"
 
 type navlinkprops={href:string,name:string}
 export default function NavLink({href,name}:navlinkprops){
-
+    const imgw:number=20
+    const imgh:number=20
 
     return(
         <li>
-        <Link className="bg-pink-300/35  hover:underline hover:text-[#6392e9] duration-100 sm:p-2 px-1 py-2 border-[1px] border-viridian shadow-md rounded-md hover:border-lighterblue" 
+            {/*name=="Linkedin"? 
+            <Link href={href}>
+                <Image alt="linkedin" width={imgw+2} height={imgh+2} src="/linkedin-real.svg" />
+                </Link>:
+            name=="Github"?
+            <Link href={href}>
+                <Image alt="github link" width={imgw} height={imgh} src="/github.svg" />
+            </Link>:
+            name=="avikumar2048@gmail.com"?
+            <Link href={href}>
+                <Mail size={20} className="text-midblue" />
+            </Link>:*/}
+            
+        <Link className="bg-pink-300/35  text-midblue  duration-100 sm:p-2 px-1 py-2  rounded-xs hover:bg-pink-300/20 " 
            href={href} 
-           target="_blank">{name}</Link>
+           target="_blank">
+            {name}</Link>
       </li>
     )
 }
