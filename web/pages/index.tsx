@@ -76,8 +76,9 @@ export default function Home({courses}:Props) {
       <section className="pb-20">
         <div className="container sm:mx-auto p-2 sm:p-0  sm:text-center sm:container text-center sm:!max-w-[1366px]">
 
-            <h2  className="text-4xl  font-serif font-extrabold mb-4">avi kumar</h2>
-            <p className="text-lg text-gray-700 px-10">third-year student at UNC Chapel Hill studying computer science and french. This site is a collection of my projects, notes, thoughts,
+            <h2  className="text-4xl  font-serif font-extrabold mb-1">avi kumar</h2>
+            <p className="mb-4 font-mono-normal"> CS Student @ UNC Chapel Hill | eCommerce Software Engineer and Lead Web Analyst @ Bausch+Lomb</p>
+            <p className="text-lg text-gray-700 px-10">fourth-year student at UNC studying computer science and french. This site is a collection of my projects, notes, thoughts,
          professional information, and more. It&apos;s a space to document my journey as a computer science student, future developer/engineer, and human being. thanks for visiting!
                 </p>
           </div>
