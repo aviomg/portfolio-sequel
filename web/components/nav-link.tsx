@@ -1,11 +1,7 @@
 import Link from "next/link"
-import Image from "next/image"
-import { Mail } from "lucide-react"
 
 type navlinkprops={href:string,name:string}
 export default function NavLink({href,name}:navlinkprops){
-    const imgw:number=20
-    const imgh:number=20
 
     return(
         <li>
