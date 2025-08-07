@@ -6,6 +6,8 @@ import CourseCard from "@/components/course-card";
 import Navbar from "@/components/nav-bar";
 import { GetStaticProps } from 'next';
 import { getCourses, Course } from '../lib/notion';
+import  { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -32,6 +34,16 @@ type Props = {
   //const coursecards1 = courses.map(course => <CourseCard course={course.name} description={course.description} notesnames={course.notesnames} noteslinks={course.noteslinks}/>)
   
 export default function Home({courses}:Props) {
+  const router=useRouter();
+  const [variant, setVariant] = useState<string | undefined>(undefined);
+
+  useEffect(() => {
+    if (router.isReady) {
+      const queryVariant = router.query.variant;
+      setVariant(Array.isArray(queryVariant) ? queryVariant[0] : queryVariant);
+    }
+  }, [router.isReady, router.query.variant]);
+
   const projectcards = projects.map(project => <ProjectCard name={project.name} description={project.description} link={project.link} tech={project.tech} key={project.id} />)
 
   const coursecards = courses.map((course)=> (<CourseCard title={course.title} description={course.description} notesnames={course.notesnames} noteslinks={course.noteslinks} key={course.id} id={course.id}/>))
@@ -77,7 +89,11 @@ export default function Home({courses}:Props) {
         <div className="container sm:mx-auto p-2 sm:p-0  sm:text-center sm:container text-center sm:!max-w-[1366px]">
 
             <h2  className="text-4xl  font-serif font-extrabold mb-1">avi kumar</h2>
-            <p className="mb-4 font-mono-normal"> CS Student @ UNC Chapel Hill | eCommerce Software Engineer and Lead Web Analyst @ Bausch+Lomb</p>
+            {
+              variant==="2"?
+              null: <p className="mb-4 font-mono-normal"> CS Student @ UNC Chapel Hill | eCommerce Software Engineer and Lead Web Analyst @ Bausch+Lomb</p>
+
+            }
             <p className="text-lg text-gray-700 px-10">fourth-year student at UNC studying computer science and french. This site is a collection of my projects, notes, thoughts,
          professional information, and more. It&apos;s a space to document my journey as a computer science student, future developer/engineer, and human being. thanks for visiting!
                 </p>

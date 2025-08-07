@@ -82,7 +82,7 @@ export default function AboutPage(){
                         <span className="font-mono-about text-[16px] text-about-primary underline">
                             <Link href="/crochet">crocheting</Link>
                         </span>
-                        <span className="font-mono-about text-[16px] text-about-text"> (or another creative outlet--like this website), thrift shopping, spending time with friends, and thinking about the things I&apos;m learning. Thanks for visiting!</span>
+                        <span className="font-mono-about text-[16px] text-about-text"> , painting (or another creative outlet--like this website), spending time with friends, and thinking about the things I&apos;m learning. Thanks for visiting!</span>
 
                         </div>
                     </div>
