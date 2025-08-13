@@ -6,8 +6,16 @@ import CourseCard from "@/components/course-card";
 import Navbar from "@/components/nav-bar";
 import { GetStaticProps } from 'next';
 import { getCourses, Course } from '../lib/notion';
-import  { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import Link from "next/link";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover"
+import ViewMoreCard from "@/components/viewMoreCard";
+import { Dot, MoveRight } from "lucide-react";
+//import  { useRouter } from "next/router";
+//import { useEffect, useState } from "react";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -34,19 +42,31 @@ type Props = {
   //const coursecards1 = courses.map(course => <CourseCard course={course.name} description={course.description} notesnames={course.notesnames} noteslinks={course.noteslinks}/>)
   
 export default function Home({courses}:Props) {
-  const router=useRouter();
-  const [variant, setVariant] = useState<string | undefined>(undefined);
+  //const router=useRouter();
+ // const [variant, setVariant] = useState<string | undefined>(undefined);
 
-  useEffect(() => {
+  /*useEffect(() => {
     if (router.isReady) {
       const queryVariant = router.query.variant;
       setVariant(Array.isArray(queryVariant) ? queryVariant[0] : queryVariant);
     }
-  }, [router.isReady, router.query.variant]);
+  }, [router.isReady, router.query.variant]);*/
 
-  const projectcards = projects.map(project => <ProjectCard name={project.name} description={project.description} link={project.link} tech={project.tech} key={project.id} />)
+  const projectcards = projects.map(project => project.featured?<ProjectCard mini={true} name={project.name} description={project.description} link={project.link} tech={project.tech} key={project.id} />:null)
+  projectcards.push(
+    <ViewMoreCard
+      key="view-more"
+      href="/projects"
+      showPlus={false}            // or false to show "View all"
+      // label="View all"
+      // countText={`See ${projects.length} projects`} // optional
+    />
+  );
+  
 
   const coursecards = courses.map((course)=> (<CourseCard title={course.title} description={course.description} notesnames={course.notesnames} noteslinks={course.noteslinks} key={course.id} id={course.id}/>))
+
+
   return (
     <>
     <Head>
@@ -82,21 +102,26 @@ export default function Home({courses}:Props) {
     {/*title page*/}
     
 {/*main page*/}
-    <div className="flex-grow">
+    <div className="flex-grow max-w-[750px] mx-auto">
      <Navbar currentpage={"Home"}/>
 
-      <section className="pb-20">
-        <div className="container sm:mx-auto p-2 sm:p-0  sm:text-center sm:container text-center sm:!max-w-[1366px]">
+      <section className="pb-10">
+        <div className="container sm:mx-auto p-2 sm:p-0  sm:text-center sm:container text-center sm:!max-w-[1050px]">
 
             <h2  className="text-4xl  font-serif font-extrabold mb-1">avi kumar</h2>
             {
-              variant==="2"?
+             /* variant==="2"?
               null: <p className="mb-4 font-mono-normal"> CS Student @ UNC Chapel Hill | eCommerce Software Engineer and Lead Web Analyst @ Bausch+Lomb</p>
-
+                */
             }
-            <p className="text-lg text-gray-700 px-10">fourth-year student at UNC studying computer science and french. This site is a collection of my projects, notes, thoughts,
+          <div className="max-w-none ">
+
+            <p className="mb-4 font-mono-normal text-midblue max-w-none "> CS Student @ UNC Chapel Hill | eCommerce Software Engineer and Lead Web Analytics Developer @ Bausch+Lomb</p>
+</div>
+
+           {/* <p className="text-lg text-gray-700 px-10">A collection of my projects, notes, thoughts,
          professional information, and more. It&apos;s a space to document my journey as a computer science student, future developer/engineer, and human being. thanks for visiting!
-                </p>
+                </p>*/}
           </div>
           <div className="text-center container mx-auto mt-6 text-sm text-viridian">
             <ul className="flex flex-wrap justify-center gap-1 gap-y-4 sm:gap-3 px-1 sm:p-0  ">
@@ -106,13 +131,76 @@ export default function Home({courses}:Props) {
               <NavLink name="Resume" href="" />
             </ul>
           </div>
+          <section className="container sm:mx-auto p-2 sm:p-0 mt-5 mb-3 sm:text-center sm:container text-center ">
+        <div className=" text-right font-mono-about "> {/*leading-[28px]..he had line height 24px. font size 16. */}
+                        <span className=" text-gray-700 ">
+                        Hi! I'm Avi, a fourth-year CS and French double major at UNC-Chapel Hill. I'm currently a software engineer on 
+                        the Global eCommerce team at Bausch+Lomb, where I build and maintain our web analytics system, create internal tools, 
+                        and more. Right now, I'm leading the architecture and front-end development of a global customer dashboard.
+                        <span className="text-midblue underline ml-2 hover:text-puce duration-75"><Link href="/about">
+                         [More about my relevant experience &rarr;]
+                        </Link>
+                        </span>
+                     
+                        </span>
+                        <p className="mt-1 text-gray-700">
+                        My favorite things
+                         to do are to learn and to create. If you asked anyone who knew me (or has ever met me) to describe me in one word, 
+                         they'd probably say "curious". In my free time, I enjoy  
+
+                         <span className="text-midblue underline ml-2 hover:text-puce duration-75">
+                            <Link href="/entries">writing</Link>
+                        </span>
+                        <span className="  text-about-text">, </span>
+                        <span className=" text-midblue underline hover:text-puce duration-75">
+                            <Link href="/crochet">crocheting</Link>
+                        </span>
+                        <span className="text-about-text">, spending time with friends, and thinking about the things I&apos;m learning. Thanks for visiting!</span>
+                        </p>
+        </div>
         </section>
-        <section className="px-6 pb-16">
+      <ul className="text-left mx-10 font-mono-about text-gray-700">
+      <li className="flex flex-row gap-x-2 "><Dot /><Link href="/about" className="text-midblue underline hover:text-puce duration-75">[Experience/CV]</Link></li>
+      <li className="flex flex-row gap-x-2 "><Dot /><Link href="/entries" className="text-midblue underline hover:text-puce duration-75">poetry</Link></li>
+      <li className="flex flex-row gap-x-2 "><Dot /><Link href="/crochet" className="text-midblue underline hover:text-puce duration-75">crochet stuff</Link></li>
+
+
+
+      </ul>
+        </section>
+        </div>
+
+       
+       {/* <section className="pb-16 max-w-[750px] px-4 mx-auto">
         <h2 className="font-extrabold mb-5 text-2xl text-midblue font-serif">Projects</h2>
-<section className="py-2 justify-normal items-stretch min-h-max flex flex-row flex-wrap gap-y-5 gap-x-4 max-sm:flex-col max-sm:gap-y-4 ">
+        <div className="flex flex-col gap-y-5">
+        <section className="grid grid-cols-3 gap-4  ">
+          {projectcards.slice(0,3)}
+        </section>
+        <section className="grid grid-cols-2 gap-4  ">
+          {projectcards.slice(3,5)}
+        </section>
+        <section className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-4  ">{projectcards.slice(5,projectcards.length)}</section>
+
+        </div>
+        </section>*/}
+        <section className="flex-grow max-w-[750px] mx-auto mb-8">
+        <h2 className="font-extrabold mb-5 text-2xl text-midblue font-serif">Projects</h2>
+        <section className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-4 ">
+          {projectcards}
+        </section>
+        </section>
+{/*<section className="py-2 justify-normal items-stretch min-h-max flex flex-row flex-wrap gap-y-5 gap-x-4 max-sm:flex-col max-sm:gap-y-4 ">
   {projectcards}
 </section>
-        </section>
+
+dynamic grid side:
+        <section className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-4  ">
+
+
+*/}
+        
+        <div className="flex-grow max-w-[750px] mx-auto">
         <section className="px-6 pt-2 pb-8">
           <h2 className="font-extrabold text-2xl text-[#2d5baf] mb-3">Coursework</h2>
           <div className="py-2 justify-normal items-stretch min-h-max flex flex-row flex-wrap gap-y-5 gap-x-4 lg:max-xl:justify-center">

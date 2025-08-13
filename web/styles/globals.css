@@ -3,6 +3,20 @@
 /*---break--- */
 @custom-variant dark (&:is(.dark *));
 
+.theme-defaultoff {
+  --bg-color: white;
+  --text-color: black;
+  --puce:#b48291;
+  --viridian:#4c8577;
+}
+
+.theme-variant2off {
+  --bg-color: #1a202c;
+  --text-color: #f0e7db;
+  --puce:#4c8577;
+  --viridian:#b48291;
+}
+
 :root {
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -52,6 +66,8 @@
   --shadow-xs: 3px 3px 0px 0px hsl(165.26 27.27% 40.98% / 0.50);
   --shadow-sm: 3px 3px 0px 0px hsl(165.26 27.27% 40.98% / 1.00), 3px 1px 2px -1px hsl(165.26 27.27% 40.98% / 1.00);
   --shadow: 3px 3px 0px 0px hsl(165.26 27.27% 40.98% / 1.00), 3px 1px 2px -1px hsl(165.26 27.27% 40.98% / 1.00);
+  --shadow-red-300: 3px 3px 0px 0px   hsl(359.72 100% 82% / 1.00), 3px 1px 2px -1px   hsl(359.72 100% 82%/ 1.00);
+
   --shadow-md: 3px 3px 0px 0px hsl(165.26 27.27% 40.98% / 1.00), 3px 2px 4px -1px hsl(165.26 27.27% 40.98% / 1.00);
   --shadow-lg: 3px 3px 0px 0px hsl(165.26 27.27% 40.98% / 1.00), 3px 4px 6px -1px hsl(165.26 27.27% 40.98% / 1.00);
   --shadow-xl: 3px 3px 0px 0px hsl(165.26 27.27% 40.98% / 1.00), 3px 8px 10px -1px hsl(165.26 27.27% 40.98% / 1.00);
@@ -90,6 +106,7 @@
   --font-mono-text:"Courier New","monospace";
   --font-mono-about: Consolas, Monaco, "Lucida Console", "Liberation Mono";
   --font-sans-old:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-apple-system:-apple-system, "system-ui", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --shadow:var(--shadow);
   --shadow-xs:var(--shadow-pink);
   --color-about-text: var(--about-text);
