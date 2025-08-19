@@ -11,16 +11,16 @@ export default function AboutPage(){
     const skills=["Web Analytics","Scrum & APM Frameworks","Full-stack dev","Software dev","Web API dev","Information Design","B2B eCommerce","Product Information Management","SAP Commerce Cloud"]
     
     const langitems = languages.map((lang,index) =>
-        <span key={index} className="bg-[#9bf3f066] border-[#09a6a1] border border-solid px-1 text-[17px] font-bold font-mono-code">{lang}</span>
+        <span key={index} className="bg-[#9bf3f066] border-[#09a6a1] border border-solid px-1 text-[17px] font-bold font-mono-about">{lang}</span>
     )
     const sweitems = technologies_swe.map((tech,index) =>
-        <span key={index} className="bg-[#6cab4133] border-[#556f44] border border-solid px-1 text-[17px] font-bold font-mono-code text-[#556f44]">{tech}</span>
+        <span key={index} className="bg-[#6cab4133] border-[#556f44] border border-solid px-1 text-[17px] font-bold font-mono-about text-[#556f44]">{tech}</span>
     )
     const otheritems = technologies_other.map((other,index) =>
-        <span key={index} className="bg-[#37d4c933] border-[#037971] border border-solid px-1 text-[17px] font-bold font-mono-code text-[#037971]">{other}</span>
+        <span key={index} className="bg-[#37d4c933] border-[#037971] border border-solid px-1 text-[17px] font-bold font-mono-about text-[#037971]">{other}</span>
     )
     const skillitems = skills.map((other,index) =>
-        <span key={index} className="bg-[#ae4ca533] border-[#74226c] border border-solid px-1 text-[17px] font-bold font-mono-code text-[#74226c]">{other}</span>
+        <span key={index} className="bg-[#ae4ca533] border-[#74226c] border border-solid px-1 text-[17px] font-bold font-mono-about text-[#74226c]">{other}</span>
     )
 
     return(
@@ -100,22 +100,22 @@ export default function AboutPage(){
                 <h2 className="text-2xl mb-[5px] font-bold mt-4 leading-[2rem]">Skills</h2>
                 <div className="flex flex-row gap-x-2.5 text-[#3482bd] mb-[15px]"> {/*skills */}
                     <span className="text-[#816e94] font-mono-text mr-2.5 font-bold text-xl ">Languages:</span> {/* subtitle*/}
-                    <div className="font-mono-code custom-text-shadow flex flex-row flex-wrap justify-baseline gap-y-2.5 gap-x-[35px] text-[1rem] text-left mb-[15px]">
+                    <div className="font-mono-about custom-text-shadow flex flex-row flex-wrap justify-baseline gap-y-2.5 gap-x-[35px] text-[1rem] text-left mb-[15px]">
                         {langitems}</div>
                 </div>
                 <div className="flex flex-row gap-x-2.5 text-[#3482bd] mb-[15px]">
                     <span className="text-[#816e94] font-mono-text mr-2.5 font-bold text-xl ">Technologies(SWE):</span>
-                    <div className="font-mono-code custom-text-shadow flex flex-row flex-wrap justify-baseline gap-y-2.5 gap-x-[35px] text-[1rem] text-left mb-[15px]">
+                    <div className="font-mono-about custom-text-shadow flex flex-row flex-wrap justify-baseline gap-y-2.5 gap-x-[35px] text-[1rem] text-left mb-[15px]">
                         {sweitems}</div>
                 </div>
                 <div className="flex flex-row gap-x-2.5 text-[#3482bd] mb-[15px]">
                     <span className="text-[#816e94] font-mono-text mr-2.5 font-bold text-xl ">Technologies (Other):</span>
-                    <div className="font-mono-code custom-text-shadow flex flex-row flex-wrap justify-baseline gap-y-2.5 gap-x-[35px] text-[1rem] text-left mb-[15px]">
+                    <div className="font-mono-about custom-text-shadow flex flex-row flex-wrap justify-baseline gap-y-2.5 gap-x-[35px] text-[1rem] text-left mb-[15px]">
                         {otheritems}</div>
                 </div>
                 <div className="flex flex-row gap-x-2.5 text-[#3482bd] mb-[15px]">
                     <span className="text-[#816e94] font-mono-text mr-2.5 font-bold text-xl ">Skills:</span>
-                    <div className="font-mono-code custom-text-shadow flex flex-row flex-wrap justify-baseline gap-y-2.5 gap-x-[35px] text-[1rem] text-left mb-[15px]">
+                    <div className="font-mono-about custom-text-shadow flex flex-row flex-wrap justify-baseline gap-y-2.5 gap-x-[35px] text-[1rem] text-left mb-[15px]">
                         {skillitems}</div>
                 </div>
 
@@ -135,10 +135,10 @@ function ResumeWidget({title, description, timerange}:resumeprops){
     return(
         <div className="flex flex-row justify-between gap-0"> {/* itemcontainer*/}
             <div className="flex flex-col mt-1 max-w-3/4"> {/*item */}
-            <h2 className="text-about-secondary bg-[#fccaca80] mt-[2px] font-bold font-mono-code! underline leading-[28px]">
+            <h2 className="text-about-secondary bg-[#fccaca80] mt-[2px] font-bold font-mono-about! underline leading-[28px]">
                 {title}
             </h2>
-            <span className=" leading-[1.5rem] text-[15px] text-left mb-[15px] mt-2.5 font-mono-code">{description}</span>  {/*experience2 */}
+            <span className=" leading-[1.5rem] text-[15px] text-left mb-[15px] mt-2.5 font-mono-about">{description}</span>  {/*experience2 */}
             </div>
             <h2 className="ml-0 text-about-secondary  mt-1.5 mr-5 min-w-[25%] pr-5 font-bold text-right max-h-min bg-[#fccaca80] leading-[28px]">
                 {timerange}

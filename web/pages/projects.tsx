@@ -28,7 +28,7 @@ type Props = {
 
 export default function Home({courses}:Props) {
 
-  const projectcards = projects.map(project => <ProjectCard mini={false} name={project.name} description={project.description} link={project.link} tech={project.tech} key={project.id} />)
+  const projectcards = projects.map(project => <ProjectCard mini={false} highlight={true} name={project.name} description={project.description} link={project.link} tech={project.tech} key={project.id} />)
 
   return (
     <>
@@ -89,7 +89,10 @@ export default function Home({courses}:Props) {
 
        
         <section className="pb-16 max-w-[990px] px-4 mx-auto">
-        <div className="flex flex-col gap-y-5">
+          <div className="grid grid-cols-2 gap-6">
+            {projectcards}
+          </div>
+       {/* <div className="flex flex-col gap-y-5">
         <section className="grid grid-cols-3 gap-4  ">
           {projectcards.slice(0,3)}
         </section>
@@ -98,7 +101,7 @@ export default function Home({courses}:Props) {
         </section>
         <section className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-4  ">{projectcards.slice(5,projectcards.length)}</section>
 
-        </div>
+        </div>*/}
         </section>
        {/* <section className="pb-16 max-w-[990px] px-4 mx-auto">
         <section className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-4 ">

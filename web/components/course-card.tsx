@@ -19,7 +19,7 @@ export default function CourseCard({ title, description, notesnames, noteslinks}
     const arroflinks:JSX.Element[] = []
     noteslinks?.forEach((link, index)=>{
         const element = <Link key={index} className="text-viridian font-bold text-sm hover:text-[#6bc9b2] transition-all duration-75 max-w-min border-viridian" href={link}>
-                        <pre className="code-block language-python max-w-fit !border-transparent !bg-transparent !px-0 !mr-1 !py-0"><code className="!border-green-400 !border !font-bold !px-1 !text-viridian hover:!bg-green-300 hover:!bg-300/100 !bg-green-300/40 transition-all duration-100 font-mono-code
+                        <pre className="code-block language-python max-w-fit !border-transparent !bg-transparent !px-0 !mr-1 !py-0"><code className="!border-green-400 !border !font-bold !px-1 !text-viridian hover:!bg-green-300 hover:!bg-300/100 !bg-green-300/40 transition-all duration-100 font-mono-about
                         ">{notesnames? notesnames[index]: "notes"}</code></pre></Link>
         arroflinks.push(element);
     })
