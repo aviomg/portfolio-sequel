@@ -7,6 +7,7 @@ import Navbar from "@/components/nav-bar";
 import { GetStaticProps } from 'next';
 import { getCourses, Course } from '../lib/notion';
 import Link from "next/link";
+
 import {
   Popover,
   PopoverContent,
@@ -52,7 +53,7 @@ export default function Home({courses}:Props) {
     }
   }, [router.isReady, router.query.variant]);*/
 
-  const projectcards = projects.map(project => project.featured?<ProjectCard mini={true} name={project.name} description={project.description} link={project.link} tech={project.tech} key={project.id} />:null)
+  const projectcards = projects.map(project => project.featured?<ProjectCard mini={false} highlight={false} name={project.name} description={project.description} link={project.link} tech={project.tech} key={project.id} />:null)
   projectcards.push(
     <ViewMoreCard
       key="view-more"
@@ -105,7 +106,7 @@ export default function Home({courses}:Props) {
     <div className="flex-grow max-w-[750px] mx-auto">
      <Navbar currentpage={"Home"}/>
 
-      <section className="pb-10">
+      <section className="pb-8">
         <div className="container sm:mx-auto p-2 sm:p-0  sm:text-center sm:container text-center sm:!max-w-[1050px]">
 
             <h2  className="text-4xl  font-serif font-extrabold mb-1">avi kumar</h2>
@@ -116,7 +117,7 @@ export default function Home({courses}:Props) {
             }
           <div className="max-w-none ">
 
-            <p className="mb-4 font-mono-normal text-midblue max-w-none "> CS Student @ UNC Chapel Hill | eCommerce Software Engineer and Lead Web Analytics Developer @ Bausch+Lomb</p>
+            <p className="mb-4 font-mono-about text-midblue max-w-none "> CS Student @ UNC Chapel Hill | eCommerce Software Engineer and Lead Web Analytics Developer @ Bausch+Lomb</p>
 </div>
 
            {/* <p className="text-lg text-gray-700 px-10">A collection of my projects, notes, thoughts,
@@ -132,15 +133,17 @@ export default function Home({courses}:Props) {
             </ul>
           </div>
           <section className="container sm:mx-auto p-2 sm:p-0 mt-5 mb-3 sm:text-center sm:container text-center ">
-        <div className=" text-right font-mono-about "> {/*leading-[28px]..he had line height 24px. font size 16. */}
+
+
+        <div className=" text-right font-serif text-lg"> {/*leading-[28px]..he had line height 24px. font size 16. */}
                         <span className=" text-gray-700 ">
                         Hi! I'm Avi, a fourth-year CS and French double major at UNC-Chapel Hill. I'm currently a software engineer on 
                         the Global eCommerce team at Bausch+Lomb, where I build and maintain our web analytics system, create internal tools, 
-                        and more. Right now, I'm leading the architecture and front-end development of a global customer dashboard.
-                        <span className="text-midblue underline ml-2 hover:text-puce duration-75"><Link href="/about">
+                        and more. Right now, I'm leading the design and front-end development of a global customer dashboard.
+                       {/* <span className="text-midblue underline ml-2 hover:text-puce duration-75"><Link href="/about">
                          [More about my relevant experience &rarr;]
                         </Link>
-                        </span>
+                        </span>*/}
                      
                         </span>
                         <p className="mt-1 text-gray-700">
@@ -159,14 +162,13 @@ export default function Home({courses}:Props) {
                         </p>
         </div>
         </section>
-      <ul className="text-left mx-10 font-mono-about text-gray-700">
-      <li className="flex flex-row gap-x-2 "><Dot /><Link href="/about" className="text-midblue underline hover:text-puce duration-75">[Experience/CV]</Link></li>
-      <li className="flex flex-row gap-x-2 "><Dot /><Link href="/entries" className="text-midblue underline hover:text-puce duration-75">poetry</Link></li>
-      <li className="flex flex-row gap-x-2 "><Dot /><Link href="/crochet" className="text-midblue underline hover:text-puce duration-75">crochet stuff</Link></li>
-
-
-
+    
+        <ul className=" text-right mx-4 mt-4 font-mono-about font-bold text-gray-700 gap-y-1 flex flex-col">
+      <li className="flex flex-row gap-x-2 justify-center"><Dot /><Link href="/about2" className="text-midblue underline hover:text-puce duration-75">[Experience/CV]</Link></li>
+      <li className="flex flex-row gap-x-2 justify-center "><Dot /><Link href="/entries" className="text-midblue underline hover:text-puce duration-75">poetry/prose/processes </Link></li>
+      <li className="flex flex-row gap-x-2 justify-center"><Dot /><Link href="/crochet" className="text-midblue underline hover:text-puce duration-75">crochet</Link></li>
       </ul>
+     
         </section>
         </div>
 
@@ -185,7 +187,7 @@ export default function Home({courses}:Props) {
         </div>
         </section>*/}
         <section className="flex-grow max-w-[750px] mx-auto mb-8">
-        <h2 className="font-extrabold mb-5 text-2xl text-midblue font-serif">Projects</h2>
+        <h2 className="font-extrabold mb-2 text-2xl text-midblue font-serif">Projects</h2>
         <section className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-4 ">
           {projectcards}
         </section>

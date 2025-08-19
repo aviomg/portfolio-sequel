@@ -1,5 +1,5 @@
 ---
-title: Haiku #3
+title: "Haiku #3"
 archive: true    
 ---
 an inherently

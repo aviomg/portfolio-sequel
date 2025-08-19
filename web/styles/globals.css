@@ -87,7 +87,16 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-inter: var(--font-inter);
+  --font-serif:var(--font-zillaslab);
+  /*--font-mono-about: var(--font-jetbrains-mono);*/
+  --font-mono-aboutjetbrains :var(--font-jetbrains-mono);
+  --font-mono-aboutgeist:var(--font-geist-mono);
+  --font-work-sans:var(--font-work-sans);
+  --font-mono-about:var(--font-ibmplexmono);
+  /*--font-serif:var(--font-work-sans);*/
+  /*my favorites were work sans, jetbrains mono. idk, i could see using something like work sans as a more often used one than how little im currenlty using serif*/
+  /*--font-mono: var(--font-geist-mono);*/
   --color-base1:var(--base1);
   --color-base1:var(--base1);
   --color-puce:var(--puce);
@@ -104,7 +113,7 @@
   --font-mono-code: "Consolas", "Monaco", "Andale Mono", "Ubuntu Mono", "monospace";
   --font-mono-normal:"ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace";
   --font-mono-text:"Courier New","monospace";
-  --font-mono-about: Consolas, Monaco, "Lucida Console", "Liberation Mono";
+  /*--font-mono-about: Consolas, Monaco, "Lucida Console", "Liberation Mono";*/
   --font-sans-old:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-apple-system:-apple-system, "system-ui", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --shadow:var(--shadow);

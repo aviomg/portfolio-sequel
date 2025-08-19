@@ -16,7 +16,7 @@ export default function ViewMoreCard({
   return (
     <Link
       href={href}
-      target="_blank" 
+     
       className="flex-1 group shadow-(--shadow) hover:shadow-(--shadow-red-300) hover:bg-red-300/10  flex flex-col px-4 pt-4 pb-0 text-wrap border-viridian border max-sm:!w-full hover:border-red-300"
       aria-label={countText ? `${label}. ${countText}` : label}
     >
@@ -38,7 +38,7 @@ export default function ViewMoreCard({
           </span>
         ) : (
           <span className="
-            text-md font-semibold font-mono-code text-viridian
+            text-md font-semibold font-mono-about text-viridian
             group-hover:text-red-300 transition-colors
           ">
             View All
