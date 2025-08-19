@@ -6,20 +6,28 @@ import {
     CollapsibleTrigger,
 } from "@/components/ui/collapsible"
 import ExpandableDescription from "@/components/expandable-description";
+import { Dot } from "lucide-react";
 
 
 export default function AboutPage() {
     const title = "eCommerce Software Engineer & Lead Web Analytics Architect"
     const company = "Bausch + Lomb"
     const timerange = "August 2023-Present"
+    const titleintern="IT/eCommerce Intern"
+    const descriptionintern="Contributed to front-end optimization, tooling development, and UX improvement projects for Bausch+Lomb’s eCommerce platform, working across Python, CSS/LESS, and SAP Commerce Cloud/hybris environments. Two-month summer internship extended to part-time Frontend developer position, based on superior performance review."
+    const timerangeintern="June - August 2023"
+    const listitemsintern=[{title:"Built a Python tool to recover ~700 obsolete UI mockups from a defunct design tool, restoring critical design assets for ongoing projects. Github"},
+    {title:"Researched and delivered internal training and recommendations to optimize use and improve tool adoption of Dynatrace application monitoring"},
+ {title:"Led a cross-functional initiative to resolve a design inconsistency on the eCommerce global platform, presenting a UX-aligned solution to international marketing teams and delivering developer-ready user stories and acceptance criteria."},
+ {title:"Audited redundant LESS/CSS in enterprise eCommerce site; delivered a technical plan for CSS refactoring and optimization to improve maintainability and site performance."}]
     const description = "I design, build, and optimize front-end features, analytics integrations, and internal software tools for Bausch + Lomb’s global eCommerce platform. My work blends software engineering, UI/UX development, and front-end development in SAP Commerce Cloud to deliver scalable, maintainable solutions that improve customer experience and internal analytics capabilities."
     const listitems = [{
-        title: "Web Analytics Lead Developer and System Architect",
+        title: "Web Analytics System Architect and Lead Developer",
         sub: "Built a JS-based analytics tracking framework from scratch in Piwik Pro Tag Manager; lead end-to-end design, implementation, and testing of advanced JavaScript tags to capture eCommerce and CX KPIs; serve as the company’s primary expert in Piwik Pro web analytics."
     },
     {
-        title: "Front-end Development, CX Dashboard",
-        sub: "Co-developer of a multi-tab self-service customer dashboard; designed 20+ widgets and dashboard prototypes in Figma; developed front-end HTML components; Built a reusable SCSS architecture to ensure scalability and maintainability of front-end code."
+        title: "Front-end Developer, CX Dashboard",
+        sub: "Co-designer of a multi-tab self-service customer dashboard; designed 20+ widgets and dashboard prototypes in Figma; developed front-end HTML components; Built a reusable SCSS architecture to ensure scalability and maintainability of front-end code."
     },
     {
         title: "UI/UX Design, CX Acceleration Project",
@@ -30,9 +38,9 @@ export default function AboutPage() {
         title: "Web Analytics Center of Excellence"
     }
     ]
-    const wordlimit = 80;
-    const words = description.split(" ")
-    const titleitem = <Collapsible>
+    //const wordlimit = 80;
+    //const words = description.split(" ")
+    /*const titleitem = <Collapsible>
         <CollapsibleTrigger>
         <p className="leading-[1.5rem] text-sm text-left mb-[15px] mt-2.5 font-mono-about">{words.slice(0,wordlimit).join(" ")}</p>
 
@@ -40,35 +48,40 @@ export default function AboutPage() {
         <CollapsibleContent>
             {words.slice(wordlimit, description.length).join(" ")}
         </CollapsibleContent>
-    </Collapsible>
+    </Collapsible>*/
+    const descripsintern=listitemsintern.map((item,index)=>{return(
+        <div className="flex flex-row  "  key={index}>
+            <Dot size={20} className="mr-1 min-w-[20px] min-h-[20px]"/>
+            <ExpandableDescription className="text-left" title={item.title} sub=""/>
+        </div>
+    )})
 
     const descrips = listitems.map((item,index)=>{ return(
-        <ExpandableDescription key={index}
-  title={item.title}
-  sub={item.sub}
-  wordLimit={23}
-  className="leading-[1.5rem] text-sm text-left mb-[15px] mt-2.5 font-mono-about"
-/>)
+        <div className="flex flex-row  "  key={index}>
+        <Dot size={20} className="mr-1 min-w-[20px] min-h-[20px]"/>
+        <ExpandableDescription className="text-left" title={item.title} sub={item.sub}/>
+    </div>
+      )
     })
 
 
 
-    const languages = ["Python", "C", "MIPS", "Java", "JavaScript", "TypeScript", "SQL", "JSP", "CSS Frameworks & Preprocessors", "Hindi", "French"]
-    const technologies_swe = ["Angular", "Node.js", "Tailwind", "FastAPI", "SQLAlchemy", "GCS", "Render", "Flask", "Kubernetes", "Docker"]
-    const technologies_other = ["Piwik/Matomo", "GA4", "Tableau", "Power BI", "Dynatrace"]
-    const skills = ["Web Analytics", "Scrum & APM Frameworks", "Full-stack dev", "Software dev", "Web API dev", "Information Design", "B2B eCommerce", "Product Information Management", "SAP Commerce Cloud"]
+    const languages = ["Python", "C", "MIPS", "JavaScript", "Java", "System Verilog", "TypeScript", "SQL", "JSP", "CSS Frameworks & Preprocessors", "Hindi", "French"]
+    const technologies_swe = ["Angular", "Node.js", "Tailwind", "FastAPI", "SQLAlchemy", "GCS", "Render", "Flask", "Kubernetes", "Docker","React","Nextjs"]
+    const technologies_other = ["Piwik/Matomo", "GA4", "Tableau", "Power BI", "Dynatrace","Figma"]
+    const skills = ["Web Analytics", "Scrum & APM Frameworks", "Full-stack dev", "Software dev", "Web API dev", "Information Design", "B2B eCommerce", "Product Information Management", "SAP Commerce Cloud","Prototyping"]
 
     const langitems = languages.map((lang, index) =>
-        <span key={index} className="bg-[#9bf3f066] border-[#09a6a1] border border-solid px-1 text-[17px] font-bold font-mono-about">{lang}</span>
+        <span key={index} className="bg-[#9bf3f066] border-[#09a6a1] border border-solid px-1 text-[17px]  font-mono-jetbrains">{lang}</span>
     )
     const sweitems = technologies_swe.map((tech, index) =>
-        <span key={index} className="bg-[#6cab4133] border-[#556f44] border border-solid px-1 text-[17px] font-bold font-mono-about text-[#556f44]">{tech}</span>
+        <span key={index} className="bg-[#6cab4133] border-[#556f44] border border-solid px-1 text-[17px] font-mono-jetbrains text-[#556f44]">{tech}</span>
     )
     const otheritems = technologies_other.map((other, index) =>
-        <span key={index} className="bg-[#37d4c933] border-[#037971] border border-solid px-1 text-[17px] font-bold font-mono-about text-[#037971]">{other}</span>
+        <span key={index} className="bg-[#37d4c933] border-[#037971] border border-solid px-1 text-[17px] font-mono-jetbrains text-[#037971]">{other}</span>
     )
     const skillitems = skills.map((other, index) =>
-        <span key={index} className="bg-[#ae4ca533] border-[#74226c] border border-solid px-1 text-[17px] font-bold font-mono-about text-[#74226c]">{other}</span>
+        <span key={index} className="bg-[#ae4ca533] border-[#74226c] border border-solid px-1 text-[17px]  font-mono-jetbrains text-[#74226c]">{other}</span>
     )
 
     return (
@@ -109,35 +122,51 @@ export default function AboutPage() {
                 <meta property="og:image:height" content="630" />
 
             </Head>
-
-            <div className="flex-grow min-h-[calc(100vh)] mx-auto max-w-[992px] flex flex-col text-center gap-x-5 text-about-text pb-10   ">
+{/*screen size was 992 */}
+            <div className="flex-grow min-h-[calc(100vh)] mx-auto max-w-[1024px] flex flex-col text-center gap-x-5 text-about-text pb-10   ">
                 <Navbar currentpage="About" />
                 <div className="mx-15 mb-9 items-center">{/*head*/}
                     <h1 className="text-4xl font-bold  mb-4 ml-auto text-about-primary">Experience & Education</h1>{/*title; originally h2*/}
                 </div>
-                <section className="text-left bg-antiquewhite pl-5 pr-5  mb-9 border-2 border-[#204d4a]">
+                <section className="text-left  pl-5 pr-5  mb-9 border-2 border-[#204d4a]">
                     <h2 className="text-2xl mb-[5px] font-bold mt-4 leading-[2rem]">Experience</h2>
-                    <div className="flex flex-col  ">
-                        <div className="flex flex-row justify-between">
-                            <h2 className="text-about-secondary bg-[#fccaca80] mt-[2px] font-bold font-mono-about! underline ">
-                                {title}
-                            </h2>
-                            <h2 className="ml-0 text-about-secondary  mt-1.5 mr-5 min-w-[25%] pr-5 font-bold text-right max-h-min bg-[#fccaca80] leading-[28px]">
-                                {timerange}
-                            </h2>
+                    <div className="px-6 py-2 flex flex-col gap-y-3">
+                    <div className="flex flex-col mb-4 ">
+                        <div className="flex flex-row justify-between bg-[#fccaca80] mb-2 mt-0.5 px-3 py-1 -ml-3 -mr-3 ">
+                            <h2 className="text-about-secondary text-lg   font-bold underline ">{title} , <span className="italic font-normal"> Bausch + Lomb</span></h2>
+                            <h2 className=" text-about-secondary min-w-[25%] font-bold text-right max-h-min leading-[28px]">{timerange}</h2>
                         </div>
-                        <p className="leading-normal text-sm text-left  mt-2.5 font-mono-about">{description}</p>
-                        <p className="leading-normal text-sm text-left mb-[15px] mt-2 font-semibold font-mono-about">Projects/Responsibilities:</p>
-                        <div>{descrips}</div>
+                        <div className="mx-1">
+                        <p className="leading-normal text-sm text-left font-mono-about mb-2">{description}</p>
+                        <p className=" mb-2  text-left text-viridian  px-1 bg-viridian/30  ">Roles and Responsibilities:</p>
+                        <div className="flex flex-col gap-y-2 mx-1">{descrips}</div>
+                        </div>
+                    </div>
+                     
+               
+                    <ResumeWidget postcomma="UNC CS Department" precomma="Teaching Assistant (COMP 211: System Fundamentals)" timerange="January 2024-Present" description="Provide office hours for students; grade homework and exams; contribute to writing exam questions and homework auto- graders; lecture assistance" />
+                    
+                    <div className="flex flex-col mb-4 ">
+                        <div className="flex flex-row justify-between bg-[#fccaca80] mb-2 mt-0.5 px-3 py-1 -ml-3 -mr-3 ">
+                            <h2 className="text-about-secondary text-lg   font-bold underline ">{titleintern} , <span className="font-normal italic"> Bausch + Lomb</span></h2>
+                            <h2 className=" text-about-secondary min-w-[25%] font-bold text-right max-h-min leading-[28px]">{timerangeintern}</h2>
+                        </div>
+                        <div className="mx-1">
+                        <p className="leading-normal text-sm text-left font-mono-about mb-2">{descriptionintern}</p>
+                        <p className=" mb-2  text-left text-viridian  px-1 bg-viridian/30  ">Projects</p>
+                        <div className="flex flex-col gap-y-1 mx-1">{descripsintern}</div>
+                        </div>
+                    </div>
+                    <ResumeWidget description="Hands-on experience in the Scrum framework and full-stack development of new features for the UNC
+Computer Science official website. Angular, SQLAlchemy, FastAPI, Postgres SQL, Kubernetes, etc." precomma="Software Engineering Internship" postcomma="COMP 590 elective course" timerange="Spring 2024"/>
+                    <ResumeWidget description="Managed sustainability initiatives for residents of Ram Village, an on-campus residential community." precomma="Sustainability Officer" postcomma="UNC Residence Hall Association Community Government" timerange="2023-2024"/>
+
 
                     </div>
-
-
-                    <ResumeWidget title="Teaching Assistant (COMP 211: System Fundamentals), UNC CS Department" timerange="January 2024-Present" description="Provide office hours for students; grade homework and exams; contribute to writing exam questions and homework auto- graders; lecture assistance" />
-                    <ResumeWidget title="Lead Web Analyst, Bausch + Lomb" timerange="August 2023-Present" description="Lead web analytics initiatives for the eCommerce department, driving insights to improve site performance and user experience across global markets for the B2B eCommerce website." />
                 </section>
 
-                <section className="text-left bg-antiquewhite px-5 mx-5 mb-4 border-2 border-[#204d4a]"> {/* section2 */}
+                <section className="text-left  pl-5 pr-5  mb-9 border-2 border-[#204d4a]">
+
                     <h2 className="text-2xl mb-[5px] font-bold mt-4 leading-[2rem]">Skills</h2>
                     <div className="flex flex-row gap-x-2.5 text-[#3482bd] mb-[15px]"> {/*skills */}
                         <span className="text-[#816e94] font-mono-text mr-2.5 font-bold text-xl ">Languages:</span> {/* subtitle*/}
@@ -167,24 +196,41 @@ export default function AboutPage() {
 }
 
 type resumeprops = {
-    title: string,
+    precomma: string,
+    postcomma:string,
     description: string,
     timerange: string
 }
 
-function ResumeWidget({ title, description, timerange }: resumeprops) {
+/*function ResumeWidget({ title, description, timerange }: resumeprops) {
     return (
-        <div className="flex flex-row justify-between gap-0"> {/* itemcontainer*/}
-            <div className="flex flex-col mt-1 max-w-3/4"> {/*item */}
+        <div className="flex flex-row justify-between gap-0"> 
+            <div className="flex flex-col mt-1 max-w-3/4">
                 <h2 className="text-about-secondary bg-[#fccaca80] mt-[2px] font-bold font-mono-about! underline leading-[28px]">
                     {title}
                 </h2>
-                <span className=" leading-[1.5rem] text-[15px] text-left mb-[15px] mt-2.5 font-mono-about">{description}</span>  {/*experience2 */}
+                <span className=" leading-[1.5rem] text-[15px] text-left mb-[15px] mt-2.5 font-mono-about">{description}</span>  
             </div>
             <h2 className="ml-0 text-about-secondary  mt-1.5 mr-5 min-w-[25%] pr-5 font-bold text-right max-h-min bg-[#fccaca80] leading-[28px]">
                 {timerange}
             </h2>
         </div>
     )
+}*/
+
+function ResumeWidget({precomma,postcomma, description,timerange}:resumeprops){
+    return(
+        <div className="flex flex-col mb-4 ">
+        <div className="flex flex-row justify-between bg-[#fccaca80] mb-2 mt-0.5 px-3 py-1 -ml-3 -mr-3 ">
+            <h2 className="text-about-secondary text-lg   font-bold underline ">{precomma} , <span className="italic font-normal">{postcomma}</span></h2>
+            <h2 className=" text-about-secondary min-w-[25%] font-bold text-right max-h-min leading-[28px]">{timerange}</h2>
+        </div>
+        <div className="mx-1">
+        <p className="leading-normal text-sm text-left font-mono-about ">{description}</p>
+        </div>
+    </div>
+    )
 }
+
+
 

@@ -17,7 +17,7 @@ export type Poem = {
    archive:string
  }
 
- const createMini = (poem:Poem, index:number): JSX.Element=>{
+ export const createMini = (poem:Poem, index:number): JSX.Element=>{
    //  console.log(poem);
      const charlimit=69;
      const words = poem.content.substring(0,charlimit) + "...";
