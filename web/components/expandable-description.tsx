@@ -8,7 +8,6 @@ type Props = {
   title:string;
   sub:string | null;
 };
-
 export default function ExpandableDescription({   className,title ,sub}: Props) {
   const normalcl=   "font-mono-about  underline leading-normal text-sm  hover:text-midblue  cursor-pointer flex flex-row gap-x-1 items-center"
   const openedcl="font-mono-about  underline leading-normal text-sm font-bold hover:text-midblue  cursor-pointer flex flex-row gap-x-1 items-center"

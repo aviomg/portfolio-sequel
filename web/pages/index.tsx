@@ -2,28 +2,17 @@ import Head from "next/head";
 import NavLink from "@/components/nav-link";
 import ProjectCard from "@/components/project-card";
 import { orderedPoems, projects } from "@/utils/data";
-import CourseCard from "@/components/course-card";
 import Navbar from "@/components/nav-bar";
 import { GetStaticProps } from 'next';
-import { getCourses, Course } from '../lib/notion';
 import Link from "next/link";
 import path from 'path';
 import fs from 'fs';
 import Image from "next/image";
-
-
-
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover"
 import ViewMoreCard from "@/components/viewMoreCard";
-import { Dot, MoveRight } from "lucide-react";
+import { Dot } from "lucide-react";
 import matter from "gray-matter";
 import { JSX, useState } from "react";
 import { createMini, Poem } from "./blog";
-import router from "next/router";
 //import  { useRouter } from "next/router";
 //import { useEffect, useState } from "react";
 
@@ -53,8 +42,10 @@ type Props = {
 
 export default function Home({  poems }: Props) {
   const numPoems = 4;
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [poems1, setPoems1] = useState<Poem[]>(poems);
   const ent = poems1.slice(0, numPoems).map((poem, index) => createMini(poem, index + 1))
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [entries, setEntries] = useState<JSX.Element[]>(ent);
 
   //const router=useRouter();
@@ -150,9 +141,9 @@ export default function Home({  poems }: Props) {
 
               <div className=" text-right font-serif text-lg"> {/*leading-[28px]..he had line height 24px. font size 16. */}
                 <span className=" text-gray-700 ">
-                  Hi! My name is Avi. I'm a fourth-year CS and French double major at UNC-Chapel Hill. I'm currently a software engineer on
+                  Hi! My name is Avi. I&apos;m a fourth-year CS and French double major at UNC-Chapel Hill. I&apos;m currently a software engineer on
                   the Global eCommerce team at Bausch+Lomb, where I build and maintain our web analytics system, create internal tools,
-                  and more. Right now, I'm leading the design and front-end development of a global customer dashboard.
+                  and more. Right now, I&apos;m leading the design and front-end development of a global customer dashboard.
                   {/* <span className="text-midblue underline ml-2 hover:text-puce duration-75"><Link href="/about">
                          [More about my relevant experience &rarr;]
                         </Link>
@@ -162,7 +153,7 @@ export default function Home({  poems }: Props) {
                 <p className="mt-1 text-gray-700">
                   My favorite things
                   to do are to learn and to create. If you asked anyone who knew me (or has ever met me) to describe me in one word,
-                  they'd probably say "curious". In my free time, I enjoy
+                  they&apos;d probably say &quot;curious&quot;. In my free time, I enjoy
 
                   <span className="text-midblue underline ml-2 hover:text-puce duration-75">
                     <Link href="/entries">writing</Link>

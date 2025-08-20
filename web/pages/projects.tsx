@@ -2,8 +2,6 @@ import Head from "next/head";
 import ProjectCard from "@/components/project-card";
 import {  projects } from "@/utils/data";
 import Navbar from "@/components/nav-bar";
-import { GetStaticProps } from 'next';
-import { getCourses, Course } from '../lib/notion';
 
 //import  { useRouter } from "next/router";
 //import { useEffect, useState } from "react";
@@ -22,11 +20,8 @@ const jsonLd = {
   image: "https://jahnavikumar.org/og-image.png"
 };
 
-type Props = {
-    courses: Course[];
-};
 
-export default function Home({courses}:Props) {
+export default function Projects() {
 
   const projectcards = projects.map(project => <ProjectCard mini={false} highlight={true} name={project.name} description={project.description} link={project.link} tech={project.tech} key={project.id} />)
 
