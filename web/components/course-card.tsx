@@ -19,16 +19,18 @@ export default function CourseCard({ title, description, notesnames, noteslinks}
     const arroflinks:JSX.Element[] = []
     noteslinks?.forEach((link, index)=>{
         const element = <Link key={index} className="text-viridian font-bold text-sm hover:text-[#6bc9b2] transition-all duration-75 max-w-min border-viridian" href={link}>
-                        <pre className="code-block language-python max-w-fit !border-transparent !bg-transparent !px-0 !mr-1 !py-0"><code className="!border-green-400 !border !font-bold !px-1 !text-viridian hover:!bg-green-300 hover:!bg-300/100 !bg-green-300/40 transition-all duration-100 font-mono-about
+                        <pre className="code-block language-python max-w-fit !border-transparent !bg-transparent !px-0 !mr-1 !py-0"><code className="!border-green-400 !border !font-bold !px-1 !text-viridian hover:!bg-green-300 hover:!bg-300/100 !bg-green-300/40 transition-all duration-100 font-mono-code
                         ">{notesnames? notesnames[index]: "notes"}</code></pre></Link>
         arroflinks.push(element);
     })
    
-    
+        /*<div className="lg:max-xl:w-[30%] px-5 py-2 border-midblue border  w-full md:w-[48%] lg:w-[24%] shadow-md  shadow-midblue hover:shadow-[#725295] hover:bg-midblue/10 transition-all duration-150  flex flex-col">*/
+
     return(
-    <div className="lg:max-xl:w-[30%] px-5 py-2 rounded-lg  w-full md:w-[48%] lg:w-[24%] shadow-md bg-purple-300/30  shadow-neonpurp hover:shadow-[#725295] hover:bg-purple-300/40 transition-all duration-150  flex flex-col">
-    <h1 className="text-lg min-h-14 font-bold text-[#5941a9]">{title}</h1>
-    <p className={description.includes("Coming Soon")? "text-xs text-gray-700 min-h-fit lg:min-h-12 italic": "text-xs text-gray-700 min-h-fit lg:min-h-12"}>{description}</p>
+    <div className=" px-5 py-2 border-midblue border   shadow-midblue hover:shadow-[#725295] hover:bg-midblue/3 transition-all duration-150  flex flex-col">
+
+    <h1 className="text-lg leading-snug font-bold text-midblue">{title}</h1>
+    <p className={description.includes("Coming Soon")? "text-xs text-gray-700  italic": "text-xs text-gray-700 "}>{description}</p>
     {hasMounted && noteslinks? <div className="flex gap-1">
            {arroflinks}
     </div>:null}

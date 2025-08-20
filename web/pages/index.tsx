@@ -42,7 +42,6 @@ const jsonLd = {
 };
 
 type Props = {
-  courses: Course[];
   poems: Poem[];
 };
 
@@ -52,7 +51,7 @@ type Props = {
 
 //const coursecards1 = courses.map(course => <CourseCard course={course.name} description={course.description} notesnames={course.notesnames} noteslinks={course.noteslinks}/>)
 
-export default function Home({ courses, poems }: Props) {
+export default function Home({  poems }: Props) {
   const numPoems = 4;
   const [poems1, setPoems1] = useState<Poem[]>(poems);
   const ent = poems1.slice(0, numPoems).map((poem, index) => createMini(poem, index + 1))
@@ -80,7 +79,6 @@ export default function Home({ courses, poems }: Props) {
   );
 
 
-  const coursecards = courses.map((course) => (<CourseCard title={course.title} description={course.description} notesnames={course.notesnames} noteslinks={course.noteslinks} key={course.id} id={course.id} />))
 
 
   return (
@@ -179,7 +177,7 @@ export default function Home({ courses, poems }: Props) {
             </section>
 
             <ul className=" text-right mx-4 mt-4 font-mono-about font-bold text-gray-700 gap-y-1 flex flex-col">
-              <li className="flex flex-row gap-x-2 justify-center"><Dot /><Link href="/about2" className="text-midblue underline hover:text-puce duration-75">[Experience/CV]</Link></li>
+              <li className="flex flex-row gap-x-2 justify-center"><Dot /><Link href="/about" className="text-midblue underline hover:text-puce duration-75">[Experience/CV]</Link></li>
               <li className="flex flex-row gap-x-2 justify-center "><Dot /><Link href="/entries" className="text-midblue underline hover:text-puce duration-75">poetry/prose/processes </Link></li>
               <li className="flex flex-row gap-x-2 justify-center"><Dot /><Link href="/crochet" className="text-midblue underline hover:text-puce duration-75">crochet</Link></li>
             </ul>
@@ -216,12 +214,12 @@ dynamic grid side:
 
 */}
 
-          <section className="mb-8">
+          <section className="mb-20">
             <div className="flex flex-col gap-y-4">
-              <div>
+              <div className="mb-4">
                 <h2 className="font-extrabold text-2xl text-[#2d5baf] mb-2">For Fun</h2>
                 <div className=" text-left font-serif text-lg"> {/*leading-[28px]..he had line height 24px. font size 16. */}
-                  <p className=" text-gray-700 ">I have always loved to write, and one of the reasons that I initially created this site was to give my words and sentences a proper shelf to sit on. you can view more of my work <span className="text-midblue"><Link href="/entries">here</Link></span>.
+                  <p className=" text-gray-700 ">I have always loved to write, and one of the reasons that I initially created this site was to give my words and sentences a proper shelf to sit on. you can view more of my work <span className="text-midblue underline hover:text-midblue/70 transition-all"><Link href="/entries">here</Link></span>.
                   </p>
                 </div>
                 <div className="py-2 justify-normal items-stretch min-h-max   gap-y-5 gap-x-4 lg:max-xl:justify-center">
@@ -258,7 +256,7 @@ dynamic grid side:
                   </div>
                 </div>
                 <div className="flex flex-col items-center">
-                  <p className="">My second love is crochet! You can find my photo diary (currently a work in progress) of crochet endeavors <span className="text-midblue"><Link href="/entries">here</Link></span>. </p>
+                  <p className="">My second love is crochet! You can find my photo diary (currently a work in progress) of crochet endeavors <span className="text-midblue underline hover:text-midblue/70 transition-all"><Link href="/entries">here</Link></span>. </p>
                   <div className="relative w-1/2 h-full   shadow-puce  hover:shadow-pink-600  shadow-md border-2 border-puce">
                     <Image
                       src="/crochet/covers.jpeg"
@@ -272,13 +270,7 @@ dynamic grid side:
 
 
           </section>
-          <section className="mb-8">
-
-            <h2 className="font-extrabold text-2xl text-midblue mb-2">Coursework</h2>
-            <div className="py-2 justify-normal items-stretch min-h-max flex flex-row flex-wrap gap-y-5 gap-x-4 lg:max-xl:justify-center">
-              {coursecards}
-            </div>
-          </section>
+     
 
         </div>
 
@@ -292,7 +284,6 @@ dynamic grid side:
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const courses = await getCourses();
   const poemsDir = path.join(process.cwd(), 'public/poem-files');
   const poems = orderedPoems.map((filename) => {
     const filePath = path.join(poemsDir, filename);
@@ -311,7 +302,6 @@ export const getStaticProps: GetStaticProps = async () => {
 
   return {
     props: {
-      courses,
       poems
     },
     revalidate: 60,
