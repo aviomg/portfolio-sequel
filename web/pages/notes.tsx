@@ -64,7 +64,7 @@ export default function NotesPage({courses}:Props){
 
   </Head>
 
-    <div className="flex-grow min-h-[95vh]">
+    <div className="flex-grow min-h-[95vh] mx-auto max-w-[750px]">
         <Navbar currentpage="Notes"/>
         <section className="pb-6">
         <div className="container mx-auto text-center">

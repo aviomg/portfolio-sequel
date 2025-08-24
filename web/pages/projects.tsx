@@ -23,7 +23,7 @@ const jsonLd = {
 
 export default function Projects() {
 
-  const projectcards = projects.map(project => <ProjectCard mini={false} highlight={true} name={project.name} description={project.description} link={project.link} tech={project.tech} key={project.id} />)
+  const projectcards = projects.map(project => <ProjectCard mini={false} highlight={true} minidescrip={project.mini_description? project.mini_description:null} target_blank={project.target_blank} name={project.name} description={project.description} link={project.link} tech={project.tech} key={project.id} />)
 
   return (
     <>
@@ -60,7 +60,7 @@ export default function Projects() {
     
 {/*main page*/}
     <div className="flex-grow max-w-[750px] mx-auto">
-     <Navbar currentpage={"Home"}/>
+     <Navbar currentpage={"None"}/>
 
       <section className="pb-10">
         <div className="container sm:mx-auto p-2 sm:p-0  sm:text-center sm:container text-center sm:!max-w-[1050px]">

@@ -6,6 +6,7 @@ import { Dot } from "lucide-react";
 import CourseCard from "@/components/course-card";
 import { Course, getCourses } from "@/lib/notion";
 import { GetStaticProps } from "next";
+import Link from "next/link";
 
 type Props = {
     courses: Course[];
@@ -15,7 +16,7 @@ export default function AboutPage({ courses }: Props) {
     const title = "eCommerce Software Engineer & Lead Web Analytics Architect"
     const timerange = "August 2023-Present"
     const titleintern = "IT/eCommerce Intern"
-    const descriptionintern = "Contributed to front-end optimization, tooling development, and UX improvement projects for Bausch+Lomb’s eCommerce platform, working across Python, CSS/LESS, and SAP Commerce Cloud/hybris environments. Two-month summer internship extended to part-time Frontend developer position, based on superior performance review."
+    const descriptionintern = "Contributed to front-end optimization, tooling development, and UX improvement projects for Bausch+Lomb’s eCommerce platform, working across Python, CSS/LESS, and SAP Commerce Cloud/hybris environments. Summer internship extended to part-time Frontend developer position, based on superior performance review."
     const timerangeintern = "June - August 2023"
     const listitemsintern = [{ title: "Built a Python tool to recover ~700 obsolete UI mockups from a defunct design tool, restoring critical design assets for ongoing projects. Github" },
     { title: "Researched and delivered internal training and recommendations to optimize use and improve tool adoption of Dynatrace application monitoring" },
@@ -68,12 +69,53 @@ export default function AboutPage({ courses }: Props) {
         )
     })
 
-
-
-    const languages = ["Python", "C", "MIPS", "JavaScript", "Java", "System Verilog", "TypeScript", "SQL", "JSP", "CSS Frameworks & Preprocessors", "Hindi", "French"]
-    const technologies_swe = ["Angular", "Node.js", "Tailwind", "FastAPI", "SQLAlchemy", "GCS", "Render", "Flask", "Kubernetes", "Docker", "React", "Nextjs"]
-    const technologies_other = ["Piwik/Matomo", "GA4", "Tableau", "Power BI", "Dynatrace", "Figma"]
-    const skills = ["Web Analytics", "Scrum & APM Frameworks", "Full-stack dev", "Software dev", "Web API dev", "Information Design", "B2B eCommerce", "Product Information Management", "SAP Commerce Cloud", "Prototyping"]
+   const languages=[  "JavaScript",
+    "Python",
+    "C",
+    "MIPS",
+    "Java",
+    "System Verilog",
+    "TypeScript",
+    "CSS Preprocessors",
+    "HTML5",
+    "SQL",
+    "JSP",
+"French","Hindi"]
+const technologies_swe=["Nextjs", 
+    "React",
+     "Angular", 
+     "FastAPI", 
+     "SQLAlchemy", 
+     "SAP Hybris", 
+     "GTM",
+      "Kubernetes",
+       "Docker",
+        "Nodejs", 
+        "Tailwind",
+        "GCS",
+        "Supabase", 
+        "Flask"]
+  const technologies_other=  ["Piwik/Matomo",
+   "Figma",
+    "Optimizely", 
+    "Power BI", 
+    "Dynatrace", 
+    "Tableau"]
+    const skills=["Web analytics", 
+        "Front-end dev",
+        "JavaScript engineering",
+        "FPGA Development",
+        "UI/UX design and prototyping",
+        "Scrum and APM frameworks",
+        "Web API dev",
+        "Full-stack dev",
+        "Software dev",
+        "SAP Commerce Cloud",
+        "Information Design",
+        "B2B eCommerce"]
+//    const technologies_swe = ["Angular", "Node.js", "Tailwind", "FastAPI", "SQLAlchemy", "GCS", "Render", "Flask", "Kubernetes", "Docker", "React", "Nextjs"]
+   // const technologies_other = ["Piwik/Matomo", "GA4", "Tableau", "Power BI", "Dynatrace", "Figma"]
+   // const skills = ["Web Analytics", "Scrum & APM Frameworks", "Full-stack dev", "Software dev", "Web API dev", "Information Design", "B2B eCommerce", "Product Information Management", "SAP Commerce Cloud", "Prototyping"]
 
     const langitems = languages.map((lang, index) =>
         <span key={index} className="bg-[#9bf3f066] border-[#09a6a1] border border-solid px-1 text-[17px]  font-mono-jetbrains">{lang}</span>
@@ -129,9 +171,10 @@ export default function AboutPage({ courses }: Props) {
             </Head>
             {/*screen size was 992 */}
             <div className="flex-grow min-h-[calc(100vh)] mx-auto max-w-[1024px] flex flex-col text-center gap-x-5 text-about-text pb-10   ">
-                <Navbar currentpage="About" />
-                <div className="mx-15 mb-9 items-center">{/*head*/}
-                    <h1 className="text-4xl font-bold  mb-4 ml-auto text-puce">Experience & Education</h1>{/*title; originally h2*/}
+                <Navbar currentpage="About/CV" />
+                <div className="mx-auto mb-9 flex flex-row gap-x-5 items-center justify-between">{/*head*/}
+                    <h1 className="ml-30 text-4xl font-bold  mb-4  text-puce">Experience & Education </h1>{/*title; originally h2*/}
+                    <Link className="text-midblue text-base transition-all cursor-pointer underline hover:text-midblue/50 font-normal" href="/resume" target="_blank">download PDF </Link> 
                 </div>
                 <section className="text-left  pl-5 pr-5  mb-9 border-2 border-[#204d4a]">
                     <h2 className="text-2xl mb-[5px] font-bold mt-4 leading-[2rem]">Experience</h2>
@@ -179,12 +222,12 @@ Computer Science official website. Angular, SQLAlchemy, FastAPI, Postgres SQL, K
                             {langitems}</div>
                     </div>
                     <div className="flex flex-row gap-x-2.5 text-[#3482bd] mb-[15px]">
-                        <span className="text-[#816e94] font-mono-text mr-2.5 font-bold text-xl ">Technologies(SWE):</span>
+                        <span className="text-[#816e94] font-mono-text mr-2.5 font-bold text-xl ">Tools(SWE):</span>
                         <div className="font-mono-about custom-text-shadow flex flex-row flex-wrap justify-baseline gap-y-2.5 gap-x-[35px] text-[1rem] text-left mb-[15px]">
                             {sweitems}</div>
                     </div>
                     <div className="flex flex-row gap-x-2.5 text-[#3482bd] mb-[15px]">
-                        <span className="text-[#816e94] font-mono-text mr-2.5 font-bold text-xl ">Technologies (Other):</span>
+                        <span className="text-[#816e94] font-mono-text mr-2.5 font-bold text-xl ">Tools(Other):</span>
                         <div className="font-mono-about custom-text-shadow flex flex-row flex-wrap justify-baseline gap-y-2.5 gap-x-[35px] text-[1rem] text-left mb-[15px]">
                             {otheritems}</div>
                     </div>
@@ -199,7 +242,7 @@ Computer Science official website. Angular, SQLAlchemy, FastAPI, Postgres SQL, K
 
                     <h2 className="text-2xl mb-[5px] font-bold mt-4 leading-[2rem]">Coursework</h2>
                     {/*<div className="py-2 justify-normal items-stretch min-h-max flex flex-row flex-wrap gap-y-5 gap-x-4 lg:max-xl:justify-center">*/}
-                    <div className="py-2 grid grid-cols-4 gap-y-5 gap-x-4">
+                    <div className="py-2 grid grid-cols-3 gap-y-5 gap-x-4">
                         {coursecards}
                     </div>
 

@@ -1,7 +1,17 @@
 export const projects = [
+  {name: "Train Planner",
+    description:"Designed a full, working CPU in SystemVerilog, implemented on an FPGA circuit. Includes I/O integration (VGA, acclerometer, keyboard, buttons, LED, sound) and memory-mapping; I also wrote a 'train track planner' game in MIPS assembly (1,600+ lines) to demonstrate the processor functionality. Click to watch my project demo!",
+    mini_description:"Designed a full, working CPU in SystemVerilog, implemented on an FPGA circuit. I also wrote a 'train track planner' game in MIPS assembly to demonstrate the processor functionality. Click to watch my project demo!",
+    link:"https://youtu.be/HUmOf4YsyzI?si=NQHqLAS9ym9EQcGL",
+    target_blank:true,
+    tech:["System Verilog","MIPS Assembly","Vivado","C","Nexys A7"],
+    id:9,
+    featured:true
+  },
   {name:"Bitmap Generator",
     description:"A tool designed to help students in COMP 541 (Digital Logic) create sprites and bitmap memory files.",
     link:"https://bitmapgenerator.vercel.app/",
+    target_blank:true,
     tech:["Nextjs","Digital Logic","System Verilog"],
     id:8,
     featured:true
@@ -9,13 +19,15 @@ export const projects = [
   {name:"SwipeShare",
     description:"a community-driven platform where college students can request or donate unused meal swipes for campus dining halls.",
     link:"https://github.com/comp426-25s/final-project-team-20",
+    target_blank:true,
     tech:["Nextjs","React","Supabase","Realtime","TSX","Shadcn","Figma"],
     id:7,
     featured:true
   },
     {name:"Studio Keys",
         description: " A Python-based tool designed to enable the easy retrieval and recovery of UI/UX designs created with the (now) defunct Invision prototyping tool.",
-        link:"https://studio-keys.onrender.com",
+        link:"/projects/studio-keys",
+        target_blank:false,
         tech:["Python","Flask","GCS","Render","Tailwind"],
         id:6,
         featured:true
@@ -24,6 +36,7 @@ export const projects = [
     {name:"CSXL Student Showcase Board",
       description:"My team's final project for COMP 590 involved designing and implementing a feature for the UNC CSXL website that allows students to showcase their projects and explore others' work in a centralized, interactive feed. Click to watch our demo video!",
       link:"https://youtu.be/5HTkijZrJAc?si=a7blwTyL7nJWt4zG",
+      target_blank:true,
       tech:["Angular","FastAPI","SQLAlchemy","Kubernetes"],
       id:5,
       featured:false
@@ -31,13 +44,15 @@ export const projects = [
   {name:"Pokédex",
     description:"      a Pokédex app to display information about Pokemon, moves, and items. Built using Next.js and the Pokemon API, deployed live to the internet via Vercel. ",
           link:"https://a05-pokedex-avikumar.vercel.app/",
+          target_blank:true,
           tech:["Nextjs","React Query","Tailwind","Vercel"],
           id:4,
-          featured:true
+          featured:false
       },
       {name:"Wordle",
         description:"A recreation of wordle using React.js. Exercise to become familiar with the framework.",
             link:"https://a04-wordle-avikumar.vercel.app/",
+            target_blank:true,
               tech:["React"],
               id:3,
               featured:false
@@ -45,6 +60,7 @@ export const projects = [
           {name:"Pixel Art Maker",
             description:"Create pixel art on a canvas that persists on page reload, with functionality to download paintings as pngs. exercise to practice using event listeners.",
                 link:"https://a03-pixel-art-maker-nathanflinchum.vercel.app/",
+                target_blank:true,
                   tech:["TypeScript"],
                   id:2,
                   featured:false
@@ -52,6 +68,7 @@ export const projects = [
         {name:"Fairly Odd Calculator",
           description:"A little exercise to practice using typescript, arrow and higher order functions, and my favorite colors.",
           link:"https://a02-calculator-avikumar.vercel.app/",
+          target_blank:true,
           tech:["TypeScript"],
           id:1,
           featured:false

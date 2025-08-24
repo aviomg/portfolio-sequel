@@ -8,7 +8,6 @@ import Link from "next/link";
 import path from 'path';
 import fs from 'fs';
 import Image from "next/image";
-import ViewMoreCard from "@/components/viewMoreCard";
 import { Dot } from "lucide-react";
 import matter from "gray-matter";
 import { JSX, useState } from "react";
@@ -58,8 +57,13 @@ export default function Home({  poems }: Props) {
     }
   }, [router.isReady, router.query.variant]);*/
 
-  const projectcards = projects.map(project => project.featured ? <ProjectCard mini={false} highlight={false} name={project.name} description={project.description} link={project.link} tech={project.tech} key={project.id} /> : null)
+  const projectcards = projects.map(project => project.featured ? <ProjectCard key={project.id} mini={true} target_blank={project.target_blank} minidescrip={project.mini_description? project.mini_description:null} highlight={false} name={project.name} description={project.description} link={project.link} tech={project.tech} /> : null)
   projectcards.push(
+    <Link className="p-4 border border-viridian text-viridian text-center flex flex-col items-center max-h-min shadow-sm shadow-viridian hover:shadow-(--shadow-red-300)  font-bold hover:text-red-300 hover:border-red-300" href="/projects">
+    <p className="mx-auto">View All</p>
+    </Link>
+  )
+  /*projectcards.push(
     <ViewMoreCard
       key="view-more"
       href="/projects"
@@ -67,7 +71,7 @@ export default function Home({  poems }: Props) {
     // label="View all"
     // countText={`See ${projects.length} projects`} // optional
     />
-  );
+  );*/
 
 
 
@@ -110,7 +114,7 @@ export default function Home({  poems }: Props) {
         <div className="flex-grow max-w-[750px] mx-auto">
           <Navbar currentpage={"Home"} />
 
-          <section className="pb-8">
+          <section className="pb-6">
             <div className="container sm:mx-auto p-2 sm:p-0  sm:text-center sm:container text-center sm:!max-w-[1050px]">
 
               <h2 className="text-4xl  font-serif font-extrabold mb-1">avi kumar</h2>
@@ -133,7 +137,7 @@ export default function Home({  poems }: Props) {
                 <NavLink name="Linkedin" href="https://www.linkedin.com/in/jahnavikumar/" />
                 <NavLink name="Github" href="https://www.github.com/aviomg" />
                 <NavLink name="avikumar2048@gmail.com" href="mailto:avikumar2048@gmail.com" />
-                <NavLink name="Resume" href="" />
+                <NavLink name="Resume" href="/resume" />
               </ul>
             </div>
             <section className="container sm:mx-auto p-2 sm:p-0 mt-5 mb-3 sm:text-center sm:container text-center ">
@@ -193,7 +197,7 @@ export default function Home({  poems }: Props) {
             <h2 className="font-extrabold mb-2 text-2xl text-midblue font-serif">Projects</h2>
             <section className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-4 ">
               {projectcards}
-            </section>
+            </section>  
           </section>
           {/*<section className="py-2 justify-normal items-stretch min-h-max flex flex-row flex-wrap gap-y-5 gap-x-4 max-sm:flex-col max-sm:gap-y-4 ">
   {projectcards}
@@ -206,11 +210,11 @@ dynamic grid side:
 */}
 
           <section className="mb-20">
-            <div className="flex flex-col gap-y-4">
+            <div className="flex flex-col gap-y-5">
               <div className="mb-4">
                 <h2 className="font-extrabold text-2xl text-[#2d5baf] mb-2">For Fun</h2>
-                <div className=" text-left font-serif text-lg"> {/*leading-[28px]..he had line height 24px. font size 16. */}
-                  <p className=" text-gray-700 ">I have always loved to write, and one of the reasons that I initially created this site was to give my words and sentences a proper shelf to sit on. you can view more of my work <span className="text-midblue underline hover:text-midblue/70 transition-all"><Link href="/entries">here</Link></span>.
+                <div className=" text-left font-serif text-lg mb-1"> {/*leading-[28px]..he had line height 24px. font size 16. */}
+                  <p className=" text-gray-700 ">I have always loved to write, and the reason that I initially created this site was to give my sentences and favorite words a proper shelf to sit on. you can view more of my work <span className="text-midblue underline hover:text-midblue/70 transition-all"><Link href="/entries">here</Link></span>!
                   </p>
                 </div>
                 <div className="py-2 justify-normal items-stretch min-h-max   gap-y-5 gap-x-4 lg:max-xl:justify-center">
@@ -246,11 +250,11 @@ dynamic grid side:
                       className="object-cover" />
                   </div>
                 </div>
-                <div className="flex flex-col items-center">
-                  <p className="">My second love is crochet! You can find my photo diary (currently a work in progress) of crochet endeavors <span className="text-midblue underline hover:text-midblue/70 transition-all"><Link href="/entries">here</Link></span>. </p>
+                <div className="flex flex-col items-center gap-y-4">
+                  <p className="">My second love is crochet! You can find my photo diary (which is currently a work in progress) of crochet endeavors <span className="text-midblue underline hover:text-midblue/70 transition-all"><Link href="/crochet">here</Link></span>. </p>
                   <div className="relative w-1/2 h-full   shadow-puce  hover:shadow-pink-600  shadow-md border-2 border-puce">
                     <Image
-                      src="/crochet/covers.jpeg"
+                      src="/crochet/moonlight-thumbnail.jpeg"
                       alt="crochet image"
                       fill
                       className="object-cover " />

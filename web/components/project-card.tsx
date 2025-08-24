@@ -3,8 +3,9 @@ import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover"
 
 
 
-type projectcardprops={name:string,description:string, link:string, tech:string[], mini:boolean,highlight:boolean}
-export default function ProjectCard({name, description, link, tech,mini,highlight}:projectcardprops){
+type projectcardprops={name:string,description:string, link:string, tech:string[], mini:boolean,highlight:boolean, target_blank:boolean, minidescrip:string|null}
+export default function ProjectCard({name, description, link, tech,mini,highlight, target_blank,minidescrip}:projectcardprops){
+  
 //  const p = projects[1]
   const numtoshow=mini?2: 1000;
   const techwidgets = tech.map((item,index) => {if(index<=numtoshow-1) return <p key={index} className=" border !font-mono-about !codefont border-green-400 !text-[#579a6c] group-hover:!text-red-300  group-hover:!bg-red-300/10 group-hover:border-red-300   text-xs p-[2px] px-1 ">{item}</p>})
@@ -25,9 +26,11 @@ export default function ProjectCard({name, description, link, tech,mini,highligh
       e.stopPropagation();  // keep it from re-bubbling further
     }
   }}
-   href={link} target="_blank" className="flex-1 group shadow-(--shadow) hover:shadow-(--shadow-red-300)  flex flex-col px-4 pt-4 pb-0 text-wrap border-viridian border max-sm:!w-full hover:border-red-300">
+   href={link} target={target_blank? "_blank":""} className="flex-1 group shadow-(--shadow) hover:shadow-(--shadow-red-300)  flex flex-col px-4 pt-4 pb-0 text-wrap border-viridian border max-sm:!w-full hover:border-red-300">
   <span className={" font-semibold text-viridian group-hover:text-red-300 " + (mini?"text-lg mb-2":" px-2 text-xl mb-4 ") + (highlight?"bg-pink-200":"")}>{name}</span>
-  <span className={"font-mono-about text-viridian group-hover:text-red-300 break-words " + (mini?"text-xs":"text-sm")}>{description}</span>
+  <span className={"font-mono-about text-viridian group-hover:text-red-300 break-words " + (mini?"text-xs":"text-sm")}>
+    {mini && minidescrip!=null? minidescrip:description}
+    </span>
 <div className="flex flex-row my-4 gap-x-4 flex-wrap gap-y-2">
   {techwidgets}
   {
