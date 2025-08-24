@@ -28,10 +28,10 @@ export default function ProjectCard({name, description, link, tech,mini,highligh
   }}
    href={link} target={target_blank? "_blank":""} className="flex-1 group shadow-(--shadow) hover:shadow-(--shadow-red-300)  flex flex-col px-4 pt-4 pb-0 text-wrap border-viridian border max-sm:!w-full hover:border-red-300">
   <span className={" font-semibold text-viridian group-hover:text-red-300 " + (mini?"text-lg mb-2":" px-2 text-xl mb-4 ") + (highlight?"bg-pink-200":"")}>{name}</span>
-  <span className={"font-mono-about text-viridian group-hover:text-red-300 break-words " + (mini?"text-xs":"text-sm")}>
+  <span className={"font-mono-about text-viridian group-hover:text-red-300 break-words mb-4 " + (mini?"text-xs":"text-sm")}>
     {mini && minidescrip!=null? minidescrip:description}
     </span>
-<div className="flex flex-row my-4 gap-x-4 flex-wrap gap-y-2">
+<div className="flex flex-row my-4 gap-x-4 flex-wrap gap-y-2 mt-auto">
   {techwidgets}
   {
     num_remaining>0?  <Popover>

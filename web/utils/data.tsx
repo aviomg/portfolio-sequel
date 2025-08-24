@@ -1,20 +1,34 @@
+
 export const projects = [
+  {name: "Portfolio (Classic)",
+    description:"The first edition  of my personal site, built in the traditional HTML/CSS/JS stack, before I upgraded & expanded it using modern frameworks. This project solidified my understanding of the core logic at play in web browsers, and a true appreciation of how far we've come today, with frameworks that make web dev practically intuititve (like React and Next).",
+    mini_description:"The first edition  of my personal site, built in the traditional HTML/CSS/JS stack.",
+    link:"/projects/portfolio",
+    target_blank:false,
+    tech:['HTML','CSS','JS','DOM Manipulation'],
+    id:10,
+    featured:true,
+    repo:'portfolio'
+
+  },
   {name: "Train Planner",
     description:"Designed a full, working CPU in SystemVerilog, implemented on an FPGA circuit. Includes I/O integration (VGA, acclerometer, keyboard, buttons, LED, sound) and memory-mapping; I also wrote a 'train track planner' game in MIPS assembly (1,600+ lines) to demonstrate the processor functionality. Click to watch my project demo!",
     mini_description:"Designed a full, working CPU in SystemVerilog, implemented on an FPGA circuit. I also wrote a 'train track planner' game in MIPS assembly to demonstrate the processor functionality. Click to watch my project demo!",
-    link:"https://youtu.be/HUmOf4YsyzI?si=NQHqLAS9ym9EQcGL",
-    target_blank:true,
+    link:"/projects/train-planner",
+    target_blank:false,
     tech:["System Verilog","MIPS Assembly","Vivado","C","Nexys A7"],
     id:9,
-    featured:true
+    featured:true,
+    repo:'train-planner'
   },
   {name:"Bitmap Generator",
     description:"A tool designed to help students in COMP 541 (Digital Logic) create sprites and bitmap memory files.",
-    link:"https://bitmapgenerator.vercel.app/",
-    target_blank:true,
+    link:"/projects/bitmap-generator",
+    target_blank:false,
     tech:["Nextjs","Digital Logic","System Verilog"],
     id:8,
-    featured:true
+    featured:true,
+    repo:'bitmap-generator',
   },
   {name:"SwipeShare",
     description:"a community-driven platform where college students can request or donate unused meal swipes for campus dining halls.",
@@ -30,7 +44,8 @@ export const projects = [
         target_blank:false,
         tech:["Python","Flask","GCS","Render","Tailwind"],
         id:6,
-        featured:true
+        featured:true,
+        repo:'studio-keys'
     },
    
     {name:"CSXL Student Showcase Board",

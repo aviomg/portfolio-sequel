@@ -27,14 +27,16 @@ export default function CourseCard({ title, description, notesnames, noteslinks}
         /*<div className="lg:max-xl:w-[30%] px-5 py-2 border-midblue border  w-full md:w-[48%] lg:w-[24%] shadow-md  shadow-midblue hover:shadow-[#725295] hover:bg-midblue/10 transition-all duration-150  flex flex-col">*/
 
     return(
-    <div className=" px-5 py-2 border-midblue border   shadow-midblue hover:shadow-[#725295] hover:bg-midblue/3 transition-all duration-150  flex flex-col">
+    <div className=" px-5 py-2 border-midblue border   shadow-midblue hover:shadow-[#725295] hover:bg-midblue/3 transition-all duration-150  flex flex-col ">
 
-    <h1 className="text-lg leading-snug font-bold text-midblue">{title}</h1>
-    <p className={description.includes("Coming Soon")? "text-xs text-gray-700  italic": "text-xs text-gray-700 "}>{description}</p>
+    <h1 className="text-lg leading-snug font-bold text-midblue ">{title}</h1>
+    <p className={description.includes("Coming Soon")? "text-xs text-gray-700  italic": "text-xs text-gray-700 mt-auto "}>{description}</p>
+    
     {hasMounted && noteslinks? <div className="flex gap-1">
            {arroflinks}
     </div>:null}
   </div>
+  
     )
 }
 
