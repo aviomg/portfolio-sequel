@@ -1,4 +1,4 @@
-import { GetServerSideProps, GetServerSidePropsContext } from 'next';
+import { GetServerSideProps } from 'next';
 import Navbar from "@/components/nav-bar";
 import useSWR from 'swr';
 import ReactMarkdown from 'react-markdown';
