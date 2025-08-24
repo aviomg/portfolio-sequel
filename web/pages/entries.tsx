@@ -48,7 +48,7 @@ export default function Entries({ poems }: { poems: Poem[] }) {
         </div>)
     })
     const itemid = `poem${index + 1}`;
-    const classtitle = index % 2 == 0 ? "bg-puce/50 rounded mb-10 border-puce border flex flex-row justify-between" : "bg-pink-200/30 rounded mb-10 border border-pink-200 flex flex-row justify-between"
+    const classtitle = index % 2 == 0 ? "bg-puce/20 rounded mb-10 border-puce/50 border flex flex-row justify-between" : "bg-pink-200/30 rounded mb-10 border border-pink-200 flex flex-row justify-between"
     const item =
       <div key={index} className={classtitle}>
         <article id={itemid} className="text-gray-700 container block text-left mx-auto space-y-1 mb-2 px-40 py-4 max-sm:px-8">
@@ -104,7 +104,7 @@ export default function Entries({ poems }: { poems: Poem[] }) {
 
 </Head>
 
-    <div className="flex-grow" id="top">
+    <div className="flex-grow " id="top">
       <Navbar currentpage="Poetry" />
       <div className="pb-10 pt-3">
         <div className="container mx-auto text-center">

@@ -1,5 +1,5 @@
 ---
-title: Haiku #1
+title: "Haiku #1"
 archive: true    
 ---
 6 am, time’s up
