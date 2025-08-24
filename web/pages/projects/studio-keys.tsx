@@ -16,7 +16,7 @@ export default function StudioKeysPage(){
     );
 
     if(error) return <p>Error loading README</p>;
-    if(isLoading||!data) return <p>Loading...</p>;
+    if(isLoading||!data) return <p className="text-2xl  text-center mx-auto my-auto">Loading...</p>;
 
     return(
         <div className="flex-grow max-w-[750px] mx-auto">

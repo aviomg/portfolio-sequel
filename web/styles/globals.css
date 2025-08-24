@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";   
+
 @import "tw-animate-css";
 
 /*---break--- */
@@ -24,8 +25,11 @@
   --foreground: oklch(0.145 0 0);
   --base1: #f1f1f1;
   --puce:#b48291;
+/*new purplse tjing: a462a3*/
+  /*puce:b48291*/
   --newpurp:#816e94;
   --viridian:#4c8577;
+  /*viridian: 4c8577 */
   --hgreen:#4e6e58;
   --russianviolet:#583688;
   --yinminblue:#2c497f;
