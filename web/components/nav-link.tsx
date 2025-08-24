@@ -2,7 +2,7 @@ import Link from "next/link"
 
 type navlinkprops={href:string,name:string,}
 export default function NavLink({href,name}:navlinkprops){
-  
+
 
     return(
         <li>
