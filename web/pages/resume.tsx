@@ -15,8 +15,8 @@ export default function ResumePage() {
         window.addEventListener('resize', setVH);
         return () => window.removeEventListener('resize', setVH);
     }, []);
-
-    const pdfUrl = '/resume.pdf'; // must exist at /public/resume.pdf
+   
+    const pdfUrl =  '/resume-master-formatted-FINAL-08-25.pdf'; // must exist at /public/resume.pdf
 
     return (
         <>
