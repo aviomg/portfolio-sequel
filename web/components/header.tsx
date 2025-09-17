@@ -6,7 +6,7 @@ export default function Header(){
         <div className="w-[70%] m-auto">
           <h1 className="block text-5xl font-bold text-[#f1f1f1]">
               Avi Kumar
-            <span className="block text-3xl text-[#3a6d5b] font-normal">student, software engineer, writer, professional question asker</span>
+            <span className="block text-3xl text-[#3a6d5b] font-normal">student, computer engineer, writer, professional question asker</span>
             <div className="mt-[50px] mb-[-80px] text-[#3a6d5b] text-lg ">
               welcome to my page! &darr;
             </div>

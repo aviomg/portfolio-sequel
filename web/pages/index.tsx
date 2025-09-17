@@ -87,7 +87,7 @@ export default function Home({  poems }: Props) {
         <link rel="canonical" href="https://jahnavikumar.org" />
 
         <meta name="description" content="A personal website showcasing my experience and projects, and documenting my journey as a developer/engineer, computer science student, and human being." />
-        <meta name="keywords" content="swe, software engineering, developer, software developer, computer science, comp sci, unc, unc chapel hill, portfolio, engineer, webdev, web dev" />
+        <meta name="keywords" content="swe, software engineering, developer, software developer, hardware engineer, computer science, comp sci, unc, unc chapel hill, portfolio, engineer, webdev, web dev" />
         <meta name="robots" content="index, follow" />
         <meta name="googlebot" content="index, follow" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
