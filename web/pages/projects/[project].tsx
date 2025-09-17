@@ -38,10 +38,11 @@ export default function ProjectPage({name}:Props) {
         <Navbar currentpage="None"/>
         <div className='mx-auto text-left mt-0 mb-2 font-mono-about underline hover:text-midblue transition-all'><Link href="/projects">back to projects</Link></div>
 
-        <div className='prose prose-neutral prose-h1:-mt-4 prose pre:code-block pre:bg-neutral-300 pre:language-python pre:line-numbers code:language-python  text-gray-700  mx-auto p-6 max-w-none prose-a:text-midblue prose-a:hover:text-blue-300 prose-a:transition-all leading-normal prose-headings:text-puce prose-code:font-mono-jetbrains prose-h2:mb-3 prose-h2:font-mono-about prose-headings:font-mono-about prose-h1:text-center  '>
+        <div className='prose prose-neutral prose-h1:-mt-4  pre:code-block pre:bg-neutral-300 pre:language-python pre:line-numbers code:language-python  text-gray-700  mx-auto p-6 max-w-none prose-a:text-midblue prose-a:hover:text-blue-300 prose-a:transition-all leading-normal prose-headings:text-puce prose-code:font-mono-jetbrains prose-h2:mb-3 prose-h2:font-mono-about prose-headings:font-mono-about prose-h1:text-center  '>
             <ReactMarkdown 
             remarkPlugins={[remarkGfm]}
             components={{
+                // eslint-disable-next-line @typescript-eslint/no-unused-vars
                 code({node,inline,className,children,...props}){
                    // const  codeContent=String(children).replace('"'','hh');
                    const codeContent=String(children);
