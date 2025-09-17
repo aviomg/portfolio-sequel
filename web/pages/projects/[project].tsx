@@ -43,15 +43,15 @@ export default function ProjectPage({name}:Props) {
             remarkPlugins={[remarkGfm]}
             components={{
                 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-                code({node,inline,className,children,...props}){
+                code({node,className,children,...props}){
                    // const  codeContent=String(children).replace('"'','hh');
                    const codeContent=String(children);
               
-                    if(inline){
+              /*      if(inline){
                         return(
                             <code className={className}{...props}>{codeContent}</code>
                         );
-                    }
+                    }*/
                     return(
                         
                         <code className="font-mono-code bg-gray-200 rounded-md text-[#0d0d0d] text-sm font-medium pt-[0.15rem] pb-[0.15rem] pl-[0.3rem] pr-[0.3rem]"{...props}>{codeContent}</code>
