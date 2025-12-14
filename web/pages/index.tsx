@@ -166,14 +166,23 @@ export default function Home({  poems }: Props) {
                   <span className=" text-midblue underline hover:text-puce duration-75">
                     <Link href="/crochet">crocheting</Link>
                   </span>
-                  <span className="text-about-text">, spending time with friends, and thinking about the things I&apos;m learning. Thanks for visiting!</span>
+                  <span className="  text-about-text">, </span>
+                  <span className=" text-midblue underline hover:text-puce duration-75">
+                    <Link href="/crochet">notetaking</Link>
+                  </span>
+                  <span className="text-about-text">, spending time with friends, and thinking about the things I&apos;m </span>
+                  <span className="text-midblue underline hover:text-puce duration-75">
+                    <Link href="/notes">
+                    learning</Link>
+                    </span>
+                  <span className="text-about-text">. Thanks for visiting!</span>
                 </p>
               </div>
             </section>
 
             <ul className=" text-right mx-4 mt-4 font-mono-about font-bold text-gray-700 gap-y-1 flex flex-col">
               <li className="flex flex-row gap-x-2 justify-center"><Dot /><Link href="/about" className="text-midblue underline hover:text-puce duration-75">[Experience/CV]</Link></li>
-              <li className="flex flex-row gap-x-2 justify-center "><Dot /><Link href="/entries" className="text-midblue underline hover:text-puce duration-75">poetry/prose/processes </Link></li>
+              <li className="flex flex-row gap-x-2 justify-center "><Dot /><Link href="/entries" className="text-midblue underline hover:text-puce duration-75">poetry/prose </Link></li>
               <li className="flex flex-row gap-x-2 justify-center"><Dot /><Link href="/crochet" className="text-midblue underline hover:text-puce duration-75">crochet</Link></li>
             </ul>
 
