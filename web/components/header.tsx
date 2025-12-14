@@ -1,3 +1,4 @@
+import Link from "next/link";
 
 
 export default function Header(){
@@ -7,9 +8,9 @@ export default function Header(){
           <h1 className="block text-5xl font-bold text-[#f1f1f1]">
               Avi Kumar
             <span className="block text-3xl text-[#3a6d5b] font-normal">student, computer engineer, writer, professional question asker</span>
-            <div className="mt-[50px] mb-[-80px] text-[#3a6d5b] text-lg ">
+            <Link className="hover:underline mt-[50px] mb-[-80px] text-[#3a6d5b] text-lg " href="/#cont">
               welcome to my page! &darr;
-            </div>
+            </Link>
           </h1>
         </div>
       </header>
