@@ -192,7 +192,7 @@ const technologies_swe=["Nextjs",
                         </div>
 
 
-                        <ResumeWidget postcomma="UNC CS Department" precomma="Teaching Assistant (COMP 211: System Fundamentals)" timerange="January 2024-Present" description="Provide office hours for students; grade homework and exams; contribute to writing exam questions and homework auto- graders; lecture assistance" />
+                        <ResumeWidget postcomma="UNC CS Department" precomma="Teaching Assistant (COMP 211: System Fundamentals)" timerange="January 2024-Present" description="Lead lecture-style exam review sessions; Produce educational video resources for students; Provide office hours for students; grade homework and exams; contribute to writing exam questions and homework auto- graders; lecture assistance" />
 
                         <div className="flex flex-col mb-4 ">
                             <div className="flex flex-row justify-between bg-[#fccaca80] mb-2 mt-0.5 px-3 py-1 -ml-3 -mr-3 ">

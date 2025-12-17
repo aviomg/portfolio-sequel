@@ -83,10 +83,33 @@ export default function Projects() {
         </div>
 
        
-        <section className="pb-16 max-w-[990px] px-4 mx-auto">
-          <div className="grid grid-cols-2 gap-6">
-            {projectcards}
+        <section className="pb-16 max-w-[990px] px-4 mx-auto flex flex-col gap-y-6">
+          <div className="grid grid-cols-5 gap-8  ">
+            <div className="col-span-3 flex items-stretch">{projectcards[2]}</div>
+            <div className="col-span-2 flex items-stretch">{projectcards[1]}</div>
           </div>
+          <div className="grid grid-cols-3 gap-8  ">
+            <div className="col-span-1 flex items-stretch">{projectcards[0]}</div>
+            <div className="col-span-2 flex items-stretch">{projectcards[3]}</div>
+          </div>
+          <div className="grid grid-cols-2 gap-8  ">
+            <div className="col-span-1 flex items-stretch">{projectcards[4]}</div>
+            <div className="col-span-1 flex items-stretch">{projectcards[5]}</div>
+          </div>
+        
+          <div className="grid grid-cols-4 gap-8  ">
+            <div className="col-span-2 flex items-stretch">{projectcards[6]}</div>
+            <div className="col-span-1 flex items-stretch">{projectcards[7]}</div>
+            <div className="col-span-1 flex items-stretch">{projectcards[8]}</div>
+
+          </div>
+          <div className="grid grid-cols-2 gap-8">
+            {projectcards.slice(9)}
+          </div>
+          
+         {/* <div className="grid grid-cols-2 gap-6">
+            {projectcards}
+          </div>*/}
        {/* <div className="flex flex-col gap-y-5">
         <section className="grid grid-cols-3 gap-4  ">
           {projectcards.slice(0,3)}

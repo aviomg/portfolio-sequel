@@ -1,15 +1,6 @@
 
 export const projects = [
-  {name: "Train Planner",
-    description:"Designed a full, working CPU in SystemVerilog, implemented on an FPGA circuit. Includes I/O integration (VGA, acclerometer, keyboard, buttons, LED, sound) and memory-mapping; I also wrote a 'train track planner' game in MIPS assembly (1,600+ lines) to demonstrate the processor functionality. Click to watch my project demo!",
-    mini_description:"Designed a full, working CPU in SystemVerilog, implemented on an FPGA circuit. I also wrote a 'train track planner' game in MIPS assembly to demonstrate the processor functionality. Click to watch my project demo!",
-    link:"/projects/train-planner",
-    target_blank:false,
-    tech:["System Verilog","MIPS Assembly","Vivado","C","Nexys A7"],
-    id:10,
-    featured:true,
-    repo:'train-planner'
-  },
+ 
   {name:"Bitmap Generator",
     description:"A tool designed to help students in COMP 541 (Digital Logic) create sprites and bitmap memory files.",
     link:"/projects/bitmap-generator",
@@ -27,6 +18,16 @@ export const projects = [
     id:8,
     featured:true,
     repo:'studio-keys'
+},
+{name: "Train Planner",
+  description:"Designed a full, working CPU in SystemVerilog, implemented on an FPGA circuit. Includes I/O integration (VGA, acclerometer, keyboard, buttons, LED, sound) and memory-mapping; I also wrote a 'train track planner' game in MIPS assembly (1,600+ lines) to demonstrate the processor functionality. Click to watch my project demo!",
+  mini_description:"Designed a full, working CPU in SystemVerilog, implemented on an FPGA circuit. I also wrote a 'train track planner' game in MIPS assembly to demonstrate the processor functionality. Click to watch my project demo!",
+  link:"/projects/train-planner",
+  target_blank:false,
+  tech:["System Verilog","MIPS Assembly","Vivado","C","Nexys A7"],
+  id:10,
+  featured:true,
+  repo:'train-planner'
 },
 {name: "Portfolio (Classic)",
   description:"The first edition  of my personal site, built in the traditional HTML/CSS/JS stack, before I upgraded & expanded it using modern frameworks. This project solidified my understanding of the core logic at play in web browsers, and a true appreciation of how far we've come today, with frameworks that make web dev practically intuititve (like React and Next).",
@@ -71,6 +72,14 @@ export const projects = [
               id:3,
               featured:false
           },
+          {name:"Fairly Odd Calculator",
+            description:"A little exercise to practice using typescript, arrow and higher order functions, and my favorite colors.",
+            link:"https://a02-calculator-avikumar.vercel.app/",
+            target_blank:true,
+            tech:["TypeScript"],
+            id:1,
+            featured:false
+          },
           {name:"Pixel Art Maker",
             description:"Create pixel art on a canvas that persists on page reload, with functionality to download paintings as pngs. exercise to practice using event listeners.",
                 link:"https://a03-pixel-art-maker-nathanflinchum.vercel.app/",
@@ -79,14 +88,15 @@ export const projects = [
                   id:2,
                   featured:false
               },
-        {name:"Fairly Odd Calculator",
-          description:"A little exercise to practice using typescript, arrow and higher order functions, and my favorite colors.",
-          link:"https://a02-calculator-avikumar.vercel.app/",
-          target_blank:true,
-          tech:["TypeScript"],
-          id:1,
-          featured:false
-        }
+              {name:"Obsidian Index Generator",
+                description:"A simple script that enables the 'graph view' for an obsidian vault to be built from folder hierarchy rather than backlinks.",
+                link:"/projects/index-generator",
+                target_blank:false,
+                tech:['Python'],
+                id:10,
+                featured:false
+              }
+       
 
   
   ]
