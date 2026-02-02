@@ -43,7 +43,7 @@ export default function Home({  poems }: Props) {
   const numPoems = 4;
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [poems1, setPoems1] = useState<Poem[]>(poems);
-  const ent = poems1.slice(0, numPoems).map((poem, index) => createMini(poem, index + 1))
+  const ent = poems1.slice(0, numPoems).map((poem, index) => createMini(poem, index + 1,false))
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [entries, setEntries] = useState<JSX.Element[]>(ent);
 
@@ -166,10 +166,8 @@ export default function Home({  poems }: Props) {
                   <span className=" text-midblue underline hover:text-puce duration-75">
                     <Link href="/crochet">crocheting</Link>
                   </span>
-                  <span className="  text-about-text">, </span>
-                  <span className=" text-midblue underline hover:text-puce duration-75">
-                    <Link href="/crochet">notetaking</Link>
-                  </span>
+                  
+                  
                   <span className="text-about-text">, spending time with friends, and thinking about the things I&apos;m </span>
                   <span className="text-midblue underline hover:text-puce duration-75">
                     <Link href="/notes">
