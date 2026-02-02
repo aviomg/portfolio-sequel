@@ -52,9 +52,17 @@ export default function Entries({ poems }: { poems: Poem[] }) {
     const itemid = `poem${index + 1}`;
     const classtitle = index % 2 == 0 ? "bg-puce/20 rounded mb-10 border-puce/50 border flex flex-row justify-between" : "bg-pink-200/30 rounded mb-10 border border-pink-200 flex flex-row justify-between"
     const href="./entries/" + poem.slug
+    const charlimit=69;
+    const lineslimit=5;
+    const lines = poem.content.split('\n');
+    const firstNlines=lines.slice(0,lineslimit);
+    firstNlines[firstNlines.length-1]=firstNlines[firstNlines.length-1].slice(0,-3) + "...";
+    const final_lines=firstNlines.join('\n');
+    const words = poem.content.substring(0,charlimit) + "...";
+
     const item =
       <div key={index} className={classtitle}>
-        <article id={itemid} className="text-gray-700 container block text-left mx-auto space-y-1 mb-2 px-15 py-4 max-sm:px-8">
+        <article id={itemid} className="text-gray-700 container block text-left mx-auto space-y-1  px-15 py-4 max-sm:px-8">
           <div className="flex flex-row justify-between">
           <Link className="font-bold text-left hover:underline" id="heading" href={href}>
             {poem.date != "undefined" ? <p>{poem.date}</p> : null}
@@ -64,7 +72,7 @@ export default function Entries({ poems }: { poems: Poem[] }) {
          
           <div id="body1">
             {poem.subtitle!="undefined"? <div className="mb-4 mt-0"><p>{poem.subtitle}</p></div>:null }
-            {poem.content!="undefined"? <div className="mb-4 mt-0">{poemcont} </div>:null }
+            {poem.content!="undefined"? <div className="mb-4 mt-0 whitespace-pre-wrap">{final_lines} </div>:null }
           </div>
         </article>
         <a href="./entries#top">
