@@ -30,7 +30,8 @@ export default function Entries({ poems }: { poems: Poem[] }) {
   const currententries: JSX.Element[] = []
 
   poems.forEach((poem, index) => {
-    const currhref = `entries#poem${index + 1}`;
+    //const currhref = `entries#poem${index + 1}`;
+    const currhref= `entries#${poem.slug}`;
     const currtoc = <li key={index}>
       <a href={currhref} className="text-hgreen hover:text-red-400 hover:underline ease-in-out  cursor-pointer" id="poem1-toc">
         <span className="font-bold">{index + 1}. </span>
@@ -50,7 +51,8 @@ export default function Entries({ poems }: { poems: Poem[] }) {
           {listitems}
         </div>)
     })
-    const itemid = `poem${index + 1}`;
+    //const itemid = `poem${index + 1}`;
+    const itemid=poem.slug;
     const classtitle = index % 2 == 0 ? "bg-puce/20 rounded mb-10 border-puce/50 border flex flex-row justify-between" : "bg-pink-200/30 rounded mb-10 border border-pink-200 flex flex-row justify-between"
     const href="./entries/" + poem.slug
     const charlimit=69;

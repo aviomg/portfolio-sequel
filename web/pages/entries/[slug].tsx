@@ -7,6 +7,8 @@ import Link from "next/link";
 
 export default function PoemPage({poem}:{poem:Poem}) {
 
+  const backhref=`../entries#${poem.slug}`
+
   const paras=poem.content.split("\n\n")
   const poemcont = paras.map((poem,ind1) => {
     const paralines = poem.split("\n")
@@ -47,7 +49,7 @@ return(
      
 
       <div className="px-60 mx-auto mt-6">
-        <div><Link href="../entries" className="text-sm text-midblue hover:text-puce hover:underline">back to all poems</Link></div>
+        <div><Link href={backhref} className="text-sm text-midblue hover:text-puce hover:underline">back to all poems</Link></div>
       
     <article className="text-gray-700 container block text-left mx-auto space-y-1 mb-2  py-4 max-sm:px-8">
       <div className="mb-6">
