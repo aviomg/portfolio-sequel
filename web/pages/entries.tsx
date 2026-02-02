@@ -40,6 +40,7 @@ export default function Entries({ poems }: { poems: Poem[] }) {
     </li>
     toc.push(currtoc);
     const poemparas = poem.content.split("\n\n")
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const poemcont = poemparas.map((poem,ind1) => {
       const paralines = poem.split("\n")
       const listitems = paralines.map((line,ind2) => <p key={ind2}>{line}</p>)
@@ -58,6 +59,7 @@ export default function Entries({ poems }: { poems: Poem[] }) {
     const firstNlines=lines.slice(0,lineslimit);
     firstNlines[firstNlines.length-1]=firstNlines[firstNlines.length-1].slice(0,-3) + "...";
     const final_lines=firstNlines.join('\n');
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const words = poem.content.substring(0,charlimit) + "...";
 
     const item =
