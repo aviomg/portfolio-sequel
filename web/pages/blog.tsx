@@ -118,6 +118,7 @@ export default function Blog({ poems }: { poems: Poem[] }){
                subtitle: data.subtitle || "undefined",
                date: data.date || "undefined",
                archive:data.archive || "false",
+               slug: data.slug || "",
                content
             }
          })
@@ -135,7 +136,7 @@ export default function Blog({ poems }: { poems: Poem[] }){
          let ind = last_rendered;
          for(let i=last_rendered;i<poems1.length;i++){
             if(counter<5){
-               const item = createMini(poems1[i], ind+1);
+               const item = createMini(poems1[i], ind+1,false);
                temp.push(item)
                ind++;
                counter++;
