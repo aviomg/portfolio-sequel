@@ -3,7 +3,6 @@ title: "horsefly"
 date: 1.20.2026   
 slug: horsefly
 ---
-
 sole pink rose, foreshadowing.
 last phone call, faltering
 in only a color i can’t see, fear
