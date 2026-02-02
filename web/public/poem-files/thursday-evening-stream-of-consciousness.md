@@ -1,6 +1,7 @@
 ---
 title: thursday evening stream of consciousness
 date: 11.27.2024 (revised 1.12.2024)
+slug: thursday-evening-stream-of-consciousness
 ---
 this is what I think every time you plunge your lips in a purse and stack your teeth to throw a “shhh” at me. i think, how do I tell you that my world is filled with noise, that I am filled with noise, that I want to be the speakerphone and the bluetooth radio and the air bouncing from mountain to fog-capped mountain in harmonious chant, the melted sugar of a mother’s voice and
 the hyena’s cackle and the tone commanding

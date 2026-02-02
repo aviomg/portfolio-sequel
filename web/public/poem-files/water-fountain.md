@@ -1,5 +1,6 @@
 ---
 title: water fountain
+slug: water-fountain
 ---
 20 seconds away from being on time, 10 breaths away from room 212 I stopped
 to drink from the water fountain like fate’s will as it stole my punctuality;

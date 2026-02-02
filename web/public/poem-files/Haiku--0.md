@@ -1,6 +1,7 @@
 ---
-title: "Haiku #1"
-archive: true    
+title: Haiku #1
+slug: Haiku-1
+archive: true 
 ---
 6 am, time’s up
 the sun will be too, soon. she 

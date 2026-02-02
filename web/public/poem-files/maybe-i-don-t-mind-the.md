@@ -1,6 +1,7 @@
 ---
 title: maybe i don’t mind the rain - January 2023
-archive: true    
+slug: maybe-i-don-t-mind-the-rain
+archive: true 
 ---
 (i wrote this about my roomate/favorite person in the world)
 

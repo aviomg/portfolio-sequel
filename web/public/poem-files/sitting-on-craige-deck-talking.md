@@ -1,6 +1,7 @@
 ---
 title: sitting on craige deck talking to the sunrise
-archive: true    
+slug: sitting-on-craige-deck-talking
+archive: true 
 ---
 A lot of cloud cover but the clouds are still covered & I’m still sitting somewhere unenclosed and the breeze still whispers into my skin and the birds still hum along to my music so I guess it isn’t really about the sunset at all. It’s about being here and only here; not stuck in the death grips of my past and all of the previous versions of my life that haunt me.and not paralyzed with anxiety about the colorless future, like cheeks on a strangled face, the realities imagined but incessantly realistic, devastatingly three dimensional, the curse of a good imagination. Realities where I don’t get better, where I am sick forever and the sadness settles in and the eating disorder consumes me and none of my friends ever come
 back. no

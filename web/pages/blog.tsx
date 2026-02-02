@@ -14,14 +14,22 @@ export type Poem = {
    subtitle:string,
    date: string,
    content: string,
-   archive:string
+   archive:string,
+   slug:string 
  }
 
- export const createMini = (poem:Poem, index:number): JSX.Element=>{
+ export const createMini = (poem:Poem, index:number,slugpage:boolean): JSX.Element=>{
    //  console.log(poem);
      const charlimit=69;
      const words = poem.content.substring(0,charlimit) + "...";
-     const href= `/entries#poem${index}`;
+     let href=""
+     if (slugpage){
+      href=`/entries/${poem.slug}`
+     }
+     else{
+      href= `/entries#poem${index}`;
+     }
+    
      //bg-lighterblue
      return(
         <article key={index} className="border-b border-[#E5E7EB] pt-4 pb-4 text-gray-700 container block text-left mx-auto space-y-0">

@@ -1,6 +1,7 @@
 ---
 title: "heading home (or: too much time to think and too little space to do it)"
 date: 7.19.2025   
+slug: heading-home
 ---
 i’ve never made such a long drive by myself i learned that 
 now’s not a good time for me to be alone with my thoughts. i’m not sure 

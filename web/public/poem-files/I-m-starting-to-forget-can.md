@@ -1,5 +1,6 @@
 ---
 title: I’m starting to forget. can you remind me?
+slug: im-starting-to-forget
 ---
 I miss when I was a girl and not a goal
 When my feelings weren’t firewood but freedom; I am a flame

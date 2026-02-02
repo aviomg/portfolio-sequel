@@ -1,5 +1,6 @@
 ---
 title: routine
+slug: routine
 ---
 I’ve thieved one night’s molten rest and spread it like butter 
 across the past 5 and my pants pinched my tummy when i bought

@@ -7,6 +7,8 @@ import fs from 'fs';
 import path from 'path';
 import Head from "next/head";
 import { ArrowUpToLine } from "lucide-react";
+import Link from "next/link";
+
 
 export default function Entries({ poems }: { poems: Poem[] }) {
 
@@ -49,14 +51,15 @@ export default function Entries({ poems }: { poems: Poem[] }) {
     })
     const itemid = `poem${index + 1}`;
     const classtitle = index % 2 == 0 ? "bg-puce/20 rounded mb-10 border-puce/50 border flex flex-row justify-between" : "bg-pink-200/30 rounded mb-10 border border-pink-200 flex flex-row justify-between"
+    const href="./entries/" + poem.slug
     const item =
       <div key={index} className={classtitle}>
-        <article id={itemid} className="text-gray-700 container block text-left mx-auto space-y-1 mb-2 px-40 py-4 max-sm:px-8">
+        <article id={itemid} className="text-gray-700 container block text-left mx-auto space-y-1 mb-2 px-15 py-4 max-sm:px-8">
           <div className="flex flex-row justify-between">
-          <h1 className="font-bold text-left" id="heading" >
+          <Link className="font-bold text-left hover:underline" id="heading" href={href}>
             {poem.date != "undefined" ? <p>{poem.date}</p> : null}
             {poem.title != "undefined" ? <p>{poem.title}</p> : null}
-          </h1>
+          </Link>
           </div>
          
           <div id="body1">
@@ -69,6 +72,7 @@ export default function Entries({ poems }: { poems: Poem[] }) {
         </a>
 
       </div>
+     // item=createMini(poem,index,true);
     if(poem.archive==="true"){
       archientries.push(item)
     }
@@ -155,6 +159,7 @@ export async function getStaticProps() {
     const { data, content } = matter(fileContents);
     return {
       title: data.title || "undefined",
+      slug:data.slug || "undefined",
       subtitle: data.subtitle || "undefined",
       date: data.date || "undefined",
       archive: data.archive ? "true" : "false",
