@@ -23,11 +23,12 @@ export type Poem = {
      const charlimit=69;
      const words = poem.content.substring(0,charlimit) + "...";
      let href=""
+     console.log("slug is " + poem.slug + "for " + poem.title)
      if (slugpage){
       href=`/entries/${poem.slug}`
      }
      else{
-      href= `/entries#poem${index}`;
+      href= `/entries#${poem.slug}`;
      }
     
      //bg-lighterblue
@@ -242,6 +243,7 @@ export async function getStaticProps() {
        subtitle: data.subtitle || "undefined",
        date: data.date || "undefined",
        archive: data.archive || "false",
+       slug: data.slug || "",
        content,
      };
    });

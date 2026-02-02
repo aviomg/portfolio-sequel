@@ -297,6 +297,7 @@ export const getStaticProps: GetStaticProps = async () => {
       subtitle: data.subtitle || "undefined",
       date: data.date || "undefined",
       archive: data.archive || "false",
+      slug: data.slug || "",
       content,
     };
   });
