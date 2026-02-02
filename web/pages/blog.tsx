@@ -57,7 +57,7 @@ export default function Blog({ poems }: { poems: Poem[] }){
    const morebtnclasses="text-black mt-4 px-4 text-lg font-bold text-left shadow-md  hover:bg-[#4780ea] transition all duration-75 rounded-md max-w-fit";
    const numPoems=5;
    const [poems1,setPoems1] = useState<Poem[]>(poems);
-   const ent = poems1.slice(0,numPoems).map((poem,index)=>createMini(poem,index+1))
+   const ent = poems1.slice(0,numPoems).map((poem,index)=>createMini(poem,index+1,false))
    const [entries, setEntries] = useState<JSX.Element[]>(ent);
    const [listend, setlistend] = useState<boolean>(false);
    // eslint-disable-next-line @typescript-eslint/no-unused-vars
