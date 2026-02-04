@@ -3,7 +3,7 @@ title: "loose ends forever"
 date: 11.05.2025
 slug: loose-ends-forever
 ---
-something infectious about that heart
+something infectious about this heart
 of hearts. to know it is sweet & lazy, eggs sunny-side up & guilty
 laughter prologuing the obligatory shake of a head
 to love it is to contract. 
