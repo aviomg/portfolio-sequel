@@ -53,10 +53,10 @@ export default function Entries({ poems }: { poems: Poem[] }) {
     })
     //const itemid = `poem${index + 1}`;
     const itemid=poem.slug;
-    const classtitle = index % 2 == 0 ? "bg-puce/20 rounded mb-10 border-puce/50 border flex flex-row justify-between" : "bg-pink-200/30 rounded mb-10 border border-pink-200 flex flex-row justify-between"
+    const classtitle = index % 2 == 0 ? "bg-viridian/40 rounded mb-10 border-puce/50 border flex flex-row justify-between" : "bg-pink-200/30 rounded mb-10 border border-pink-200 flex flex-row justify-between"
     const href="./entries/" + poem.slug
     const charlimit=69;
-    const lineslimit=5;
+    const lineslimit=3;
     const lines = poem.content.split('\n');
     const firstNlines=lines.slice(0,lineslimit);
     firstNlines[firstNlines.length-1]=firstNlines[firstNlines.length-1].slice(0,-3) + "...";
