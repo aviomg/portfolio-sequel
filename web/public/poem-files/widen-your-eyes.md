@@ -1,5 +1,6 @@
 ---
 title: widen your eyes!
+slug: widen-your-eyes
 ---
 because of the stretches and
 crisp corners of a building against a colorless sky and 

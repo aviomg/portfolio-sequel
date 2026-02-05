@@ -1,5 +1,6 @@
 ---
 title: 300 feet from my tower stands a blurry little tree
+slug: three-hundred-feet-from-my-tower
 ---
 perhaps a maple; built from a sweet heart, seeping with sap swept and swallowed in 
 disdain by bowls, buckets, outstretched hands 

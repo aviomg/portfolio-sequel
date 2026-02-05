@@ -14,14 +14,23 @@ export type Poem = {
    subtitle:string,
    date: string,
    content: string,
-   archive:string
+   archive:string,
+   slug:string 
  }
 
- export const createMini = (poem:Poem, index:number): JSX.Element=>{
+ export const createMini = (poem:Poem, index:number,slugpage:boolean): JSX.Element=>{
    //  console.log(poem);
      const charlimit=69;
      const words = poem.content.substring(0,charlimit) + "...";
-     const href= `/entries#poem${index}`;
+     let href=""
+     console.log("slug is " + poem.slug + "for " + poem.title)
+     if (slugpage){
+      href=`/entries/${poem.slug}`
+     }
+     else{
+      href= `/entries#${poem.slug}`;
+     }
+    
      //bg-lighterblue
      return(
         <article key={index} className="border-b border-[#E5E7EB] pt-4 pb-4 text-gray-700 container block text-left mx-auto space-y-0">
@@ -49,7 +58,7 @@ export default function Blog({ poems }: { poems: Poem[] }){
    const morebtnclasses="text-black mt-4 px-4 text-lg font-bold text-left shadow-md  hover:bg-[#4780ea] transition all duration-75 rounded-md max-w-fit";
    const numPoems=5;
    const [poems1,setPoems1] = useState<Poem[]>(poems);
-   const ent = poems1.slice(0,numPoems).map((poem,index)=>createMini(poem,index+1))
+   const ent = poems1.slice(0,numPoems).map((poem,index)=>createMini(poem,index+1,false))
    const [entries, setEntries] = useState<JSX.Element[]>(ent);
    const [listend, setlistend] = useState<boolean>(false);
    // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -110,6 +119,7 @@ export default function Blog({ poems }: { poems: Poem[] }){
                subtitle: data.subtitle || "undefined",
                date: data.date || "undefined",
                archive:data.archive || "false",
+               slug: data.slug || "",
                content
             }
          })
@@ -127,7 +137,7 @@ export default function Blog({ poems }: { poems: Poem[] }){
          let ind = last_rendered;
          for(let i=last_rendered;i<poems1.length;i++){
             if(counter<5){
-               const item = createMini(poems1[i], ind+1);
+               const item = createMini(poems1[i], ind+1,false);
                temp.push(item)
                ind++;
                counter++;
@@ -233,6 +243,7 @@ export async function getStaticProps() {
        subtitle: data.subtitle || "undefined",
        date: data.date || "undefined",
        archive: data.archive || "false",
+       slug: data.slug || "",
        content,
      };
    });

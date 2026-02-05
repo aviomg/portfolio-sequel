@@ -1,6 +1,7 @@
 ---
 title: exercise
 date: 1.12.2025
+slug: exercise
 ---
 writing about being scared doesn’t make me any less scared but that can’t stop me from wishing and even pretending that it did. even now, I’m tempted to tell myself that this exercise—to get outside, go on a walk, 
 keep turning my head so none of the colors or signs of life escape 

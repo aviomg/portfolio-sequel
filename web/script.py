@@ -1,5 +1,7 @@
 import os
 
+#neeed to generate the slugs from the poem titles
+
 def parse_first_section(firstsection): #returns title, date subtitle
   #  print(firstsection)
     if(len(firstsection)==1):
@@ -16,7 +18,7 @@ def parse_first_section(firstsection): #returns title, date subtitle
 
 
 
-with open("nyc.txt","r", encoding="utf-8") as f:
+with open("web/public/nyc.txt","r", encoding="utf-8") as f:
     data = f.read()
 
 poems = data.split("\n\n\n")
@@ -56,6 +58,7 @@ for i,poem in enumerate(poems):
     #print("\n")
     title, date, subtitle = parse_first_section(firstsection)
   #  print(content )
+    '''
     frontmatter=["---"]
     if title:
         frontmatter.append(f'title: {title}')
@@ -69,7 +72,7 @@ for i,poem in enumerate(poems):
     mds.append(md_content)
 
     print(f"poem number {i}")
-
+    '''
     split = title.split(" ");
     title_words = []
    # print(f"split is {split}")
@@ -103,7 +106,27 @@ for i,poem in enumerate(poems):
 
                 #title_words.append(word)
     #print(title_words)
-    filename = "-".join(title_words);            
+    slug =  "-".join(title_words)
+    frontmatter=["---"]
+    if title:
+        frontmatter.append(f'title: {title}')
+    if date:
+        frontmatter.append(f'date: {date}')
+    if subtitle:
+        frontmatter.append(f'subtitle: {subtitle}')
+
+    if "Haiku" not in title_words:
+            frontmatter.append(f'slug: {slug}')
+    else:
+            frontmatter.append(f'slug: Haiku--{haikucounter}')
+    frontmatter.append("---")
+
+    md_content="\n".join(frontmatter) + "\n" + "\n".join(content)
+    mds.append(md_content)
+
+    print(f"poem number {i}")
+
+    filename = slug           
     #print("-".join(title_words))
 
     if("Haiku" in title_words):

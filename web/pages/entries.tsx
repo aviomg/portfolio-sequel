@@ -7,6 +7,8 @@ import fs from 'fs';
 import path from 'path';
 import Head from "next/head";
 import { ArrowUpToLine } from "lucide-react";
+import Link from "next/link";
+
 
 export default function Entries({ poems }: { poems: Poem[] }) {
 
@@ -28,7 +30,8 @@ export default function Entries({ poems }: { poems: Poem[] }) {
   const currententries: JSX.Element[] = []
 
   poems.forEach((poem, index) => {
-    const currhref = `entries#poem${index + 1}`;
+    //const currhref = `entries#poem${index + 1}`;
+    const currhref= `entries#${poem.slug}`;
     const currtoc = <li key={index}>
       <a href={currhref} className="text-hgreen hover:text-red-400 hover:underline ease-in-out  cursor-pointer" id="poem1-toc">
         <span className="font-bold">{index + 1}. </span>
@@ -38,6 +41,7 @@ export default function Entries({ poems }: { poems: Poem[] }) {
     </li>
     toc.push(currtoc);
     const poemparas = poem.content.split("\n\n")
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const poemcont = poemparas.map((poem,ind1) => {
       const paralines = poem.split("\n")
       const listitems = paralines.map((line,ind2) => <p key={ind2}>{line}</p>)
@@ -47,21 +51,32 @@ export default function Entries({ poems }: { poems: Poem[] }) {
           {listitems}
         </div>)
     })
-    const itemid = `poem${index + 1}`;
-    const classtitle = index % 2 == 0 ? "bg-puce/20 rounded mb-10 border-puce/50 border flex flex-row justify-between" : "bg-pink-200/30 rounded mb-10 border border-pink-200 flex flex-row justify-between"
+    //const itemid = `poem${index + 1}`;
+    const itemid=poem.slug;
+    const classtitle = index % 2 == 0 ? "bg-viridian/40 rounded mb-10 border-puce/50 border flex flex-row justify-between" : "bg-pink-200/30 rounded mb-10 border border-pink-200 flex flex-row justify-between"
+    const href="./entries/" + poem.slug
+    const charlimit=69;
+    const lineslimit=3;
+    const lines = poem.content.split('\n');
+    const firstNlines=lines.slice(0,lineslimit);
+    firstNlines[firstNlines.length-1]=firstNlines[firstNlines.length-1].slice(0,-3) + "...";
+    const final_lines=firstNlines.join('\n');
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const words = poem.content.substring(0,charlimit) + "...";
+
     const item =
       <div key={index} className={classtitle}>
-        <article id={itemid} className="text-gray-700 container block text-left mx-auto space-y-1 mb-2 px-40 py-4 max-sm:px-8">
+        <article id={itemid} className="text-gray-700 container block text-left mx-auto space-y-1  px-15 py-4 max-sm:px-8">
           <div className="flex flex-row justify-between">
-          <h1 className="font-bold text-left" id="heading" >
+          <Link className="font-bold text-left hover:underline" id="heading" href={href}>
             {poem.date != "undefined" ? <p>{poem.date}</p> : null}
             {poem.title != "undefined" ? <p>{poem.title}</p> : null}
-          </h1>
+          </Link>
           </div>
          
           <div id="body1">
             {poem.subtitle!="undefined"? <div className="mb-4 mt-0"><p>{poem.subtitle}</p></div>:null }
-            {poem.content!="undefined"? <div className="mb-4 mt-0">{poemcont} </div>:null }
+            {poem.content!="undefined"? <div className="mb-4 mt-0 whitespace-pre-wrap">{final_lines} </div>:null }
           </div>
         </article>
         <a href="./entries#top">
@@ -69,6 +84,7 @@ export default function Entries({ poems }: { poems: Poem[] }) {
         </a>
 
       </div>
+     // item=createMini(poem,index,true);
     if(poem.archive==="true"){
       archientries.push(item)
     }
@@ -155,6 +171,7 @@ export async function getStaticProps() {
     const { data, content } = matter(fileContents);
     return {
       title: data.title || "undefined",
+      slug:data.slug || "undefined",
       subtitle: data.subtitle || "undefined",
       date: data.date || "undefined",
       archive: data.archive ? "true" : "false",

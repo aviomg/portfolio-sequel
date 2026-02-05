@@ -1,5 +1,6 @@
 ---
 title: for guilty pleasures
+slug: for-guilty-pleasures
 ---
 praise for guilty pleasures; like when
 our friends invite us for ice cream and she wants to join until I say,
