@@ -6,6 +6,28 @@
 /*---break--- */
 @custom-variant dark (&:is(.dark *));
 
+@keyframes color-change {
+  0% { color: #7dd68f; }
+  50% { color: #53a764; }
+  100% { color:#2c8d3f; }
+}
+
+.animate-color {
+  animation: color-change 4s infinite linear; /* Adjust duration as needed */
+  /*font-size: 2em;*/ /* Example styling */
+  font-weight: bold; /* Example styling */
+}
+
+.gradient-text{
+  background-color: linear-gradient(
+    to right,
+    #a855f7,
+    #ec4899,
+    #eab308
+  );
+  background-clip:text;
+}
+
 .theme-defaultoff {
   --bg-color: white;
   --text-color: black;
