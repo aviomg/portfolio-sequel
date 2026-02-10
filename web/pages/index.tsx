@@ -5,7 +5,7 @@ import { /*orderedPoems,*/ projects } from "@/utils/data";
 import Navbar from "@/components/nav-bar";
 import { GetStaticProps } from 'next';
 import Link from "next/link";
-//import path from 'path';
+//import path from 'path'; rand
 //import fs from 'fs';
 import Image from "next/image";
 import { Dot } from "lucide-react";
