@@ -2,7 +2,7 @@ import Navbar from "@/components/nav-bar";
 //import { orderedPoems } from "@/utils/data";
 //import matter from "gray-matter";
 import { JSX, useEffect } from "react";
-import { Poem } from "./blog";
+import { Poem } from "../utils/types";
 //import fs from 'fs';
 //import path from 'path';
 import Head from "next/head";
