@@ -1,7 +1,8 @@
 import Head from "next/head";
 import Navbar from "@/components/nav-bar";
 import { GetStaticPaths, GetStaticProps } from "next";
-import { getAllSlugs, getPoemBySlug } from "@/lib/poems";
+//import { getAllPoems, getPoemBySlug } from "@/lib/poems";
+import { fetchIndex, fetchPoemBySlug } from "@/lib/poems-r2";
 import {Poem} from "../blog";
 import Link from "next/link";
 
@@ -81,18 +82,29 @@ return(
 }
 
 export const getStaticPaths:GetStaticPaths=async()=>{
-  const slugs=getAllSlugs();
+  const index=await fetchIndex();
+
+  return{
+    paths:index.map((p)=>({params:{slug:p.slug}})),
+    fallback:"blocking",
+  }
+  /*const slugs=getAllSlugs();
   return{
     paths: slugs.map((s) => ({ params: { slug: s } })),
     fallback:false  
-  }
+  }*/
 }
 
 export const getStaticProps: GetStaticProps = async(context)=>{
   const slug=context.params?.slug as string;
-  console.log("passing slug: " + slug)
-  const poem=getPoemBySlug(slug);
+  //console.log("passing slug: " + slug)
+  const poem=await fetchPoemBySlug(slug);
+  if (!poem) {
+    return { notFound: true, revalidate: 60 };
+  }
+  //const poem=getPoemBySlug(slug);
   return{
     props:{poem},
+    revalidate:60,
   }
 }

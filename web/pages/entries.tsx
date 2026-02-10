@@ -1,13 +1,15 @@
 import Navbar from "@/components/nav-bar";
-import { orderedPoems } from "@/utils/data";
-import matter from "gray-matter";
+//import { orderedPoems } from "@/utils/data";
+//import matter from "gray-matter";
 import { JSX, useEffect } from "react";
 import { Poem } from "./blog";
-import fs from 'fs';
-import path from 'path';
+//import fs from 'fs';
+//import path from 'path';
 import Head from "next/head";
 import { ArrowUpToLine } from "lucide-react";
 import Link from "next/link";
+import { fetchAllPoems } from "@/lib/poems-r2";
+
 
 
 export default function Entries({ poems }: { poems: Poem[] }) {
@@ -164,8 +166,8 @@ export default function Entries({ poems }: { poems: Poem[] }) {
 }
 
 export async function getStaticProps() {
-  const poemsDir = path.join(process.cwd(), 'public/poem-files');
-  const poems = orderedPoems.map((filename) => {
+  //const poemsDir = path.join(process.cwd(), 'public/poem-files');
+  /*const poems = orderedPoems.map((filename) => {
     const filePath = path.join(poemsDir, filename);
     const fileContents = fs.readFileSync(filePath, 'utf8');
     const { data, content } = matter(fileContents);
@@ -177,12 +179,15 @@ export async function getStaticProps() {
       archive: data.archive ? "true" : "false",
       content,
     };
-  });
+  });*/
+  const poems=await fetchAllPoems();
+
 
   return {
     props: {
       poems,
     },
+    revalidate: 60,
   };
 }
 

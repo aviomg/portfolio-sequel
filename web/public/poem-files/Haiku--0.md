@@ -1,5 +1,5 @@
 ---
-title: Haiku #1
+title: Haiku \#1
 slug: Haiku-1
 archive: true 
 ---
