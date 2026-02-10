@@ -2,7 +2,8 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import { orderedPoems } from "@/utils/data";
-import {Poem} from "../pages/blog";
+import {Poem} from "../utils/types"
+
 
 const POEMS_DIR = path.join(process.cwd(), "public/poem-files");
 

@@ -3,7 +3,7 @@ import Navbar from "@/components/nav-bar";
 import { GetStaticPaths, GetStaticProps } from "next";
 //import { getAllPoems, getPoemBySlug } from "@/lib/poems";
 import { fetchIndex, fetchPoemBySlug } from "@/lib/poems-r2";
-import {Poem} from "../blog";
+import {Poem} from "../../utils/types";
 import Link from "next/link";
 
 export default function PoemPage({poem}:{poem:Poem}) {

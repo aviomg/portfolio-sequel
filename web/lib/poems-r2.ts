@@ -1,5 +1,5 @@
 import matter from "gray-matter";
-import {Poem} from "../pages/blog";
+import {Poem} from "../utils/types"
 
 type IndexEntry={
     id:number,
