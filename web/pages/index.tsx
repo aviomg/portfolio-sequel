@@ -11,7 +11,7 @@ import Image from "next/image";
 import { Dot } from "lucide-react";
 //import matter from "gray-matter";
 import { JSX, useState } from "react";
-import { createMini, Poem } from "./blog";
+import { createMini, Poem } from "../utils/types";
 import { fetchAllPoems } from "@/lib/poems-r2";
 //import  { useRouter } from "next/router";
 //import { useEffect, useState } from "react";
