@@ -45,3 +45,6 @@ next-env.d.ts
 
 /public/nyc.txt
 /public/icons/
+index.json
+indexshort.json
+/copy-of-poem-files/

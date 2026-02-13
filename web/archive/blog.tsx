@@ -14,8 +14,9 @@ export type Poem = {
    subtitle:string,
    date: string,
    content: string,
-   archive:string,
-   slug:string 
+   archive:"true" | "false",
+   slug:string ,
+   filename?:string,
  }
 
  export const createMini = (poem:Poem, index:number,slugpage:boolean): JSX.Element=>{

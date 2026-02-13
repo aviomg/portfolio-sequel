@@ -1,19 +1,20 @@
 import Head from "next/head";
 import NavLink from "@/components/nav-link";
 import ProjectCard from "@/components/project-card";
-import { orderedPoems, projects } from "@/utils/data";
+import { /*orderedPoems,*/ projects } from "@/utils/data";
 import Navbar from "@/components/nav-bar";
 import { GetStaticProps } from 'next';
 import Link from "next/link";
-import path from 'path';
-import fs from 'fs';
+//import path from 'path'; rand
+//import fs from 'fs';
 import Image from "next/image";
 import { Dot } from "lucide-react";
-import matter from "gray-matter";
+//import matter from "gray-matter";
 import { JSX, useState } from "react";
-import { createMini, Poem } from "./blog";
+import { createMini, Poem } from "../utils/types";
+import { fetchAllPoems } from "@/lib/poems-r2";
 //import  { useRouter } from "next/router";
-//import { useEffect, useState } from "react";
+//import { useEffect, useState } from "react"; ran 2
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -147,7 +148,7 @@ export default function Home({  poems }: Props) {
                 <span className=" text-gray-700 ">
                   Hi! My name is Avi. I&apos;m a fourth-year CS and French double major at UNC-Chapel Hill. I&apos;m currently a software engineer on
                   the Global eCommerce team at Bausch+Lomb, where I build and maintain our web analytics system, create internal tools,
-                  and more. Right now, I&apos;m leading the design and front-end development of a global customer dashboard.
+                  and more. {/*Right now, I&apos;m leading the design and front-end development of a global customer dashboard.*/}
                   {/* <span className="text-midblue underline ml-2 hover:text-puce duration-75"><Link href="/about">
                          [More about my relevant experience &rarr;]
                         </Link>
@@ -178,10 +179,10 @@ export default function Home({  poems }: Props) {
               </div>
             </section>
 
-            <ul className=" text-right mx-4 mt-4 font-mono-about font-bold text-gray-700 gap-y-1 flex flex-col">
+            <ul className=" text-right mx-4 mt-4 mb-2 font-mono-about font-bold text-gray-700 gap-y-1 flex flex-col">
               <li className="flex flex-row gap-x-2 justify-center"><Dot /><Link href="/about" className="text-midblue underline hover:text-puce duration-75">[Experience/CV]</Link></li>
-              <li className="flex flex-row gap-x-2 justify-center "><Dot /><Link href="/entries" className="text-midblue underline hover:text-puce duration-75">poetry/prose </Link></li>
-              <li className="flex flex-row gap-x-2 justify-center"><Dot /><Link href="/crochet" className="text-midblue underline hover:text-puce duration-75">crochet</Link></li>
+          {/*    <li className="flex flex-row gap-x-2 justify-center "><Dot /><Link href="/entries" className="text-midblue underline hover:text-puce duration-75">poetry/prose </Link></li>
+              <li className="flex flex-row gap-x-2 justify-center"><Dot /><Link href="/crochet" className="text-midblue underline hover:text-puce duration-75">crochet</Link></li>*/}
             </ul>
 
           </section>
@@ -286,8 +287,9 @@ dynamic grid side:
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const poemsDir = path.join(process.cwd(), 'public/poem-files');
-  const poems = orderedPoems.map((filename) => {
+ // const poemsDir = path.join(process.cwd(), 'public/poem-files');
+  const poems = await fetchAllPoems();
+  /*const poems = orderedPoems.map((filename) => {
     const filePath = path.join(poemsDir, filename);
     const fileContents = fs.readFileSync(filePath, 'utf8');
     const { data, content } = matter(fileContents);
@@ -300,7 +302,7 @@ export const getStaticProps: GetStaticProps = async () => {
       slug: data.slug || "",
       content,
     };
-  });
+  });*/
 
 
   return {
