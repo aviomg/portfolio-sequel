@@ -14,7 +14,7 @@ import { JSX, useState } from "react";
 import { createMini, Poem } from "../utils/types";
 import { fetchAllPoems } from "@/lib/poems-r2";
 //import  { useRouter } from "next/router";
-//import { useEffect, useState } from "react";
+//import { useEffect, useState } from "react"; ran 2
 
 const jsonLd = {
   "@context": "https://schema.org",
